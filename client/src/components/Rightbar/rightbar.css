@@ -1,0 +1,5 @@
+.rightbar {
+    flex: 2;
+    position: sticky;
+    background-color: red;
+}
