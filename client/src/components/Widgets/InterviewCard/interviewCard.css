@@ -1,0 +1,57 @@
+.intCard {
+    background-color: transparent;
+    transition: 300ms;
+}
+
+.intCard:hover {
+    background-color: #cbcbcb;
+    transition: 300ms;
+    border-radius: 1em;
+    box-shadow: 1px 19px 58px 0px rgba(255, 255, 255, 0.17);
+    -webkit-box-shadow: 1px 19px 58px 0px rgba(255, 255, 255, 0.17);
+    -moz-box-shadow: 1px 19px 58px 0px rgba(255, 255, 255, 0.17);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(179, 179, 179);
+}
+
+.intCardWrapper {
+    display: flex;
+    align-items: start;
+    justify-content: left;
+    margin: 1.2em 1.5em 1.2em;
+    cursor: pointer;
+}
+
+
+
+.intCardNamePos {
+    display: flex;
+    flex-direction: column;
+}
+
+.intCardTime {
+    font-size: 1.1em;
+    font-weight: 400;
+    padding-top: 3px;
+    padding-right: 10px;
+}
+
+.name {
+    font-weight: 700;
+    font-size: 1.4em;
+}
+
+.pos {
+    font-size: 1em;
+    font-style: italic;
+}
