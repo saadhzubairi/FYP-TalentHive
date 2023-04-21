@@ -1,8 +1,9 @@
-import Home from "./screens/Home/Home";
+import CreateJob from "./screens/CreateJobHR/CreateJob";
+import Home from "./screens/HomeHR/Home";
 
 
 function App() {
-  return <Home/>;
+  return <CreateJob/>;
 }
 
 export default App;

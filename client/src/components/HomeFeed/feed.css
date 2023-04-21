@@ -3,14 +3,16 @@
     height: 100%;
     overflow-y: scroll;
     color: #464646;
+    min-width: 100%;
+    max-width: 100%;
 }
 
 .feedWrapper {
-    padding: 50px;
+    padding: 3em;
 }
 
 .feedTitle {
-    font-size: 40px;
+    font-size: 3em;
     font-weight: 900;
     color: #464646;
 }
