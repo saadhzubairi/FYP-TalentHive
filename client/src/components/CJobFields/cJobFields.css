@@ -220,12 +220,10 @@ textarea {
         flex-direction: column;
         gap: 0em;
     }
-
     .topBar {
         display: flex;
         flex-direction: column;
     }
-
 }
 
 @media (max-width: 540px) {
