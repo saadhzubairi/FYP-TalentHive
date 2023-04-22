@@ -76,3 +76,24 @@
     padding-right: 10px;
 }
 
+@media (max-width: 640px) {
+    .optionLink {
+        font-size: 0px;
+    }
+
+    .companyImage {
+        width: 3em;
+        height: 3em;
+    }
+
+    .companyTitle{
+        font-size: 0em;
+    }
+    .sidebarWrapper{
+        padding: 0px;
+    }
+
+    .optionsIcon{
+        padding-right: 0em;
+    }
+}

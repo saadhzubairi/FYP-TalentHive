@@ -14,6 +14,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    z-index: 999;
 }
 
 .buttonContainer {
@@ -223,23 +225,13 @@ textarea {
     .topBar {
         display: flex;
         flex-direction: column;
+        align-items: start;
     }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 440px) {
     .buttonContainer{
         display: flex;
         flex-direction: column;
-    }
-}
-
-@media (min-width: 768px) {
-    .preview {
-        padding: .75rem 1.5rem;
-    }
-
-
-    .discard {
-        padding: .75rem 1.5rem;
     }
 }
