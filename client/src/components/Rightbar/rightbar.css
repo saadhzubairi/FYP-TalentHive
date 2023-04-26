@@ -11,10 +11,15 @@
     align-items: center;
     min-width: 12em;
 }
+.topContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-.topHeading{
+.topHeading {
+    text-align: center;
     font-weight: 900;
     font-size: 1.4em;
-    padding-top: 2em;
-    padding-bottom: 1em;
+    padding: 2em 1em 1em;
 }
