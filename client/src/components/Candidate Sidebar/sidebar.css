@@ -1,5 +1,5 @@
 .sidebar {
-   flex: 2;
+   flex: 0 0 20%;
     position: relative;
     height: 100%;
     background-color: #d9d9d9;

@@ -1,37 +1,63 @@
-.jobCard {
-    width: auto;
+.jobCard1 {
+    width: 80%;
     height: auto;
     background-color: #d9d9d9;
     border-radius: 2em;
     transition: 300ms;
+    border: none;
+    cursor: pointer;
 }
 
-.jobCard:hover {
-    box-shadow: 1px 19px 58px 0px rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 1px 19px 58px 0px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 1px 19px 58px 0px rgba(0, 0, 0, 0.1);
+.jobCard1:hover {
+    box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
     transition: 300ms;
 
 }
 
-.jobCardContainer {
+.jobCardContainer1 {
     color: #4a4a4a;
     display: flex;
     padding: 2em;
-    justify-content: space-between;
+    gap: 2em;
+   
+    flex-direction: row-reverse;
 
 }
 
 .positionSpots {
     display: flex;
     flex-direction: column;
+    align-items: start;
 }
 
 .position {
-    font-weight: 800;
-    font-size: 1.5em;
+    width: auto;
+    height: auto;
+    align-items: start;
 }
 
+.title1{
+    font-weight: 800;
+    font-size: 3em;
+    margin-right: 10em;
+}
+.title2{
+    font-weight: 500;
+    font-size: 1em; 
+    margin-right: 10em;
+    align-items: start;
+}
+.type{
+    font-weight: 500;
+    font-size: 2em;
+    
+}
+.jobtype{
+    margin-left: auto;
+    
+}
 .spots {
     display: flex;
     align-items: center;
@@ -45,28 +71,8 @@
     width: auto;
 }
 
-.applicationsCount {
-    display: flex;
-    flex-direction: column;
-    margin-left: 3em;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-between;
-}
 
-.count {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #99c2a2;
-    color: white;
-    font-size: 2em;
-    font-weight: 900;
-    padding: 0.4em;
-    border-radius: 50%;
-}
-
-.up {
+.up1 {
     height: 3em;
     width: 3em;
     display: flex;
@@ -87,7 +93,7 @@
     color: #4a4a4a;
 }
 
-.up:hover {
+.up1:hover {
     box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);

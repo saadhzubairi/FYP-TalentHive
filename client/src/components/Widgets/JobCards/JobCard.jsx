@@ -2,18 +2,33 @@ import "./jobCard.css"
 import KeyboardDoubleArrowUpRoundedIcon from '@mui/icons-material/KeyboardDoubleArrowUpRounded';
 function JobCard(props) {
     return(
-        <div className="jobCard">
-            <div className="jobCardContainer">
-                <div className="positionSpots">
-                    <div className="position">Java Developer</div>
-                    <div className="spots">2 spots to fill</div>
+        <button className="jobCard1">
+            <div className="jobCardContainer1">
+            
+            <div className="jobtype">
+                    
+                    <div className="type"> Full Time </div>
+                    <div className="date">23/07/2022</div>
+                           </div>
+                
+                
+            <div className="positionSpots">
+                    <div className="position">
+                        <div className="title1"> Java Developer </div>
+                        
+                    </div>
+                    <div className="title2"> Karachi,Sindh,Pakistan</div>
+                    <div className="spots">Skills Required Java, React JS, Node JS</div>
+                    <div className="spots">Experience Required: 2 Years</div>
                 </div>
-                <div className="applicationsCount">
-                    <div className="count">17</div>
-                    <button className="up"><KeyboardDoubleArrowUpRoundedIcon className="upIcon"/></button>
+                <div className="image1"> 
+                <img src="https://preparecenter.org/wp-content/uploads/2021/04/google-_square_logo.jpeg" alt="" className="companyImage" />
+              
                 </div>
+                
             </div>
-        </div>
+            
+        </button>
     )
 }
 export default JobCard

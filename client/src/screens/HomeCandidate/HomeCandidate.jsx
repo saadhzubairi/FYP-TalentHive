@@ -1,6 +1,6 @@
-import "./home.css"
+import "./homeCandidate.css"
 import Sidebar from '../../components/Candidate Sidebar/Sidebar'
-import Feed from "../../components/HomeFeed/Feed"
+import CandidateFeed from "../../components/CandidateHomeFeed/CandidateFeed"
 import Rightbar from "../../components/Rightbar/Rightbar"
 
 function Home(props) {
@@ -9,7 +9,7 @@ function Home(props) {
             
             
            <Sidebar/>
-           <Feed/>
+           <CandidateFeed/>
            
            
             

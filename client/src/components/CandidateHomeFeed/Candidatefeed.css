@@ -1,0 +1,68 @@
+.feed {
+    flex: 4;
+    height: 100%;
+    overflow-y: scroll;
+    color: #464646;
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.feedWrapper {
+    padding: 3em;
+    display: flex;
+    flex-direction: column;
+}
+
+.feedTitle {
+    font-size: 3em;
+    font-weight: 900;
+    color: #464646;
+    margin-right: 2em;
+}
+
+.searchbar {
+    margin-top: 2em;
+    width: 80%;
+    height: 30px;
+    background-color: #e5e4e4;
+    border-radius: 30px;
+    align-items: center;
+    display: flex;
+    justify-content: start;
+    padding: 10px;
+    box-shadow: 1px 19px 21px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 1px 19px 21px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 1px 19px 21px 0px rgba(0, 0, 0, 0.05);
+}
+
+.SearchIcon {
+    font-size: 24px !important;
+    color: #464646;
+    margin-left: 10px;
+    margin-right: 15px;
+}
+
+.searchInput {
+    background-color: transparent;
+    border: none;
+    width: 90%;
+    font-size: 20px;
+}
+
+.searchInput:focus {
+    outline: none;
+}
+
+.jobPostings {
+    padding-top: 2em;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+}
+
+.jobPostingHeading {
+    margin-top: 1em;
+    margin-right: 1em;
+    font-size: 36px;
+    font-weight: 900;   
+}

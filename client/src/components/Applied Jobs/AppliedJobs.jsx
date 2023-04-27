@@ -2,7 +2,7 @@ import "./feed.css"
 import { Search } from "@mui/icons-material"
 import JobCard from "../Widgets/JobCards/JobCard"
 import TuneIcon from '@mui/icons-material/Tune';
-function Feed() {
+function AppliedJobs() {
     return (
         <div className="feed1">
             <div className="feedWrapper1">
@@ -14,7 +14,7 @@ function Feed() {
 
                 <div className="jobss">
 
-                <div className="jobPostingHeading1">Available Jobs</div>
+                <div className="jobPostingHeading1">Applied Jobs</div>
                 <button className="filter"><TuneIcon/> </button>
                
                 </div>
@@ -31,7 +31,7 @@ function Feed() {
         </div>
     )
 }
-export default Feed
+export default AppliedJobs
 
 
 /* you can implement the "show more" functionality using React state and event handlers.

@@ -1,37 +1,30 @@
-import "./feed.css"
-import { Search } from "@mui/icons-material"
-import JobCard from "../Widgets/JobCards/JobCard"
-import TuneIcon from '@mui/icons-material/Tune';
-function Feed() {
+import "./ApplyFeed.css"
+import ApplyJobCard from "../Widgets/Apply Job/ApplyJobCard"
+function ApplyFeed() {
     return (
-        <div className="feed1">
-            <div className="feedWrapper1">
-                <div className="feedTitle1">Hello, Vladmir</div>
-                <div className="searchbar1">
-                    <Search className="SearchIcon1" />
-                    <input placeholder="Search across the system..." type="text" className="searchInput" />
-                </div>
-
-                <div className="jobss">
-
-                <div className="jobPostingHeading1">Available Jobs</div>
-                <button className="filter"><TuneIcon/> </button>
+        <div className="feedaap">
+            <div className="feedWrapperapp">
                
+                <div className="jobPostingsaap">
+                    <ApplyJobCard/>
+                    
+                        
+                   
+                    
+                    
+           
+                    
                 </div>
 
-                <div className="line"> </div>
-                <div className="jobPostings1">
-                    <JobCard/>
-                    <JobCard/>
-                    <JobCard/>
-                    <JobCard/>
-                    <JobCard/>
-                </div>
+        
+                
             </div>
+            
         </div>
     )
 }
-export default Feed
+export default ApplyFeed
+
 
 
 /* you can implement the "show more" functionality using React state and event handlers.
