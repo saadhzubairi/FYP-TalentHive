@@ -3,7 +3,7 @@ import Home from "./screens/HomeHR/Home";
 
 
 function App() {
-  return <Home/>;
+  return <CreateJob/>;
 }
 
 export default App;
