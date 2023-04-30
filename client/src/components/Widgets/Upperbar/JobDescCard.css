@@ -93,7 +93,8 @@
 .Options {
     display: flex;
     flex-direction: column;
-    padding-left: auto;
+    width: 100%;
+    height: 100%;
    
 }
 .details{
@@ -177,8 +178,8 @@
      
     
     .TitleApp{
-        display: grid;
-        flex-direction: row;
+        display: flex;
+        flex-direction: column;
         
         width: auto;
         height: auto;
@@ -193,6 +194,8 @@
         border-radius: 20px;
         
     }
+
+    
     .applynow{
         
        
@@ -240,11 +243,10 @@
         }
       
      .upperbar{
-        display: grid;
+        display: flex;
         flex-direction: row;
         
-        width: auto;
-        height: auto;
+        
         
         
         justify-content: left;

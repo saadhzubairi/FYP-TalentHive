@@ -4,7 +4,7 @@ import JobCard from "../Widgets/JobCards/JobCard"
 import TuneIcon from '@mui/icons-material/Tune';
 function Feed() {
     return (
-        <div className="feed1">
+        <div className="feedHome">
             <div className="feedWrapper1">
                 <div className="feedTitle1">Hello, Vladmir</div>
                 <div className="searchbar1">

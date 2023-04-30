@@ -3,7 +3,15 @@ import ModeOfWok from '@mui/icons-material/ModeOfTravel';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import './JobDescCard.css'
+import { useNavigate } from 'react-router-dom';
 function JobDescCard(props) {
+    const history = useNavigate(); // Get access to the history object
+
+  const handleButtonClick = () => {
+    history("/ApplyJob"); 
+    // Navigate to the "jobdesc" route
+  };
+
     return (
 
 
@@ -16,6 +24,8 @@ function JobDescCard(props) {
                 <div className="Options">
                     <div className="Upperbar">
                    <div className="TitleApp"> 
+                   <div className="Details">
+
                 <div className="feedTitle">Java Developer</div>
               
                 <div className="details">
@@ -23,13 +33,22 @@ function JobDescCard(props) {
                         <div className="Location"><LocationOnIcon /> Location: Pakistan</div>
                         <div className="Mode"><ModeOfWok /> Mode of Work : Remote  </div>
 
+                   </div>
 
                         
                     </div>
+
+                    <div className="button">
+
+                    <button class="apply-now" onClick={handleButtonClick}>Apply Now</button>  
+
                    
+                    </div>
                
                    </div>
-                                
+                    
+                    
+                    
                     </div>
 
                     <div className="JD">

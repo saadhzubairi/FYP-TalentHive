@@ -1,18 +1,21 @@
 
 
 import "./JobDesc.css"
-import Sidebar from '../../components/Candidate Sidebar/Sidebar'
+import Sidebar from '../../components/Candidate Sidebar/CSidebar'
 import JobFeed from "../../components/JobDescriptionFeed/JobFeed"
 
-function Home(props) {
+function JobDesc(props) {
     return(
-        <div className="homeContainer">
-            <Sidebar/>
-            <JobFeed/>
-          
+        <div className="mainContainer">
             
-            
-        </div>
+        <div class="sidebar"><Sidebar/></div>
+<div class="feed1"><JobFeed/></div>
+       
+       
+        
+       
+        
+    </div>
     )
 }
-export default Home
+export default JobDesc

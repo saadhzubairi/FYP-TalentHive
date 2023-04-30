@@ -1,5 +1,5 @@
 import "./homeCandidate.css"
-import Sidebar from '../../components/Candidate Sidebar/Sidebar'
+import Sidebar from '../../components/Candidate Sidebar/CSidebar'
 import CandidateFeed from "../../components/CandidateHomeFeed/CandidateFeed"
 import Rightbar from "../../components/Rightbar/Rightbar"
 

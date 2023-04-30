@@ -5,23 +5,42 @@ import "./ApplyJobCard.css"
 import Upperbar from '../Upperbar/Upperbar';
 import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
 import EducationForm from './EducationForm';
+import { useState } from "react";
 function ApplyJobCard(props) {
+
+    const [showPopup, setShowPopup] = useState(false);
+
+    const handleSubmit = () => {
+      // logic for submitting the form
+  
+      // show the confirmation popup
+      setShowPopup(true);
+    };
+  
+    const handleConfirm = () => {
+      // logic for confirming the application submission
+  
+      // hide the confirmation popup
+      setShowPopup(false);
+    };
 
 
 
     return (
 
 
-        <div className="jobCardapp">
+        <div className="ApplyNowFeed">
 
 
             <div className="jobCardContaineraap">
 
 
                 <div className="Optionsapp">
-
+                <div className="UppBar"> 
                     <Upperbar />
-
+                </div>
+              <div className="Application">
+                
                     <div className="form">
                         <div className="formbasic">
                             <div className="upload-cv-box">
@@ -96,9 +115,16 @@ function ApplyJobCard(props) {
 
                     <div className="submit">
                      
-                      <button className='Submit'> Submit</button>
+                      <button className='Submit' onClick={handleSubmit}> Submit</button>
+                      {showPopup && (
+        <div className="Popup">
+          <p>Application submitted successfully!</p>
+          <button onClick={handleConfirm}>OK</button>
+        </div>
+      )}
                     </div>
 
+              </div>
 
 
                 </div>

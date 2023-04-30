@@ -47,13 +47,13 @@ function EducationForm() {
               <button className='Delete' onClick={() => handleDeleteEducation(education.id)}>Delete</button>
             </div>
             <div className='form_name'>
-              <input type='input' className='TextFieldSmall' placeholder='Institute Name' name='instituteName' value={education.instituteName} onChange={(event) => handleInputChange(event, education.id)} required />
+              <input type='input' className='TextFieldSmall1' placeholder='Institute Name' name='instituteName' value={education.instituteName} onChange={(event) => handleInputChange(event, education.id)} required />
             </div>
             <div className='form_Program'>
-              <input type='input' className='TextFieldSmall' placeholder='Program' name='program' value={education.program} onChange={(event) => handleInputChange(event, education.id)} required />
+              <input type='input' className='TextFieldSmall1' placeholder='Program' name='program' value={education.program} onChange={(event) => handleInputChange(event, education.id)} required />
             </div>
             <div className='form_GraduationYear'>
-              <input type='input' className='TextFieldSmall' placeholder='Graduation Year' name='graduationYear' value={education.graduationYear} onChange={(event) => handleInputChange(event, education.id)} required />
+              <input type='input' className='TextFieldSmall1' placeholder='Graduation Year' name='graduationYear' value={education.graduationYear} onChange={(event) => handleInputChange(event, education.id)} required />
             </div>
           </div>
         );
