@@ -4,6 +4,8 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
 
+const jobRoute = require("./routes/jobs") 
+
 const app = express();
 dotenv.config();
 
@@ -19,6 +21,8 @@ app.use(morgan("common"))
 app.get("/",(req,res)=>{
     res.send("Welcome to homepage!")
 })
+
+app.use("/api/jobs" , jobRoute);
 
 app.listen(8800, () => {
     console.log("[+] Backend Server is running on 8800.")
