@@ -5,6 +5,9 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 
 const jobRoute = require("./routes/jobs") 
+const jobApplicationsRoute = require("./routes/jobApplications")
+const hrmsRoute = require("./routes/hrms")
+const authRoute = require("./routes/auth")
 
 const app = express();
 dotenv.config();
@@ -23,6 +26,9 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/api/jobs" , jobRoute);
+app.use("/api/jobApplications" , jobApplicationsRoute);
+app.use("/api/hrms" , hrmsRoute);
+app.use("/api/auth" , authRoute);
 
 app.listen(8800, () => {
     console.log("[+] Backend Server is running on 8800.")
