@@ -29,6 +29,10 @@ const HRMSchema = new mongoose.Schema({
         type: String,
         default: "",
     },
+    pfpURL: {
+        type: String,
+        default: "",
+    },
     companyId: {
         type: String,
         required: true,
