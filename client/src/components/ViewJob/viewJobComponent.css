@@ -1,0 +1,91 @@
+.viewJobComponent {
+    flex: 10;
+    padding: 3em;
+    color: #464646;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.Heading {
+    font-size: 3em;
+    font-weight: 900;
+}
+
+.attItem {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.headingAndAtts {
+    display: flex;
+    gap: 3em;
+    align-items: center;
+}
+
+.topBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.spots {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+    margin: 0em;
+}
+
+.spotsCircle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: greenyellow;
+    padding: 0.3em;
+    font-weight: 900;
+    color: white;
+    border-radius: 50%;
+    font-size: 1.5em;
+    aspect-ratio: 1;
+}
+
+.toFill {
+    font-weight: 900;
+    font-size: 1.2em;
+}
+
+.bottomStuff {
+
+}
+
+.bottomWrapper {
+    display: flex;
+}
+
+.leftPane {
+    flex: 2;
+    height: 80vh;
+    overflow-y: hidden;
+}
+
+.rightPane {
+    flex: 1;
+    overflow-y: scroll;
+    height: 80vh;
+}
+
+.paneWrapper{
+    height: 100vh;
+}
+
+.applicantsCount{
+    padding: 1em 0em;
+    font-size: 1.3em;
+}
+
+b{
+    font-weight: 900;
+}
