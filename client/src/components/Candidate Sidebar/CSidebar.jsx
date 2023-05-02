@@ -19,7 +19,9 @@ function Sidebar() {
                         <WorkIcon className="optionsIcon" />
                         <Link to="/AppliedJobsScreen" className="optionLink">Applied Jobs</Link>
                     </li>
-                    <li className="option"><Person4Icon className="optionsIcon" /><a href="" className="optionLink">Profile</a></li>
+                    <li className="option"><Person4Icon className="optionsIcon" />
+                    <Link to="/EditHR" className="optionLink">Profile</Link> </li>
+                    
                 </ul>
             </div>
         </div>

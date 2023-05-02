@@ -28,10 +28,16 @@
     font-weight: 900;
 
 }
+.AddEducation{
+    font-size: 2em;
+    font-weight: 900;
+    margin-top: 1em;
+}
 
 .FormsContainer {
     display: flex;
     gap: 3em;
+    flex-direction: column;
 }
 
 .basicInfo {
@@ -45,7 +51,7 @@
 
 .DescriptiveInfo {
     flex: 1.5;
-    padding-top: 3em;
+   
     display: flex;
     flex-direction: column;
     width: auto;
@@ -126,7 +132,16 @@
 .tagText {
     margin-left: 0.3em;
 }
+.nameFields {
+    margin-top: 1em;
+    display: flex;
+    gap: 1em;
+    width: auto;
+}
 
+#nameF {
+    width: 100%;
+}
 .TagInput {
     border: none;
     outline: none;
@@ -235,3 +250,144 @@ textarea {
         flex-direction: column;
     }
 }
+
+
+.cv-upload-label {
+    display: inline-block;
+    padding: 10px 20px;
+    
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cv-upload-input {
+    display: none;
+  }
+  .Resume{
+    display: flex;
+    flex-direction: row;
+  }
+  .cv-upload-btn {
+    display: block;
+   
+    padding: 10px 20px;
+    border: none;
+    margin-top: 0.5em;
+    
+    background-color: #007bff;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+            background-color: #4a4a4a;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
+            -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
+            -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
+            transition: 300ms;
+  }
+  
+  .upload-cv-box {
+    border:2px solid #bfbbbb;
+    padding: 20px;
+    padding-left: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .upload-cv-box h3 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-size: 24px;
+  }
+  
+  .upload-cv-box p {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+
+  .Add{
+    display: block;
+    padding: 10px 20px;
+    border: none;
+    margin-top: 0.5em;
+    
+    width: 10vh;
+    
+    background-color: #007bff;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+            background-color: #4a4a4a;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
+            -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
+            -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
+            transition: 300ms;
+  }
+
+  .Delete {
+    background-color: rgb(112, 0, 0);
+    border: 1px solid transparent;
+    border-radius: .75rem;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    flex: 0 0 auto;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    padding: .75rem 1.2rem;
+    text-align: center;
+    text-decoration: none #6B7280 solid;
+    text-decoration-thickness: auto;
+    transition-duration: .2s;
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: auto;
+}
+
+.Delete:hover {
+    background-color: #3c1f1f;
+}
+.educationHeader{
+    width: auto;
+}
+
+
+.educationForm {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-top: 20px;
+    height: auto;
+  }
+  
+  .educationHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    
+  }
+
+  .educationTitle{
+       display: flex;
+       flex-direction: row;
+       gap: 1em;
+       font-size: 2em;
+  }
