@@ -1,5 +1,5 @@
 import './SocialCard.css';
-import Location from './Location';
+import Location from '../Location';
 import Phone from './Phone';
 
 const SocialCard = ({ userData }) => {

@@ -1,0 +1,95 @@
+.jobCard {
+    width: auto;
+    height: auto;
+    background-color: #d9d9d9;
+    border-radius: 2em;
+    transition: 300ms;
+}
+
+.jobCard:hover {
+    box-shadow: 1px 19px 58px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 1px 19px 58px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 1px 19px 58px 0px rgba(0, 0, 0, 0.1);
+    transition: 300ms;
+
+}
+
+.jobCardContainer {
+    color: #4a4a4a;
+    display: flex;
+    padding: 2em;
+    justify-content: space-between;
+
+}
+
+.positionSpots {
+    display: flex;
+    flex-direction: column;
+}
+
+.position {
+    font-weight: 800;
+    font-size: 1.5em;
+}
+
+.spots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+    padding: 0.5em;
+    font-size: 1.2em;
+    font-weight: 400;
+    background-color: #c6c6c6;
+    border-radius: 1em;
+    width: auto;
+}
+
+.applicationsCount {
+    display: flex;
+    flex-direction: column;
+    margin-left: 3em;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #99c2a2;
+    color: white;
+    font-size: 2em;
+    font-weight: 900;
+    padding: 0.4em;
+    border-radius: 50%;
+}
+
+.up {
+    height: 3em;
+    width: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c6c6c6;
+    margin-top: 1em;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
+    -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
+    -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
+    transition: 300ms;
+}
+
+.upIcon {
+    color: #4a4a4a;
+}
+
+.up:hover {
+    box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
+    transition: 300ms;
+}

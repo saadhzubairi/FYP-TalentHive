@@ -26,7 +26,7 @@ const CreateCompany = (props) => {
       e.preventDefault();
   
       axios
-        .post('http://localhost:8082/api/companys', company)
+        .post('http://localhost:8082/api/companys/company', company)
         .then((res) => {
           setCompany({
             title: '',
@@ -101,7 +101,7 @@ const CreateCompany = (props) => {
                   <div className='form-group'>
                     <input
                       type='text'
-                      placeholder='Describe this book'
+                      placeholder='Description of the company '
                       name='description'
                       className='form-control'
                       value={company.description}
@@ -112,7 +112,7 @@ const CreateCompany = (props) => {
                   <div className='form-group'>
                     <input
                       type='date'
-                      placeholder='published_date'
+                      placeholder='joined_date'
                       name='joined_date'
                       className='form-control'
                       value={company.joined_date}
@@ -122,7 +122,7 @@ const CreateCompany = (props) => {
                   <div className='form-group'>
                     <input
                       type='text'
-                      placeholder='Publisher of this Book'
+                      placeholder='Email..'
                       name=' email'
                       className='form-control'
                       value={company.email}

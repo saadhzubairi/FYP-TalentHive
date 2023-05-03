@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import "../App.css";
-import HR_Card from '../components/Hr_pageComponents/HR_Card';
-import SocialCard from "../components/commonComponents/SocialCard";
+import "../../App.css";
+import HR_Card from '../../components/Hr_pageComponents/HR_Card';
+import SocialCard from "../../components/commonComponents/socailCard/SocialCard";
 
 
 function HR_page() {

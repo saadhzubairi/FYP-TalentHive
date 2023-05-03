@@ -1,6 +1,6 @@
-import '../commonComponents/SocialCard.css';
+import '../commonComponents/socailCard/SocialCard';
 import Location from '../commonComponents/Location';
-import Phone from '../commonComponents/Phone';
+import Phone from '../commonComponents/socailCard/Phone';
 
 const HR_Card = ({ userData }) => {
     return (

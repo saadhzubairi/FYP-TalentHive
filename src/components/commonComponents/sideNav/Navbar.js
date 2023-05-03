@@ -3,10 +3,14 @@
 import React from 'react'
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
 
+import "./sidebar.css"
+
 
 function Navbar() {
   return (
-   <nav className='nav'>
+   <nav className="sidebar">
+    <div className="sidebarWrapper"> 
+
     <Link to='/' className='site-title'> HRMS Systems .LTD</Link>
     <ul >
         <li >
@@ -22,6 +26,7 @@ function Navbar() {
             <CustomLink to='/'> Company List </CustomLink>
         </li>
     </ul>
+    </div>
    </nav>
   )
 }

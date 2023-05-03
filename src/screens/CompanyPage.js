@@ -1,5 +1,5 @@
 import React from 'react'
-import Company_card from '../components/commonComponents/Company_card';
+import Company_card from '../components/commonComponents/CompanyCard/Company_card';
 import  { useState, useEffect } from 'react';
 
 function CompanyPage() {

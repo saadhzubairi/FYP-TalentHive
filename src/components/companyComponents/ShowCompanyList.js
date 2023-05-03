@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../../App.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import CompanyCard from './CompanyCard';
+import CompanyCard from '../companyComponents/companyCard/CompanyCard';
 
 function ShowCompanyList() {
   
@@ -10,7 +10,7 @@ function ShowCompanyList() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8082/api/companys')
+      .get('http://localhost:8082/api/companys/company')
       .then((res) => {
         setCompanys(res.data);
       })
