@@ -66,7 +66,10 @@ function UpdateCompanyInfo() {
 
 
   return (
-    <div> <div className='UpdateBookInfo'>
+    <div className='main'> 
+      
+      
+      <div className='UpdateBookInfo'>
     <div className='container'>
       <div className='row'>
         <div className='col-md-8 m-auto'>
@@ -170,7 +173,10 @@ function UpdateCompanyInfo() {
         </form>
       </div>
     </div>
-  </div></div>
+  </div>
+  
+  
+  </div>
   )
 }
 

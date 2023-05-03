@@ -33,7 +33,11 @@
   }
 }
 
+.main{
+display: flex;
+flex: 8;
 
+}
 .ShowBookDetails {
   background-color: white;
   min-height: 100vh;
@@ -62,8 +66,10 @@
 
 .UpdateBookInfo {
   background-color: white;
-  min-height: 100vh;
+  height: auto;
   color: white;
+  display: flex;
+  flex: 8;
 }
 
 .ShowBookList {
