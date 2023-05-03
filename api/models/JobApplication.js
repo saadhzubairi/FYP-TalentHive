@@ -17,6 +17,11 @@ const JobApplicationSchema = new mongoose.Schema({
         type: Number,
         default: 1.0
     },
+    status: {
+        type: Number,
+        enum: [1, 2],
+        default: 1
+    },
 },
     { timestamps: true }
 )

@@ -9,7 +9,6 @@
     flex: 10;
     padding: 0em 3em;
     color: #464646;
-    overflow-y: scroll;
 }
 
 .Heading {
@@ -40,6 +39,11 @@
 
 .bottomArea {
     padding: 2em 0em;
+}
+
+.bottomAreaWoPadding{
+    padding: 0em;
+    height: 73vh;
 }
 
 .panes {

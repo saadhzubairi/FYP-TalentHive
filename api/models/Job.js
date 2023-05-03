@@ -42,6 +42,10 @@ const JobSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    spots: {
+        type: Number,
+        default: 1
+    },
     applications: {
         type: Array,
         default: []

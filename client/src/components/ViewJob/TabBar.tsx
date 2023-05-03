@@ -3,6 +3,9 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import ApplicationsGrid from '../ApplicationsGrid/ApplicationsGrid';
+import PreviewJobComp from '../PreviewJob/PreviewJob';
+import "./tabBar.css"
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -22,7 +25,7 @@ function TabPanel(props: TabPanelProps) {
             {...other}
         >
             {value === index && (
-                <Box sx={{ p: 3 }}>
+                <Box sx={{ p: 3, padding: "0em" }}>
                     <Typography>{children}</Typography>
                 </Box>
             )}
@@ -47,17 +50,16 @@ export default function BasicTabs() {
     return (
         <Box sx={{ width: '100%' }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                    <Tab label="Item One" {...a11yProps(0)} />
-                    <Tab label="Item Two" {...a11yProps(1)} />
-
+                <Tabs value={value} onChange={handleChange}>
+                    <Tab label="New" {...a11yProps(0)} sx={{ fontWeight: "900", fontSize: "1.2em" }} />
+                    <Tab label="Reviewed" {...a11yProps(1)} sx={{ fontWeight: "900", fontSize: "1.2em" }} />
                 </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
-                Item One
+                <ApplicationsGrid newApps={true}/>
             </TabPanel>
             <TabPanel value={value} index={1}>
-                Item Two
+                <ApplicationsGrid newApps={false}/>
             </TabPanel>
 
         </Box>

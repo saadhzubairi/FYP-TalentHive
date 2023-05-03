@@ -1,4 +1,4 @@
-import { PinDrop, Preview, Work } from "@mui/icons-material"
+import { AssignmentRounded, PinDrop, Preview, Work } from "@mui/icons-material"
 import "./viewJobComponent.css"
 import PreviewJobComp from "../PreviewJob/PreviewJob"
 import { Box, Tab, Tabs } from "@mui/material"
@@ -18,9 +18,9 @@ function ViewJobComponent(props) {
                         <div className="attItem"><Work /> Part-time</div>
                     </div>
                 </div>
-                <div className="spots">
+                <div className="Spots">
                     <div className="spotsCircle">13</div>
-                    <div className="toFill">SPOTS TO FILL</div>
+                    <div className="toFillS">SPOTS TO FILL</div>
                 </div>
             </div>
             <div className="bottomStuff">
@@ -28,12 +28,18 @@ function ViewJobComponent(props) {
                     <div className="leftPane">
                         <div className="paneWrapper">
                             <div className="applicantsCount"><b>10</b> Applicants</div>
-                            <BasicTabs/>
+                            <BasicTabs />
                         </div>
                     </div>
                     <div className="rightPane">
-                        <div className="paneWrapper">
-                            <PreviewJobComp onAppsPage={true}/>
+                        <div className="linkSection">
+                            <div className="linkPartContainer">
+                                <div className="linkPart">www.talenthive.com/balulageller/joasdashk</div>
+                            </div>
+                            <div className="iconPat"><AssignmentRounded /></div>
+                        </div>
+                        <div className="rightpaneWrapper">
+                            <PreviewJobComp onAppsPage={true} />
                         </div>
                     </div>
                 </div>

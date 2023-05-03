@@ -12,7 +12,7 @@ function PreviewJobComp({ onAppsPage }) {
                         <button className="preview">Publish</button>
                     </div>
                 </div>}
-                <div className="bottomArea">
+                <div className={onAppsPage? "bottomAreaWoPadding" : "bottomArea"}>
                     {onAppsPage ? null : <div className="JTitle">Java Developer</div>}
                     <div className="panes">
                         <div className="leftSide">

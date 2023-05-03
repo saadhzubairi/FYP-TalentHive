@@ -16,6 +16,7 @@ const HRMSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
+        unique: true,
     },
     password: {
         type: String,
@@ -37,6 +38,14 @@ const HRMSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    LinkedInProfile: {
+        type: String,
+        default: "",
+    },
+    /* OtherLinks: {
+        type: String,
+        default: []
+    }, */
     jobsCreated: {
         type: Array,
         default: [],

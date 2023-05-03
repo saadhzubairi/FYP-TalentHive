@@ -29,7 +29,7 @@
     align-items: center;
 }
 
-.spots {
+.Spots {
     display: flex;
     flex-direction: row;
     gap: 0.5em;
@@ -52,40 +52,84 @@
     aspect-ratio: 1;
 }
 
-.toFill {
+.toFillS {
     font-weight: 900;
     font-size: 1.2em;
+    background-color: transparent;
 }
 
-.bottomStuff {
-
-}
+.bottomStuff {}
 
 .bottomWrapper {
     display: flex;
 }
 
 .leftPane {
-    flex: 2;
+    flex: 1.5;
     height: 80vh;
     overflow-y: hidden;
 }
 
 .rightPane {
     flex: 1;
-    overflow-y: scroll;
+    overflow-y: hidden;
     height: 80vh;
 }
 
-.paneWrapper{
-    height: 100vh;
+.paneWrapper {
+    height: 80vh;
 }
 
-.applicantsCount{
+.rightpaneWrapper {
+    height: 70vh;
+    overflow-y: scroll;
+}
+
+.applicantsCount {
     padding: 1em 0em;
     font-size: 1.3em;
 }
 
-b{
+b {
     font-weight: 900;
+}
+
+.linkPartContainer {
+    overflow-x: hidden;
+}
+
+.linkSection {
+    display: flex;
+    font-size: 1em;
+    margin: 1em 2em 0em;
+    padding: 0.5em 1em;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(212, 255, 212);
+    font-weight: 800;
+    color: rgb(3, 68, 3);
+    border-radius: 0.5em;
+    box-shadow: 1px 8px 19px 0px rgba(0, 145, 11, 0.18);
+    -webkit-box-shadow: 1px 8px 19px 0px rgba(0, 145, 11, 0.18);
+    -moz-box-shadow: 1px 8px 19px 0px rgba(0, 145, 11, 0.18);
+
+}
+
+.iconPat {
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.iconPat:hover {
+    transition: 300ms;
+    transform: rotate(16deg) scale(1.7);
+    -webkit-transform: rotate(16deg) scale(1.7);
+    -moz-transform: rotate(16deg) scale(1.7);
+}
+
+.iconPat:active {
+    transition: 300ms;
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
 }
