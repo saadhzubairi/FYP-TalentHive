@@ -55,11 +55,11 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
     const { id } = req.params;
     const {
-        firstName, lastName, email, bio, companyId, jobsCreated
+        firstName, lastName, email, bio, companyId, jobsCreated, pfpURL, LinkedInProfile
     } = req.body;
     try {
         const hrm = await HRM.findByIdAndUpdate(id, {
-            firstName, lastName, email, bio, companyId, jobsCreated
+            firstName, lastName, email, bio, companyId, jobsCreated, pfpURL, LinkedInProfile
         }, { new: true });
 
         if (!hrm) {
@@ -69,6 +69,21 @@ router.put('/:id', async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: 'Server Error' });
+    }
+});
+
+//delete
+router.delete('/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deletedHRM = await HRM.findByIdAndDelete(id);
+        if (!deletedHRM) {
+            return res.status(404).send({ error: 'HRM not found' });
+        }
+        res.send(deletedHRM);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ error: 'Server error' });
     }
 });
 
@@ -124,11 +139,35 @@ router.put('/:id/jobsCreated', async (req, res) => {
 //get with querry for company and isAdmin
 router.get("/", async (req, res) => {
     try {
-        const { companyId, isAdmin } = req.query;
+        const { firstName, lastName, email, bio, companyId, jobsCreated, pfpURL, LinkedInProfile, isAdmin } = req.query;
         let query = {};
+
+        if (firstName) {
+            query.firstName = { $regex: new RegExp(firstName, "i") };
+        }
+
+        if (lastName) {
+            query.lastName = { $regex: new RegExp(lastName, "i") };
+        }
+
+        if (email) {
+            query.email = { $regex: new RegExp(email, "i") };
+        }
+
+        if (bio) {
+            query.bio = { $regex: new RegExp(bio, "i") };
+        }
 
         if (companyId) {
             query.companyId = companyId;
+        }
+
+        if (jobsCreated) {
+            query.jobsCreated = jobsCreated;
+        }
+
+        if (LinkedInProfile) {
+            query.LinkedInProfile = LinkedInProfile;
         }
 
         if (isAdmin) {
@@ -136,7 +175,7 @@ router.get("/", async (req, res) => {
         }
 
         const hrms = await HRM.find(query);
-        res.status(200).json(hrms/* {companyId:companyId, isAdmin:isAdmin} */);
+        res.status(200).json(hrms);
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: "Internal server error" });
