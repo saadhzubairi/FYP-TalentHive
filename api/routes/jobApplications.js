@@ -1,7 +1,10 @@
 const router = require("express").Router();
 const JobApplication = require("../models/JobApplication");
 
-//create job
+//resume -> aws -> fast api -> nlp -> fast api response
+//PRE POST API
+
+//create job application
 router.post("/", async (req, res) => {
     const newJobApplication = new JobApplication(req.body);
     try {
