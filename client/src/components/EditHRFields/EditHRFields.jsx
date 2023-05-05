@@ -2,8 +2,9 @@ import { Delete, Upload } from '@mui/icons-material'
 import './editHRFields.css'
 import { useEffect, useState } from 'react'
 import axios from "axios"
-import { ToastContainer, toast } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
+import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function EditHRFields(props) {
     const [HRM, setHRM] = useState({ _id: "n/a" })
@@ -41,7 +42,10 @@ function EditHRFields(props) {
         } catch (error) {
             console.error(error);
         }
+        notify();
     };
+
+    const notify = () => toast("User info saved!");
 
     return (
         <>
