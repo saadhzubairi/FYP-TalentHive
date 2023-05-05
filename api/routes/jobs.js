@@ -98,11 +98,11 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
     const { id } = req.params;
     const {
-        jobTitle, workplace, location, type, skills, description, requirements, companyId, HRCreatorId, applications
+        jobTitle, workplace, location, type, skills, description, requirements, companyId, HRCreatorId, applications, spots
     } = req.body;
     try {
         const job = await Job.findByIdAndUpdate(id, {
-            jobTitle, workplace, location, type, skills, description, requirements, companyId, HRCreatorId, applications
+            jobTitle, workplace, location, type, skills, description, requirements, companyId, HRCreatorId, applications, spots
         }, { new: true });
 
         if (!job) {

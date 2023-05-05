@@ -182,4 +182,16 @@ router.get("/", async (req, res) => {
     }
 });
 
+router.get("/:id", async (req, res) => {
+    try {
+        const hrmId = req.params.id;
+        const hrm = await HRM.findById(hrmId);
+        if (!hrm) {
+            return res.status(404).json({ error: 'HR Manager not found' });
+        }
+        res.status(200).json(hrm);
+    } catch(err) {
+        res.status(500).json({error:err})
+    }
+});
 module.exports = router;

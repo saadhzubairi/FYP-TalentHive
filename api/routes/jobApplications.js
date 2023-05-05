@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
         res.status(500).json(err);
     }
 });
-
+/* 
 //read all:
 router.get("/", (req, res) => {
     JobApplication.find()
@@ -24,24 +24,59 @@ router.get("/", (req, res) => {
         .catch((err) => {
             res.status(500).json({ message: err.message });
         });
-});
+}); */
 
 //read one by id:
-router.get("/:id", (req, res) => {
-    JobApplication.findById(req.params.id)
-        .then((jobApplication) => {
-            if (!jobApplication) {
-                return res.status(404).json({ message: "Job application not found" });
-            }
-            res.status(200).json(jobApplication);
-        })
-        .catch((err) => {
-            res.status(500).json({ message: err.message });
-        });
+router.get("/", async (req, res) => {
+    const { candidateId, jobId, message, rating, status } = req.query;
+    const filters = {};
+
+    if (candidateId) {
+        filters.candidateId = candidateId;
+    }
+
+    if (jobId) {
+        filters.jobId = jobId;
+    }
+
+    if (message) {
+        filters.message = message;
+    }
+
+    if (rating) {
+        filters.rating = parseFloat(rating);
+    }
+
+    if (status) {
+        filters.status = parseFloat(status);
+    }
+
+    try {
+        const jobApplications = await JobApplication.find(filters);
+        res.status(200).json(jobApplications);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+});
+
+//EDIT JOB APP
+router.put('/:id', async (req, res) => {
+    try {
+        const jobApp = await JobApplication.findByIdAndUpdate(
+            req.params.id, // the job application ID to update
+            req.body, // the updated job application data
+            { new: true } // return the updated document
+        );
+        res.status(200).json(jobApp);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server error' });
+    }
 });
 
 //read all by company:
-router.get("/job/:id", (req, res) => {
+/* router.get("/job/:id", (req, res) => {
     JobApplication.find({ jobId: req.params.id })
         .then((jobApplications) => {
             res.status(200).json(jobApplications);
@@ -49,10 +84,10 @@ router.get("/job/:id", (req, res) => {
         .catch((err) => {
             res.status(500).json({ message: err.message });
         });
-});
+}); */
 
 //read all by candidate:
-router.get("/candidate/:id", (req, res) => {
+/* router.get("/candidate/:id", (req, res) => {
     JobApplication.find({ candidateId: req.params.id })
         .then((jobApplications) => {
             res.status(200).json(jobApplications);
@@ -60,7 +95,7 @@ router.get("/candidate/:id", (req, res) => {
         .catch((err) => {
             res.status(500).json({ message: err.message });
         });
-});
+}); */
 
 //to delete
 router.delete('/applications/:id', async (req, res) => {
@@ -75,5 +110,7 @@ router.delete('/applications/:id', async (req, res) => {
         res.status(500).json({ error: 'Server error' });
     }
 });
+
+
 
 module.exports = router;

@@ -1,7 +1,19 @@
 import "./feed.css"
 import { Search } from "@mui/icons-material"
 import JobCard from "../Widgets/JobCards/JobCard"
+import { useEffect, useState } from "react"
+import axios from "axios"
 function Feed() {
+
+    const [jobs, setJobs] = useState([])
+
+    useEffect(() => {
+        const fetchJobs = async () => {
+            await axios.get("/jobs/company/34567").then(res => setJobs(res.data)).catch(err => console.log(err));
+        }
+        fetchJobs();
+    }, [])
+
     return (
         <div className="feed">
             <div className="feedWrapper">
@@ -12,12 +24,9 @@ function Feed() {
                 </div>
                 <div className="jobPostingHeading">Created Jobs</div>
                 <div className="jobPostings">
-                    <JobCard />
-                    <JobCard />
-                    <JobCard />
-                    <JobCard />
-                    <JobCard />
-                    <JobCard />
+                    {
+                        jobs.map((j) => (<JobCard key={j._id} job={j} />))
+                    }
                 </div>
             </div>
         </div>

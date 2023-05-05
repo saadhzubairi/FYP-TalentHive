@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./cJobFields.css"
 import { useState } from "react"
 function CJobFields(props) {
@@ -30,8 +31,12 @@ function CJobFields(props) {
                 <div className="topBar">
                     <div className="Heading">Create Job</div>
                     <div className="buttonContainer">
-                        <button className="discard">Discard</button>
-                        <button className="preview">Preview</button>
+                        <Link to={"/createJob"}>
+                            <button className="discard">Discard</button>
+                        </Link>
+                        <Link to={"/createJob/preview"}>
+                            <button className="preview">Preview</button>
+                        </Link>
                     </div>
                 </div>
                 <div className="FormsContainer">

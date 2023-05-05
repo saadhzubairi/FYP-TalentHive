@@ -4,7 +4,6 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ApplicationsGrid from '../ApplicationsGrid/ApplicationsGrid';
-import PreviewJobComp from '../PreviewJob/PreviewJob';
 import "./tabBar.css"
 
 interface TabPanelProps {
