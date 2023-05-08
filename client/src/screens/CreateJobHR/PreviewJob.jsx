@@ -6,7 +6,7 @@ function PreviewJob(props) {
         
         <div className="previewJobWrapper">
             <Sidebar />
-            <PreviewJobComp/>
+            <PreviewJobComp onAppsPage={false}/>
         </div>
     )
 }

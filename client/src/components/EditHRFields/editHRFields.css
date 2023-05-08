@@ -1,3 +1,6 @@
+*{
+    transition: 300ms;
+}
 .hrFieldsWrapper {
     display: flex;
     flex-direction: column;
@@ -191,7 +194,7 @@
     width: auto;
 }
 
-#nameF {
+#namef {
     width: 100%;
 }
 
@@ -234,16 +237,22 @@
     -webkit-user-select: none;
     touch-action: manipulation;
     width: auto;
+    transition: 300ms;
 }
 
 .preview:hover {
-    background-color: #005b3b;
+    background-color: #0f5a59;
+}
+
+.preview:active {
+    background-color: #007472;
 }
 
 .preview:focus {
-    box-shadow: none;
-    outline: 2px solid transparent;
-    outline-offset: 2px;
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    transition: 300ms;
 }
 
 
@@ -269,14 +278,25 @@
     -webkit-user-select: none;
     touch-action: manipulation;
     width: auto;
+    transition: 300ms;
 }
 
 .discard:hover {
-    background-color: #3c1f1f;
+    background-color: rgb(155, 3, 3);
+}
+
+.discard:active {
+    background-color: rgb(217, 0, 0);
 }
 
 .discard:focus {
-    box-shadow: none;
-    outline: 2px solid transparent;
-    outline-offset: 2px;
+    transition: 300ms;   
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+}
+
+.panesWrapper{
+    height: 75vh;
+    overflow-y: scroll;
 }

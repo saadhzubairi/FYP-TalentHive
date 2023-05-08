@@ -9,17 +9,19 @@ function ViewJob(props) {
     const [job, setJob] = useState({})
     useEffect(() => {
         const fetchJob = () => {
-            axios.get(`/jobs/${jobId}`).then(res => setJob(res.data)).catch(err => console.log(err));
+            axios.get(`/api/jobs/${jobId}`).then(res => setJob(res.data)).catch(err => console.log(err));
         }
         fetchJob();
-        console.log(job)
-
-    },[])
+    }, [])
     return (
         <div className="ViewJob">
             <div className="wrapper">
                 <Sidebar />
-                {job.jobTitle !== undefined ? <ViewJobComponent key={job._id} job={job} /> : null}
+                {job.jobTitle !== undefined ? <ViewJobComponent key={job._id} job={job} /> : <>
+                    <div className="loadingWraper">
+                        <div className="Heading">Loading...</div>
+                    </div>
+                </>}
             </div>
         </div>
     )

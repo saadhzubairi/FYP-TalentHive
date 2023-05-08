@@ -1,11 +1,12 @@
 import "./createJob.css"
 import Sidebar from "../../components/Sidebar/Sidebar"
 import CJobFields from "../../components/CJobFields/CJobFields"
-function CreateJob(props) {
+import CJobFieldsEdit from "../../components/CJobFieldsEdit/CJobFieldsEdit"
+function CreateJob({ edit }) {
     return (
         <div className="CreateJob">
             <Sidebar />
-            <CJobFields />
+            {!edit ? <CJobFields /> : <CJobFieldsEdit />}
         </div>
     )
 }

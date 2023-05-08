@@ -18,7 +18,7 @@ const JobSchema = new mongoose.Schema({
     },
     type: {
         type: Number,
-        enum: [1, 2, 3],
+        enum: [1, 2, 3, 4, 5],
         default: 1
     },
 

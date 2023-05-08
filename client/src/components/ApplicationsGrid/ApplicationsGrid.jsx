@@ -9,7 +9,7 @@ function ApplicationsGrid({ newApps }) {
     useEffect(() => {
         const fetchApplications = async () => {
             const status = newApps ? "1" : "2";
-            await axios.get(`/jobApplications?jobId=${jobId}&status=${status}`)
+            await axios.get(`/api/jobApplications?jobId=${jobId}&status=${status}`)
                 .then(res => setjobApps(res.data))
         }
         if (jobApps.length==0) {

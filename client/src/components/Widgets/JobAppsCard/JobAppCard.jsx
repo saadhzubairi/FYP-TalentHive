@@ -6,7 +6,7 @@ function JobAppCard({ app }) {
     const [user, setUser] = useState({})
     useEffect(() => {
         const getUser = async () => {
-            axios.get(`/candidate?id=${app.candidateId}`).then(
+            axios.get(`/api/candidate?id=${app.candidateId}`).then(
                 res => setUser(res.data)
             ).catch(
                 err => console.log(err)
