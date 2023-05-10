@@ -9,7 +9,7 @@ function ViewJob(props) {
     const [job, setJob] = useState({})
     useEffect(() => {
         const fetchJob = () => {
-            axios.get(`/api/jobs/${jobId}`).then(res => setJob(res.data)).catch(err => console.log(err));
+            axios.get(`/jobs/${jobId}`).then(res => setJob(res.data)).catch(err => console.log(err));
         }
         fetchJob();
     }, [])

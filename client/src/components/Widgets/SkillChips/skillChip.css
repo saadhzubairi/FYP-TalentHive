@@ -1,0 +1,12 @@
+.chipContainer{
+    background-color: #9a9a9a;
+    color: white;
+    font-size: 1em;
+    padding: 0.5em;
+    border-radius: 1em;
+}
+
+.skillDiv{
+    color: white;
+    font-weight: 700;
+}

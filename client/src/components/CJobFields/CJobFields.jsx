@@ -45,11 +45,11 @@ function CJobFields(props) {
 
         try {
             const response = await axios.post(
-                "/api/jobs",
+                "/jobs",
                 job
             )
             console.log(response.data);
-            navigate(`/api/createJob/preview/${response.data._id}`);
+            navigate(`/createJob/preview/${response.data._id}`);
         } catch (error) {
             console.error(error);
         }

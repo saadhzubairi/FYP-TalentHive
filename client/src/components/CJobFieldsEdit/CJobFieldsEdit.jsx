@@ -48,7 +48,7 @@ function CJobFieldsEdit(props) {
 
         try {
             const response = await axios.put(
-                `/api/jobs/${jobId}`,
+                `/jobs/${jobId}`,
                 job
             )
             navigate(`/createJob/preview/${response.data._id}`);
@@ -60,7 +60,7 @@ function CJobFieldsEdit(props) {
     useEffect(() => {
         const getJob = async () => {
             await axios
-                .get(`/api/jobs/${jobId}`)
+                .get(`/jobs/${jobId}`)
                 .then((res) => {
                     setJob(res.data)
                     setTags(res.data.skills)

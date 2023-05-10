@@ -1,0 +1,21 @@
+.cardContainer {
+    margin: 0.5em 0em;
+    background-color: #f2f1f1;
+    padding: 1em;
+    width: auto;
+    border-radius: 1.2em;
+}
+
+.cardTitle{
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.cardCompany{
+    font-style: italic;
+}
+
+.cardDuration{
+    padding: 0.3em 0em;
+    font-weight: 600;
+}

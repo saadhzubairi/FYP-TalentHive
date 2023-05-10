@@ -9,7 +9,7 @@ function Feed() {
 
     useEffect(() => {
         const fetchJobs = async () => {
-            await axios.get("/api/jobs/company/34567").then(res => setJobs(res.data)).catch(err => console.log(err));
+            await axios.get("/jobs/company/34567").then(res => setJobs(res.data)).catch(err => console.log(err));
         }
         fetchJobs();
     }, [])

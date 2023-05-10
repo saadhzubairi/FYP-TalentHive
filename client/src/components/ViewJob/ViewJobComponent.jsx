@@ -11,7 +11,7 @@ function ViewJobComponent({ job }) {
     const { jobId } = useParams()
     const navigate = useNavigate()
     const delJob = () => {
-        axios.delete(`/api/jobs/${job._id}`).then(() => console.log("job deleted!"))
+        axios.delete(`/jobs/${job._id}`).then(() => console.log("job deleted!"))
             .then(() => {
                 notifyDelete();
 

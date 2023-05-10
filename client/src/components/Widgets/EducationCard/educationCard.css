@@ -1,0 +1,32 @@
+.EducationCardContainer{
+    margin: 0.5em 0em;
+    background-color: #f2f1f1;
+    padding: 1em;
+    width: auto;
+    border-radius: 1.2em;
+}
+.EducationCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;   
+}
+
+.toFromAndGrade{
+    display: flex;
+    justify-content: space-between;
+}
+
+.degree{
+    font-weight: 900;
+    font-size: 1.25em;
+}
+
+.institution{
+    font-style: italic;
+    font-size: 1.1em;
+}
+
+.toFromAndGrade{
+    margin: 0.4em 0em;
+
+}

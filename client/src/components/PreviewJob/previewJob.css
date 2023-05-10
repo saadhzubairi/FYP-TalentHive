@@ -44,6 +44,7 @@
 .bottomAreaWoPadding{
     padding: 0em;
     height: 70vh;
+    margin-top: 2em;
 }
 
 .panes {

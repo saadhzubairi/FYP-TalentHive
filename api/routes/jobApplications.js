@@ -26,9 +26,9 @@ router.get("/", (req, res) => {
         });
 }); */
 
-//read one by id:
+//read by querry
 router.get("/", async (req, res) => {
-    const { candidateId, jobId, message, rating, status } = req.query;
+    const { id, candidateId, jobId, message, rating, status } = req.query;
     const filters = {};
 
     if (candidateId) {
@@ -52,8 +52,15 @@ router.get("/", async (req, res) => {
     }
 
     try {
-        const jobApplications = await JobApplication.find(filters);
-        res.status(200).json(jobApplications);
+        if (id) {
+            const jobApplications = await JobApplication.findById(id);
+            res.status(200).json(jobApplications);
+        }
+        else {
+            const jobApplications = await JobApplication.find(filters);
+            res.status(200).json(jobApplications);
+        }
+        
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server error');

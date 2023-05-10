@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import "./jobAppCard.css"
 import axios from 'axios'
 import { format } from "timeago.js"
+import { Link } from 'react-router-dom'
+import { LinearProgress } from '@mui/material'
 function JobAppCard({ app }) {
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState({ _id: "n/a" })
     useEffect(() => {
         const getUser = async () => {
-            axios.get(`/api/candidate?id=${app.candidateId}`).then(
+            axios.get(`/candidate?id=${app.candidateId}`).then(
                 res => setUser(res.data)
             ).catch(
                 err => console.log(err)
@@ -17,18 +19,21 @@ function JobAppCard({ app }) {
     }, [])
 
     return (
+
         <div className="jobAppCard">
-            <div className="jobAppCardContainer">
-                <div className="positionSpots">
-                    <div className="position">
-                        {user[0] ? `${user[0].name.fname} ${user[0].name.lname}` : "Loading..."}
+            <Link to={`/ViewCandidate/${app._id}`} style={{ textDecoration: "none" }}>
+                <div className="jobAppCardContainer">
+                    <div className="positionSpots">
+                        <div className="position">
+                            {user._id === "n/a" ? <LinearProgress /> : `${user.name.fname} ${user.name.lname}`}
+                        </div>
+                        <div className="spots">{format(app.createdAt)}</div>
                     </div>
-                    <div className="spots">{format(app.createdAt)}</div>
+                    <div className="applicationsCount">
+                        <div className="rating">{app.rating}</div>
+                    </div>
                 </div>
-                <div className="applicationsCount">
-                    <div className="rating">{app.rating}</div>
-                </div>
-            </div>
+            </Link>
         </div>
     )
 }

@@ -10,7 +10,7 @@ function PreviewJobComp({ onAppsPage, job }) {
 
     useEffect(() => {
         const getJob = async () => {
-            axios.get(`/api/jobs/${jobId}`).then((res) => {
+            axios.get(`/jobs/${jobId}`).then((res) => {
                 setJobP(res.data)
             }).catch((err) => console.log(err))
         }

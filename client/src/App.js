@@ -4,6 +4,7 @@ import EditHR from "./screens/EditHR/EditHR";
 import PreviewJob from "./screens/CreateJobHR/PreviewJob";
 import ViewJob from "./screens/ViewJobHR/ViewJob";
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import ViewCandidate from "./screens/ViewCandidate/ViewCandidate";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/createJob/preview/:jobId" element={<PreviewJob onApps/>} />
           <Route path="/EditHr" element={<EditHR />} />
           <Route path="/ViewJob/:jobId" element={<ViewJob />} />
+          <Route path="/ViewCandidate/:appId" element={<ViewCandidate />} />
         </Routes>
       </main>
     </BrowserRouter>

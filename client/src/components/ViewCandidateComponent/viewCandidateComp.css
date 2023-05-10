@@ -1,0 +1,132 @@
+.viewCandidateComp {
+    flex: 10;
+}
+
+.dWrapper {
+    padding: 3em;
+}
+
+.Heading {
+    font-size: 3em;
+    font-weight: 900;
+    color: #4a4a4a;
+}
+
+.TopBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5em;
+}
+
+.avatarNameStuff {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    color: #4a4a4a;
+}
+
+.avatarCircle {
+    height: 7em;
+    width: 7em;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.Name {
+    font-size: 2.5em;
+    font-weight: 900;
+    color: #4a4a4a;
+}
+
+.applied {
+    font-weight: 500;
+    font-style: italic;
+    font-size: 1.2em;
+    color: #4a4a4a;
+}
+
+.linksBar {
+    padding: 1.5em 0em;
+    display: flex;
+    justify-content: start;
+}
+
+.linkIcon {
+    cursor: pointer;
+}
+
+.bottomPaneC {
+    display: flex;
+    gap: 2em;
+    color: #4a4a4a;
+}
+
+.rightPaneC {
+    flex: 1;
+    overflow-y: scroll;
+    padding-right: 1em;
+    height: 70vh;
+    color: #4a4a4a;
+}
+
+.leftPaneC {
+    flex: 2;
+    overflow-y: scroll;
+    height: 70vh;
+    padding-right: 1em;
+    color: #4a4a4a;
+}
+
+.skillsArea {
+    margin: 0.5em 0em;
+    background-color: #f2f1f1;
+    padding: 1em;
+    width: auto;
+    border-radius: 1.2em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+#P:hover {
+    transition: 0ms;
+    color: rgb(70, 150, 70);
+}
+
+#E:hover {
+    transition: 0ms;
+    color: rgb(168, 58, 58);
+}
+
+#L:hover {
+    transition: 0ms;
+    color: rgb(56, 56, 194);
+}
+
+#N:hover {
+    transition: 0ms;
+    color: rgb(61, 184, 203);
+}
+
+.linker{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.linker span {
+    max-width: 0em;
+    -webkit-transition: max-width 0.5s;
+    transition: max-width 0.5s;
+    vertical-align: top;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 1.3em;
+    font-weight: 800;
+    margin: 0em 0.3em;
+}
+
+.linker:hover span {
+    max-width: 20em;
+}

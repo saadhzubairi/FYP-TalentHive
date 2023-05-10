@@ -22,7 +22,7 @@ function EditHRFields(props) {
         const fetchHR = async () => {
             try {
 
-                const res = await axios.get("/api/hrms/644f10bbbbd3951b057a3c6f");
+                const res = await axios.get("/hrms/644f10bbbbd3951b057a3c6f");
                 setHRM(res.data);
 
             } catch (e) {
@@ -53,7 +53,7 @@ function EditHRFields(props) {
         event.preventDefault();
         try {
             setLoading(true)
-            const response = await axios.put('/api/hrms/644f10bbbbd3951b057a3c6f', formData)
+            const response = await axios.put('/hrms/644f10bbbbd3951b057a3c6f', formData)
                 .then(setLoading(false));
             console.log(response.data);
         } catch (error) {
