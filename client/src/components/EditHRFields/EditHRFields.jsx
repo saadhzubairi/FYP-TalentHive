@@ -1,6 +1,22 @@
 import { Delete, Upload } from '@mui/icons-material'
 import './editHRFields.css'
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
 function EditHRFields(props) {
+    const [candidate, setCandidate] = useState({});
+    const { candId } = useParams();
+  
+    useEffect(() => {
+        const fetchCandidates = async () => {
+            await axios.get(`/candidate/${candId}`).then(res => setCandidate(res.data)).catch(err => console.log(err));
+        }
+        fetchCandidates();
+    }, [])
+
+
+
     return (
         <div className="hrFieldsWrapper">
             <div className="topBar">
@@ -19,7 +35,7 @@ function EditHRFields(props) {
                         <div className="subHeading">Details</div>
                         <div className="forms">
                             <div className="nameFields">
-                                <input type="text" id='nameF' className="TextFieldSmall" placeholder='First Name' />
+                                <input type="text" id='nameF' className="TextFieldSmall" placeholder='First Name' value={candidate.name.fname} />
                                 <input type="text" id='nameF' className="TextFieldSmall" placeholder='Last Name' />
                             </div>
                             <input type="text" className="TextFieldSmall" placeholder='Email' />

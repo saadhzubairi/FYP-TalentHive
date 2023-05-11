@@ -11,10 +11,10 @@ function App() {
     <main>
     <Routes>
 <Route path="/" element={<Home/>} />
-<Route path="/JobDesc" element={<PreviewJob/>} />
+<Route path="/JobDesc/:jobId" element={<PreviewJob/>} />
 <Route path="/AppliedJobsScreen" element={<AppliedJobsScreen/>} />
-<Route path="/ApplyJob" element={<CreateJob/>} />
-<Route path="/EditHR" element={<EditHR/>} />
+<Route path="/ApplyJob/:jobId" element={<CreateJob/>} />
+<Route path="/EditHR/" element={<EditHR/>} />
 
     </Routes>
 
