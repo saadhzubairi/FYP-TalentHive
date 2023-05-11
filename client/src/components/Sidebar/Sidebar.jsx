@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 function Sidebar() {
     const [HRM, setHRM] = useState({ _id: "n/a" })
-    
+
     useEffect(() => {
         const fetchHR = async () => {
             try {
@@ -15,7 +15,9 @@ function Sidebar() {
                 console.log(e);
             }
         };
-        fetchHR()
+        if (HRM._id === "n/a") {
+            fetchHR()
+        }
     });
 
     return (
