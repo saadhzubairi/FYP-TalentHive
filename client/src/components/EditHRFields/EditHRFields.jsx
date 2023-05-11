@@ -6,10 +6,13 @@ import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { format, register } from "timeago.js"
+import { CircularProgress } from '@mui/material';
 
 function EditHRFields(props) {
     const [HRM, setHRM] = useState({ _id: "n/a" })
+    const [img, setImg] = useState('')
     const [loading, setLoading] = useState(false)
+    const [isUploading, setIsUploading] = useState(false)
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -18,28 +21,42 @@ function EditHRFields(props) {
         bio: ""
     });
 
+    const handleImage = (e) => {
+        console.log(e.target.files[0])
+        setImg(e.target.files[0])
+    }
+
+    const handleUpload = () => {
+        setIsUploading(true)
+        const formdata = new FormData();
+        formdata.append('filename', img)
+        axios.post('/upload/', formdata).then((res) => {
+            axios.put("/hrms/644f10bbbbd3951b057a3c6f", {
+                "pfpURL": res.data.downloadURL
+            })
+            HRM.pfpURL = res.data.downloadURL
+            console.log("uploaded")
+            setIsUploading(false)
+            notify();
+        })
+    }
+
     useEffect(() => {
         const fetchHR = async () => {
             try {
-
                 const res = await axios.get("/hrms/644f10bbbbd3951b057a3c6f");
                 setHRM(res.data);
-
             } catch (e) {
                 console.log(e);
             }
         };
         fetchHR().then(() => {
-            if (HRM.firstName !== undefined) {
-                if (formData.firstName === "") {
-                    formData.firstName = HRM.firstName;
-                    formData.lastName = HRM.lastName;
-                    formData.email = HRM.email;
-                    formData.LinkedInProfile = HRM.LinkedInProfile;
-                    formData.bio = HRM.bio;
-                }
-            }
-        });
+            formData.firstName = HRM.firstName;
+            formData.lastName = HRM.lastName;
+            formData.email = HRM.email;
+            formData.LinkedInProfile = HRM.LinkedInProfile;
+            formData.bio = HRM.bio;
+        })
     });
 
     const handleChange = (event) => {
@@ -72,7 +89,7 @@ function EditHRFields(props) {
         draggable: true,
         progress: undefined,
         theme: "colored",
-    });;
+    });
 
     return (
         <>
@@ -84,7 +101,7 @@ function EditHRFields(props) {
                     </div>
                     <div className="buttonContainer">
                         <button className="discard">Discard</button>
-                        <button className="preview" onClick={handleSubmit}>{loading? "Saving..." : "Save"}</button>
+                        <button className="preview" onClick={handleSubmit}>{loading ? "Saving..." : "Save"}</button>
                     </div>
                 </div>
                 <div className="panesWrapper">
@@ -106,14 +123,17 @@ function EditHRFields(props) {
                         <div className="leftSide">
                             <div className="pfpSelectionHeading">
                                 <div className="subHeading">Profile Picture</div>
-                                {/* <div className="HTextSmaller">Select a dashing confident profile picture.</div> */}
+                                <div className="HTextSmaller">Select a dashing confident profile picture.</div>
                             </div>
                             <div className="profileImageSelection">
                                 <div className="profilePic">
-                                    <img src="https://th.bing.com/th/id/OIP.KdBSw8TPL34eU6T7bjhpAAHaLH?pid=ImgDet&rs=1" alt="" className="pfp" />
+                                    {isUploading ? <CircularProgress /> :
+                                        <img src={HRM.pfpURL} alt="" className="pfp" />
+                                    }
                                 </div>
                                 <div className="pfpButtons">
-                                    <button className="pfpUpload"><Upload /> UPLOAD</button>
+                                    <input type='file' onChange={handleImage}></input>
+                                    <button className="pfpUpload" onClick={handleUpload} ><Upload /> UPLOAD</button>
                                     <button className="pfpDelete"><Delete /> DELETE</button>
                                 </div>
                             </div>

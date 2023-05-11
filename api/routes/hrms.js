@@ -55,11 +55,11 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
     const { id } = req.params;
     const {
-        firstName, lastName, email, bio, companyId, jobsCreated, pfpURL, LinkedInProfile
+        firstName, lastName, email, bio, companyId, jobsCreated, pfpURL, LinkedInProfile, isAdmin
     } = req.body;
     try {
         const hrm = await HRM.findByIdAndUpdate(id, {
-            firstName, lastName, email, bio, companyId, jobsCreated, pfpURL, LinkedInProfile
+            firstName, lastName, email, bio, companyId, jobsCreated, pfpURL, LinkedInProfile, isAdmin
         }, { new: true });
 
         if (!hrm) {
@@ -190,8 +190,8 @@ router.get("/:id", async (req, res) => {
             return res.status(404).json({ error: 'HR Manager not found' });
         }
         res.status(200).json(hrm);
-    } catch(err) {
-        res.status(500).json({error:err})
+    } catch (err) {
+        res.status(500).json({ error: err })
     }
 });
 module.exports = router;

@@ -25,6 +25,7 @@
     -webkit-box-shadow: 1px 19px 58px 0px rgba(0, 0, 0, 0.17);
     -moz-box-shadow: 1px 19px 58px 0px rgba(0, 0, 0, 0.17);
     transition: 300ms;
+    object-fit: cover;
 }
 
 .companyImage:hover {

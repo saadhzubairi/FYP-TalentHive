@@ -10,6 +10,8 @@ const jobApplicationsRoute = require("./routes/jobApplications")
 const hrmsRoute = require("./routes/hrms")
 const authRoute = require("./routes/auth")
 const candRoute = require("./routes/candidates")
+const companyRoute = require("./routes/companies")
+const upRoute = require("./routes/upload")
 
 const app = express();
 dotenv.config();
@@ -39,6 +41,8 @@ app.use("/api/jobApplications", jobApplicationsRoute);
 app.use("/api/hrms", hrmsRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/candidate", candRoute);
+app.use("/api/company", companyRoute);
+app.use("/api/upload", upRoute);
 
 app.use(cors({
     origin: "http://localhost:3000",

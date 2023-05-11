@@ -4,9 +4,8 @@ import JobCard from "../Widgets/JobCards/JobCard"
 import { useEffect, useState } from "react"
 import axios from "axios"
 function Feed() {
-
     const [jobs, setJobs] = useState([])
-
+    
     useEffect(() => {
         const fetchJobs = async () => {
             await axios.get("/jobs/company/34567").then(res => setJobs(res.data)).catch(err => console.log(err));
