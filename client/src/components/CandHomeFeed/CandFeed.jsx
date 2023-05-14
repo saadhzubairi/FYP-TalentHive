@@ -1,10 +1,10 @@
-import "./feed.css"
+import "./Candfeed.css"
 import { Search } from "@mui/icons-material"
-import JobCard from "../Widgets/JobCards/JobCard"
+import CandJobCard from "../Widgets/CandJobCard/CandJobCard"
 import TuneIcon from '@mui/icons-material/Tune';
 import axios from "axios";
 import { useState,useEffect } from "react";
-function Feed() {
+function CandFeed() {
 
     const [jobs, setJobs] = useState([])
 
@@ -15,32 +15,32 @@ function Feed() {
         fetchJobs();
     }, [])
     return (
-        <div className="feedHome">
-            <div className="feedWrapper1">
-                <div className="feedTitle1">Hello, Vladmir</div>
-                <div className="searchbar1">
-                    <Search className="SearchIcon1" />
+        <div className="CandfeedHome">
+            <div className="CandfeedWrapper1">
+                <div className="CandfeedTitle1">Hello, Vladmir</div>
+                <div className="Candsearchbar1">
+                    <Search className="CandSearchIcon1" />
                     <input placeholder="Search across the system..." type="text" className="searchInput" />
                 </div>
 
-                <div className="jobss">
+                <div className="Candjobss">
 
-                <div className="jobPostingHeading1">Available Jobs</div>
+                <div className="CandjobPostingHeading1">Available Jobs</div>
                 <button className="filter"><TuneIcon/> </button>
                
                 </div>
 
                 <div className="line"> </div>
-                <div className="jobPostings1">
+                <div className="CandjobPostings1">
                 {
-                        jobs.map((j) => (<JobCard key={j._id} job={j} />))
+                        jobs.map((j) => (<CandJobCard key={j._id} job={j} />))
                     }
                 </div>
             </div>
         </div>
     )
 }
-export default Feed
+export default CandFeed
 
 
 /* you can implement the "show more" functionality using React state and event handlers.

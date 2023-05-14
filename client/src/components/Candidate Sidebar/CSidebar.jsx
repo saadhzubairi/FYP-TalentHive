@@ -20,7 +20,7 @@ function Sidebar() {
                         <Link to="/AppliedJobsScreen" className="optionLink">Applied Jobs</Link>
                     </li>
                     <li className="option"><Person4Icon className="optionsIcon" />
-                    <Link to="/EditHR" className="optionLink">Profile</Link> </li>
+                    <Link to="/EditCand" className="optionLink">Profile</Link> </li>
                     
                 </ul>
             </div>

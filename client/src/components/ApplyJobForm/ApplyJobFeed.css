@@ -1,16 +1,16 @@
-.cJobFields {
+.ApplyJobFeed {
     flex: 10;
     padding: 3em;
     color: #464646;
     overflow-y: scroll;
 }
 
-.Heading {
+.ApplyHeading {
     font-size: 3em;
     font-weight: 900;
 }
 
-.topBar {
+.ApplytopBar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,13 +34,13 @@
     margin-top: 1em;
 }
 
-.FormsContainer {
+.ApplyFormsContainer {
     display: flex;
     gap: 3em;
     flex-direction: column;
 }
 
-.basicInfo {
+.ApplybasicInfo {
     flex: 1;
     padding-top: 3em;
     display: flex;
@@ -49,7 +49,7 @@
     gap: 1em;
 }
 
-.DescriptiveInfo {
+.ApplyDescriptiveInfo {
     flex: 1.5;
    
     display: flex;
@@ -67,7 +67,7 @@
     background-color: #f1f1f1;
 }
 
-.TextFieldSmall {
+.ApplyTextFieldSmall {
     width: auto;
     padding: 1em;
     border: none;
@@ -76,7 +76,7 @@
     background-color: #f1f1f1;
 }
 
-.TextFieldBig {
+.ApplyTextFieldBig {
     width: auto;
     height: 12.25em;
     padding: 1em;
@@ -86,7 +86,7 @@
     background-color: #f1f1f1;
 }
 
-.tagsInputContainer {
+.ApplytagsInputContainer {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -100,7 +100,7 @@
     gap: 0.5em;
 }
 
-.tagItem {
+.ApplytagItem {
     background-color: #d7d7d7;
     display: flex;
     width: fit-content;
@@ -112,7 +112,7 @@
     font-size: 1.2em;
 }
 
-.tagRemove {
+.ApplytagRemove {
     font-size: 1em;
     height: 20px;
     width: 20px;
@@ -129,20 +129,27 @@
     cursor: pointer;
 }
 
-.tagText {
+.ApplytagText {
     margin-left: 0.3em;
 }
-.nameFields {
+.ApplynameFields {
     margin-top: 1em;
     display: flex;
     gap: 1em;
     width: auto;
 }
 
-#nameF {
+#ApplynameF {
     width: 100%;
 }
-.TagInput {
+
+
+#ApplynameL {
+    width: 100%;
+}
+
+
+.ApplyTagInput {
     border: none;
     outline: none;
     flex-grow: 1;
@@ -232,12 +239,12 @@ textarea {
 }
 
 @media (max-width: 876px) {
-    .FormsContainer {
+    .ApplyFormsContainer {
         display: flex;
         flex-direction: column;
         gap: 0em;
     }
-    .topBar {
+    .ApplytopBar {
         display: flex;
         flex-direction: column;
         align-items: start;
@@ -264,7 +271,7 @@ textarea {
   .cv-upload-input {
     display: none;
   }
-  .Resume{
+  .ApplyResume{
     display: flex;
     flex-direction: row;
   }
@@ -318,7 +325,7 @@ textarea {
     border: none;
     margin-top: 0.5em;
     
-    width: 10vh;
+    width: fit-content;
     
     background-color: #007bff;
     color: #fff;

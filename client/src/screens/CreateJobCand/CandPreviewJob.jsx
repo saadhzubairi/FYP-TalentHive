@@ -1,6 +1,6 @@
-import PreviewJobComp from "../../components/PreviewJob/PreviewJob"
+import PreviewJobComp from "../../components/CandPreviewJob/CandPreviewJob"
 import Sidebar from "../../components/Candidate Sidebar/CSidebar"
-import "./previewJob.css"
+import "./CandpreviewJob.css"
 function PreviewJob(props) {
     return(
         

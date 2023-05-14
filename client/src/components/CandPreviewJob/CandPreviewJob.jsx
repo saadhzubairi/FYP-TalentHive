@@ -1,5 +1,5 @@
 import { BrandingWatermarkRounded, Build, Dataset, ExpandCircleDownOutlined, FormatTextdirectionRToLSharp, LocationCity, LocationCityOutlined, PinDrop, PlayArrowOutlined, SixKPlusOutlined, Work, WorkOff, Workspaces } from '@mui/icons-material'
-import './previewJob.css'
+import './CandpreviewJob.css'
 import StoreIcon from '@mui/icons-material/Store';
 import DescriptionIcon from '@mui/icons-material/Description';
 import ChecklistIcon from '@mui/icons-material/Checklist';
@@ -7,7 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function PreviewJobComp({ }) {
+function PreviewJobDescCand({ }) {
     const { jobId } = useParams();
 
     const [jobs, setJobs] = useState([])
@@ -26,19 +26,18 @@ function PreviewJobComp({ }) {
         // Navigate to the "jobdesc" route
     };
     return (
-        <div className="previewJobCom">
-            <div className="previewJobCompWrapper">
-                <div className="topBar">
-                    <div className="Heading"> {jobs.jobTitle}</div>
+        <div className="CandpreviewJobCom">
+            <div className="CandpreviewJobCompWrapper">
+                <div className="CandtopBarDesc">
+                    <div className="DescHeading"> {jobs.jobTitle}</div>
                     <div className="buttonContainer">
-                        <button className="discard">Save</button>
                         <button className="preview" onClick={handleButtonClick}>Apply Now</button>
                     </div>
                 </div>
-                <div className="bottomArea">
+                <div className="DescbottomArea">
 
-                    <div className="panes">
-                        <div className="leftSide">
+                    <div className="Descpanes">
+                        <div className="DescleftSide">
                             <div className="firstSection">
                                 <div className="listItem"><PinDrop /> {jobs.location}</div>
                                 <div className="listItem"><Work /> {jobs.type}</div>
@@ -94,4 +93,4 @@ function PreviewJobComp({ }) {
         </div>
     )
 }
-export default PreviewJobComp
+export default PreviewJobDescCand

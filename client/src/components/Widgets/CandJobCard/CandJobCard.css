@@ -1,4 +1,4 @@
-.jobCard1 {
+.CandjobCard1 {
     width: 80%;
     height: auto;
     background-color: #d9d9d9;
@@ -8,7 +8,7 @@
     cursor: pointer;
 }
 
-.jobCard1:hover {
+.CandjobCard1:hover {
     box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
@@ -16,7 +16,7 @@
 
 }
 
-.jobCardContainer1 {
+.CandjobCardContainer1 {
     color: #4a4a4a;
     display: flex;
     padding: 2em;
@@ -26,39 +26,39 @@
 
 }
 
-.positionSpots {
+.CandpositionSpots {
     display: flex;
     flex-direction: column;
     align-items: start;
 }
 
-.position {
+.Candposition {
     width: auto;
     height: auto;
     align-items: start;
 }
 
-.title1{
+.Candtitle1{
     font-weight: 800;
     font-size: 3em;
     margin-right: 10em;
 }
-.title2{
+.Candloc{
     font-weight: 500;
     font-size: 1em; 
     margin-right: 10em;
     align-items: start;
 }
-.type{
+.Candtype{
     font-weight: 500;
     font-size: 2em;
     
 }
-.jobtype{
+.Candjobtype{
     margin-left: auto;
     
 }
-.spots {
+.Candspots {
     display: flex;
     align-items: center;
     justify-content: center;

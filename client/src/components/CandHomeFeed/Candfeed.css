@@ -1,5 +1,5 @@
 
-.feedHome{
+.CandfeedHome{
     flex: 8;
     height: 100%;
  
@@ -7,16 +7,25 @@
     max-width: 100%;
 }
 
-.feedWrapper1 {
+.CandfeedWrapper1 {
     padding: 3em;
 }
 
-.feedTitle1 {
+.feed1 {
+    flex: 8;
+    height: 100%;
+    overflow-y: scroll;
+    color: #464646;
+    max-width: 100%;
+}
+
+
+.CandfeedTitle1 {
     font-size: 3em;
     font-weight: 900;
     color: #464646;
 }
-.searchbar1 {
+.Candsearchbar1 {
     margin-top: 2em;
     width: 80%;
     margin-right: 10%;
@@ -32,25 +41,25 @@
     -moz-box-shadow: 1px 19px 21px 0px rgba(0, 0, 0, 0.05);
 }
 
-.SearchIcon1 {
+.CandSearchIcon1 {
     font-size: 24px !important;
     color: #464646;
     margin-left: 10px;
     margin-right: 15px;
 }
 
-.searchInput1 {
+.CandsearchInput1 {
     background-color: transparent;
     border: none;
     width: 90%;
     font-size: 20px;
 }
 
-.searchInput1:focus {
+.CandsearchInput1:focus {
     outline: none;
 }
 
-.jobss{
+.Candjobss{
     display: flex;
     flex-direction: row;
    justify-content: space-between;
@@ -89,7 +98,7 @@
     -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
     transition: 300ms;
 }
-.jobPostings1 {
+.CandjobPostings1 {
     padding-top: 2em;
     display: flex;
     flex-direction: column;
@@ -97,7 +106,7 @@
     grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
 }
 
-.jobPostingHeading1 {
+.CandjobPostingHeading1 {
     margin-top: 1em;
     font-size: 36px;
     font-weight: 900;   

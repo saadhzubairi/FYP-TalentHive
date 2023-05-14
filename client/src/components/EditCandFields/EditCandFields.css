@@ -1,4 +1,4 @@
-.hrFieldsWrapper {
+.CandFieldsWrapper {
     display: flex;
     flex-direction: column;
     flex: 10;
@@ -8,16 +8,16 @@
     overflow-y: auto;
 }
 
-.Heading {
+.CandHeading {
     font-size: 3em;
     font-weight: 900;
 }
 
-.topHeadings {
+.CandtopHeadings {
     margin-bottom: 1em;
 }
 
-.HText {
+.CandText {
     font-size: 1.5em;
     font-weight: 500;
 }
@@ -27,7 +27,7 @@
     font-weight: 500;
 }
 
-.profileImageSelection {
+.CandprofileImageSelection {
     display: flex;
     align-items: center;
     gap: 2em;
@@ -130,21 +130,14 @@
     transition: 300ms;
 }
 
-.stats {
-    padding: 1em;
-    gap: 0.5em;
-    display: flex;
-    flex-direction: column;
-}
-
-.panes {
+.Candpanes {
     display: flex;
     flex-direction: row;
     gap: 6em;
     /* margin-right: 10em; */
 }
 
-.leftSide {
+.CandleftSide {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
@@ -152,21 +145,21 @@
     width: auto;
 }
 
-.rightSide {
+.CandrightSide {
     flex: auto;
     width: auto;
     flex: 1;
     /* padding-right: 15em; */
 }
 
-.forms {
+.Candforms {
     display: flex;
     flex-direction: column;
     gap: 1em;
     width: auto;
 }
 
-.TextFieldSmall {
+.CandTextFieldSmall {
     width: auto;
     padding: 1em;
     border: none;
@@ -175,7 +168,7 @@
     background-color: #f1f1f1;
 }
 
-.TextFieldBig {
+.CandTextFieldBig {
     width: auto;
     height: 12.25em;
     padding: 1em;
@@ -185,35 +178,40 @@
     background-color: #f1f1f1;
 }
 
-.nameFields {
+.CandnameFields {
     margin-top: 1em;
     display: flex;
     gap: 1em;
     width: auto;
 }
 
-#nameF {
+#CandnameF {
+    width: 100%;
+}
+
+#CandnameL {
     width: 100%;
 }
 
 @media (max-width: 1150px) {
-    .panes {
+    .Candpanes {
         display: flex;
         flex-direction: column;
     }
 
 }
 
-.topBar {
+.CandtopBar {
     display: flex;
+    justify-content: space-between;
 }
 
-.preview,
-.discard {
+.Candpreview,
+.Canddiscard {
     min-width: 10em;
 }
 
-.preview {
+.Candpreview {
     background-color: #0e3837;
     border: 1px solid transparent;
     border-radius: .75rem;
@@ -237,18 +235,18 @@
     width: auto;
 }
 
-.preview:hover {
+.Candpreview:hover {
     background-color: #005b3b;
 }
 
-.preview:focus {
+.Candpreview:focus {
     box-shadow: none;
     outline: 2px solid transparent;
     outline-offset: 2px;
 }
 
 
-.discard {
+.Canddiscard {
     background-color: rgb(112, 0, 0);
     border: 1px solid transparent;
     border-radius: .75rem;
@@ -272,12 +270,17 @@
     width: auto;
 }
 
-.discard:hover {
+.Canddiscard:hover {
     background-color: #3c1f1f;
 }
 
-.discard:focus {
+.Canddiscard:focus {
     box-shadow: none;
     outline: 2px solid transparent;
     outline-offset: 2px;
+}
+.CandbuttonContainer{
+    display: flex;
+    gap: 1em;
+    
 }

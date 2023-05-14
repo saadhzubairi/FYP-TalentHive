@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './cJobFields.css'
+import './ApplyJobFeed'
 import AddIcon from '@mui/icons-material/Add';
 
 import { useEffect } from 'react';
@@ -48,10 +48,10 @@ function EducationForm() {
               <button className='Delete' onClick={() => handleDeleteEducation(education.id)}>Delete</button>
             </div>
           
-            <div className="nameFields">
-            <input type='input'  id='nameF' className='TextFieldSmall' placeholder='Institute Name' name='instituteName' value={education.instituteName} onChange={(event) => handleInputChange(event, education.id)} required />
-            <input type='input'   id='nameF' className='TextFieldSmall' placeholder='Program' name='program' value={education.program} onChange={(event) => handleInputChange(event, education.id)} required />
-            <input type='input'   id='nameF' className='TextFieldSmall' placeholder='Graduation Year' name='graduationYear' value={education.graduationYear} onChange={(event) => handleInputChange(event, education.id)} required />
+            <div className="ApplynameFields">
+            <input type='input'  id='ApplynameF' className='ApplyTextFieldSmall' placeholder='Institute Name' name='instituteName' value={education.instituteName} onChange={(event) => handleInputChange(event, education.id)} required />
+            <input type='input'   id='ApplynameF' className='ApplyTextFieldSmall' placeholder='Program' name='program' value={education.program} onChange={(event) => handleInputChange(event, education.id)} required />
+            <input type='input'   id='ApplynameF' className='ApplyTextFieldSmall' placeholder='Graduation Year' name='graduationYear' value={education.graduationYear} onChange={(event) => handleInputChange(event, education.id)} required />
             
             
                             </div>

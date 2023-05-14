@@ -1,16 +1,16 @@
-.previewJobCom {
+.CandpreviewJobCom {
     flex: 10;
     padding: 3em;
     color: #464646;
     overflow-y: scroll;
 }
 
-.Heading {
+.DescHeading {
     font-size: 3em;
     font-weight: 900;
 }
 
-.topBar {
+.CandtopBarDesc {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,23 +49,25 @@
     
 }
 
-.bottomArea {
+.DescbottomArea {
     padding: 2em 0em;
 }
 
-.panes {
+.Descpanes {
     padding: 1em 0em;
     display: flex;
 }
 
-.leftSide,
+.DescleftSide,
 .rightSide {
-    flex: 1
+    flex: 1;
 }
 
-.leftSide {}
-
-.rightSide {}
+.DescleftSide{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
 
 .listItem {
     display: flex;

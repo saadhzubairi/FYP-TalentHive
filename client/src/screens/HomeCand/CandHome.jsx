@@ -1,8 +1,8 @@
-import "./home.css"
+import "./Candhome.css"
 import Sidebar from '../../components/Candidate Sidebar/CSidebar'
-import Feed from "../../components/HomeFeed/Feed"
+import Feed from "../../components/CandHomeFeed/CandFeed"
 
-function Home(props) {
+function CandHome(props) {
     return(
         <div className="mainContainer">
             
@@ -16,4 +16,4 @@ function Home(props) {
         </div>
     )
 }
-export default Home
+export default CandHome

@@ -1,11 +1,11 @@
 import "./createJob.css"
 import Sidebar from "../../components/Candidate Sidebar/CSidebar"
-import CJobFields from "../../components/CJobFields/CJobFields"
+import ApplyJob from "../../components/ApplyJobForm/ApplyJobFeed"
 function CreateJob(props) {
     return (
         <div className="CreateJob">
             <Sidebar />
-            <CJobFields />
+            <ApplyJob />
         </div>
     )
 }
