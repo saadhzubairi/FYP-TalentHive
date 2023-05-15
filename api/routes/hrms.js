@@ -136,6 +136,33 @@ router.put('/:id/jobsCreated', async (req, res) => {
     }
 });
 
+//remove job from the createdArray:
+router.delete('/:id/jobsCreated', async (req, res) => {
+    try {
+        const hrmId = req.params.id;
+        const jobsCreatedId = req.body.jobsCreatedId;
+        // Check if the HRM exists
+        const hrm = await HRM.findById(hrmId);
+        if (!hrm) {
+            return res.status(404).json({ error: 'HR Manager not found' });
+        }
+        // Check if the jobsCreatedId exists in the jobsCreated array
+        const jobIndex = hrm.jobsCreated.findIndex(job => job === jobsCreatedId);
+        if (jobIndex === -1) {
+            return res.status(404).json({ error: 'Job not found in HR Manager\'s created jobs' });
+        }
+        // Remove the job from the jobsCreated array
+        hrm.jobsCreated.splice(jobIndex, 1);
+
+        // Save the updated hrm object to the database
+        const updatedHRM = await hrm.save();
+        res.status(200).json(updatedHRM);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+
 //get with querry for company and isAdmin
 router.get("/", async (req, res) => {
     try {

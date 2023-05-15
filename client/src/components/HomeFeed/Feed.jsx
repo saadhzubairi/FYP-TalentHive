@@ -1,34 +1,64 @@
 import "./feed.css"
-import { Search } from "@mui/icons-material"
+import { Error, Search } from "@mui/icons-material"
 import JobCard from "../Widgets/JobCards/JobCard"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import { CircularProgress } from "@mui/material"
 function Feed() {
-    const [jobs, setJobs] = useState([])
-    
+    const [myjobs, setJobs] = useState([])
+    const [compjobs, setCompJobs] = useState([])
+    const [isLoading, setIsloading] = useState(false)
+
     useEffect(() => {
-        const fetchJobs = async () => {
-            await axios.get("/jobs/company/34567").then(res => setJobs(res.data)).catch(err => console.log(err));
+        const fetchMyJobs = async () => {
+            setIsloading(true)
+            await axios.get("/jobs?HRCreatorId=644f10bbbbd3951b057a3c6f").then(res => { setJobs(res.data); setIsloading(false) }).catch(err => { console.log(err); setIsloading(false) });
         }
-        fetchJobs();
+        const fetchCompJobs = async () => {
+            setIsloading(true)
+            await axios.get("/jobs?companyId=34567&HRCreatorId[$ne]=644f10bbbbd3951b057a3c6f").then(res => { setCompJobs(res.data); setIsloading(false) }).catch(err => { console.log(err); setIsloading(false) });
+        }
+        fetchMyJobs();
+        fetchCompJobs();
     }, [])
 
     return (
         <div className="feed">
             <div className="feedWrapper">
-                <div className="feedTitle">Hello, Vladmir</div>
-                <div className="searchbar">
-                    <Search className="SearchIcon" />
-                    <input placeholder="Search across the system..." type="text" className="searchInput" />
+                <div className="topSection">
+                    <div className="feedTitle">Hello, Vladmir</div>
+                    <div className="searchbar">
+                        <Search className="SearchIcon" />
+                        <input placeholder="Search across the system..." type="text" className="searchInput" />
+                    </div>
                 </div>
-                <div className="jobPostingHeading">Created Jobs</div>
-                <div className="jobPostings">
-                    {
-                        jobs.map((j) => (<JobCard key={j._id} job={j} />))
-                    }
-                </div>
+                <div className="jobPostingsSectionContainer">
+                <div className="jobPostingsSection">
+                    <div className="jobPostingHeading">Created Jobs</div>
+                    <div className="jobPostingsContainer">
+                        {isLoading ? <div className="jobPostings"> <CircularProgress /> </div> :
+                            myjobs.length === 0 ? <div className="jobPostingsError"><div className="error"><Error />No jobs found...</div></div> :
+                                < div className="jobPostings">
+                                    {
+                                        myjobs.map((j) => (<JobCard key={j._id} job={j} />))
+                                    }
+                                </div>
+                        }
+                    </div>
+                    <div className="jobPostingHeading">Company Jobs</div>
+                    <div className="jobPostingsContainer">
+                        {isLoading ? <div className="jobPostings"> <CircularProgress /> </div> :
+                            myjobs.length === 0 ? <div className="jobPostingsError"><div className="error"><Error />No jobs found...</div></div> :
+                                < div className="jobPostings">
+                                    {
+                                        compjobs.map((j) => (<JobCard key={j._id} job={j} />))
+                                    }
+                                </div>
+                        }
+                    </div>
+                </div></div>
             </div>
-        </div>
+        </div >
     )
 }
 export default Feed

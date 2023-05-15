@@ -37,7 +37,7 @@
 
 .companyTitle {
     padding: 35px 0px 10px;
-    font-size: 35px;
+    font-size: 1.3em;
     font-weight: 700;
     color: #545151;
 }
@@ -46,6 +46,17 @@
     list-style: none;
     padding: 20px;
     margin-top: 1em;
+}
+
+.nameAndEmail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.HREmail{
+    font-weight: 400;
+    color: #858585;
 }
 
 .option {

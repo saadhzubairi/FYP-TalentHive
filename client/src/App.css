@@ -1,0 +1,9 @@
+.mainAppContainer{
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.mainAppContent{
+    flex: 10;
+}

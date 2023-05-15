@@ -1,6 +1,7 @@
-*{
+* {
     transition: 300ms;
 }
+
 .hrFieldsWrapper {
     display: flex;
     flex-direction: column;
@@ -8,6 +9,13 @@
     padding: 3em;
     color: #464646;
     gap: 1em;
+}
+
+.rightSideLoading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
 }
 
 .Heading {
@@ -111,6 +119,14 @@
 .pfpUpload:active {
     background-color: rgb(0, 255, 47);
     transition: 300ms;
+}
+
+.pfpUpload:disabled {
+    background-color: rgb(108, 141, 114);
+    border: 5px solid rgb(108, 141, 114);
+    color: #b8b8b8;
+    transition: 300ms;
+    cursor: not-allowed;
 }
 
 .pfpDelete {
@@ -248,14 +264,6 @@
     background-color: #007472;
 }
 
-.preview:focus {
-    transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    transition: 300ms;
-}
-
-
 .discard {
     background-color: rgb(112, 0, 0);
     border: 1px solid transparent;
@@ -289,14 +297,20 @@
     background-color: rgb(217, 0, 0);
 }
 
-.discard:focus {
-    transition: 300ms;   
-    transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-}
-
-.panesWrapper{
+.panesWrapper {
     height: 75vh;
     overflow-y: scroll;
+}
+
+.detailsHeaderBar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pfpLoading {
+    padding: 5em;
+    border-radius: 50%;
+    box-shadow: 0px 0px 22px 7px rgba(0, 0, 0, 0.03);
+    -webkit-box-shadow: 0px 0px 22px 7px rgba(0, 0, 0, 0.03);
+    -moz-box-shadow: 0px 0px 22px 7px rgba(0, 0, 0, 0.03);
 }

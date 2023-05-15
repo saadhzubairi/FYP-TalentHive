@@ -1,5 +1,5 @@
 import "./viewJob.css"
-import Sidebar from "../../components/Sidebar/Sidebar"
+/* import Sidebar from "../../components/Sidebar/Sidebar" */
 import ViewJobComponent from "../../components/ViewJob/ViewJobComponent"
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
@@ -16,7 +16,7 @@ function ViewJob(props) {
     return (
         <div className="ViewJob">
             <div className="wrapper">
-                <Sidebar />
+                {/* <Sidebar /> */}
                 {job.jobTitle !== undefined ? <ViewJobComponent key={job._id} job={job} /> : <>
                     <div className="loadingWraper">
                         <div className="Heading">Loading...</div>

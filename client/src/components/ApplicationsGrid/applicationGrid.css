@@ -4,9 +4,9 @@
 }
 
 .appGridWrapper {
-    padding-top: 2em;
+    
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(17em, 1fr));
-    padding: 2em;
+    padding: 2em 1em 1em 0.5em;
 }

@@ -13,8 +13,9 @@ function EditHRFields(props) {
     const [img, setImg] = useState('')
     const [loading, setLoading] = useState(false)
     const [isUploading, setIsUploading] = useState(false)
+    const [isPicOn, setIsPicOn] = useState(false)
     const [formData, setFormData] = useState({
-        firstName: "",
+        firstName: "n/a",
         lastName: "",
         LinkedInProfile: "",
         email: "",
@@ -22,6 +23,7 @@ function EditHRFields(props) {
     });
 
     const handleImage = (e) => {
+        setIsPicOn(true)
         console.log(e.target.files[0])
         setImg(e.target.files[0])
     }
@@ -39,24 +41,26 @@ function EditHRFields(props) {
             setIsUploading(false)
             notify();
         })
+        setIsPicOn(false)
     }
 
     useEffect(() => {
         const fetchHR = async () => {
             try {
-                const res = await axios.get("/hrms/644f10bbbbd3951b057a3c6f");
-                setHRM(res.data);
+                if (formData.firstName === "n/a") {
+                    const res = await axios.get("/hrms/644f10bbbbd3951b057a3c6f");
+                    setHRM(res.data);
+                    formData.firstName = res.data.firstName;
+                    formData.lastName = res.data.lastName;
+                    formData.email = res.data.email;
+                    formData.LinkedInProfile = res.data.LinkedInProfile;
+                    formData.bio = res.data.bio;
+                }
             } catch (e) {
                 console.log(e);
             }
         };
-        fetchHR().then(() => {
-            formData.firstName = HRM.firstName;
-            formData.lastName = HRM.lastName;
-            formData.email = HRM.email;
-            formData.LinkedInProfile = HRM.LinkedInProfile;
-            formData.bio = HRM.bio;
-        })
+        fetchHR()
     });
 
     const handleChange = (event) => {
@@ -67,17 +71,17 @@ function EditHRFields(props) {
     };
 
     const handleSubmit = async (event) => {
+        setLoading(true);
         event.preventDefault();
         try {
-            setLoading(true)
             const response = await axios.put('/hrms/644f10bbbbd3951b057a3c6f', formData)
-                .then(setLoading(false));
             console.log(response.data);
         } catch (error) {
             setLoading(false);
             console.error(error);
         }
         notify();
+        setLoading(false);
     };
 
     const notify = () => toast.success('Info Updated', {
@@ -100,26 +104,35 @@ function EditHRFields(props) {
                         <div className="HText">Edit profile details here</div>
                     </div>
                     <div className="buttonContainer">
-                        <button className="discard">Discard</button>
-                        <button className="preview" onClick={handleSubmit}>{loading ? "Saving..." : "Save"}</button>
+
                     </div>
                 </div>
                 <div className="panesWrapper">
                     <div className="panes">
-                        <div className="rightSide">
-                            <div className="pfpSelectionHeading">
-                                <div className="subHeading">Details</div>
-                                <div className="forms">
-                                    <div className="nameFields">
-                                        <input type="text" id='namef' className="TextFieldSmall" placeholder='First Name' name='firstName' onChange={handleChange} defaultValue={formData.firstName} />
-                                        <input type="text" id='namef' className="TextFieldSmall" placeholder='Last Name' name='lastName' onChange={handleChange} defaultValue={formData.lastName} />
-                                    </div>
-                                    <input type="text" className="TextFieldSmall" placeholder='Email' name='email' onChange={handleChange} defaultValue={formData.email} />
-                                    <input type="text" className="TextFieldSmall" placeholder='LinkedIn' name='LinkedInProfile' onChange={handleChange} defaultValue={formData.LinkedInProfile} />
-                                    <textarea id="" cols="30" rows="10" className="TextFieldBig" placeholder='Bio' name='bio' onChange={handleChange} defaultValue={formData.bio} />
-                                </div>
+                        {(formData.firstName === "n/a" || loading) ?
+                            <div className="rightSide">
+                                <div className="rightSideLoading">
+                                    <CircularProgress />
+                                </div >
                             </div>
-                        </div>
+                            :
+                            <div className="rightSide">
+                                <div className="pfpSelectionHeading">
+                                    <div className="detailsHeaderBar">
+                                        <div className="subHeading">Details</div>
+                                        <button className="preview" onClick={handleSubmit}>{loading ? "Saving..." : "Save"}</button>
+                                    </div>
+                                    <div className="forms">
+                                        <div className="nameFields">
+                                            <input type="text" id='namef' className="TextFieldSmall" placeholder='First Name' name='firstName' onChange={handleChange} defaultValue={formData.firstName} required />
+                                            <input type="text" id='namef' className="TextFieldSmall" placeholder='Last Name' name='lastName' onChange={handleChange} defaultValue={formData.lastName} required />
+                                        </div>
+                                        <input type="text" className="TextFieldSmall" placeholder='Email' name='email' onChange={handleChange} defaultValue={formData.email} required />
+                                        <input type="text" className="TextFieldSmall" placeholder='LinkedIn' name='LinkedInProfile' onChange={handleChange} defaultValue={formData.LinkedInProfile} required />
+                                        <textarea id="" cols="30" rows="10" className="TextFieldBig" placeholder='Bio' name='bio' onChange={handleChange} defaultValue={formData.bio} required />
+                                    </div>
+                                </div>
+                            </div>}
                         <div className="leftSide">
                             <div className="pfpSelectionHeading">
                                 <div className="subHeading">Profile Picture</div>
@@ -127,13 +140,17 @@ function EditHRFields(props) {
                             </div>
                             <div className="profileImageSelection">
                                 <div className="profilePic">
-                                    {isUploading ? <CircularProgress /> :
+                                    {isUploading ?
+                                        <div className="pfpLoading">
+                                            <CircularProgress />
+                                        </div>
+                                        :
                                         <img src={HRM.pfpURL} alt="" className="pfp" />
                                     }
                                 </div>
                                 <div className="pfpButtons">
                                     <input type='file' onChange={handleImage}></input>
-                                    <button className="pfpUpload" onClick={handleUpload} ><Upload /> UPLOAD</button>
+                                    <button className="pfpUpload" onClick={handleUpload} disabled={!isPicOn} ><Upload /> UPLOAD</button>
                                     <button className="pfpDelete"><Delete /> DELETE</button>
                                 </div>
                             </div>

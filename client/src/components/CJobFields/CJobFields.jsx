@@ -22,6 +22,7 @@ function CJobFields(props) {
         if (value.trim() === "") return;
         setTags([...tags, value])
         e.target.value = ''
+        e.preventDefault();
     }
     function rmeoveTag(index) {
         setTags(tags.filter((el, i) => i !== index))
@@ -29,7 +30,6 @@ function CJobFields(props) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
         const job = {
             jobTitle: event.target.elements.jobTitle.value,
             workplace: parseInt(event.target.elements.workplace.value),
@@ -49,6 +49,9 @@ function CJobFields(props) {
                 job
             )
             console.log(response.data);
+            await axios.put("/hrms/644f10bbbbd3951b057a3c6f/jobsCreated", {
+                jobsCreatedId: response.data._id
+            })
             navigate(`/createJob/preview/${response.data._id}`);
         } catch (error) {
             console.error(error);
@@ -64,7 +67,7 @@ function CJobFields(props) {
                         <div className="Heading">Create Job</div>
                         <div className="buttonContainer">
                             <Link to={"/createJob"}>
-                                <button className="discard">Discard</button>
+                                {/* <button className="discard">Discard</button> */}
                             </Link>
                             {/* <Link to={"/createJob/preview"}> */}
                             <button className="preview" type="submit">Preview</button>
@@ -75,13 +78,13 @@ function CJobFields(props) {
                         <div className="basicInfo">
                             <div className="basicInfoWrapper">
                                 <div className="subHeading">Basic Info</div>
-                                <input type="text" name="jobTitle" className="TextFieldSmall" placeholder="Job Title (e.g: Software Engineer)" required/>
+                                <input type="text" name="jobTitle" className="TextFieldSmall" placeholder="Job Title (e.g: Software Engineer)" required />
                                 <select name="workplace" id="" className="ComboBox" placeholder="Workplace type (eg. Remote)" required>
                                     <option value="1">Remote</option>
                                     <option value="2">Hybrid</option>
                                     <option value="3">on-Site</option>
                                 </select>
-                                <input type="text" name="location" className="TextFieldSmall" placeholder="Location (e.g: Chicago,IL) " required/>
+                                <input type="text" name="location" className="TextFieldSmall" placeholder="Location (e.g: Chicago,IL) " required />
                                 <select name="jobType" id="" className="ComboBox" placeholder="Job Type (e.g Contract)" required>
                                     <option value="1">Internship</option>
                                     <option value="2">Apprenticeship</option>
@@ -114,7 +117,7 @@ function CJobFields(props) {
                         <div className="DescriptiveInfo">
                             <div className="subHeading">Descriptive Info</div>
                             <textarea name="description" type="text" className="TextFieldBig" placeholder="Job Description" required />
-                            <textarea name="requirements" type="text" className="TextFieldBig" placeholder="Requirements"  required/>
+                            <textarea name="requirements" type="text" className="TextFieldBig" placeholder="Requirements" required />
                         </div>
                     </div>
                 </form>

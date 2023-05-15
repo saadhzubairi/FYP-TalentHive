@@ -1,5 +1,5 @@
 import "./viewCandidate.css"
-import Sidebar from "../../components/Sidebar/Sidebar"
+/* import Sidebar from "../../components/Sidebar/Sidebar" */
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -15,7 +15,7 @@ function ViewCandidate(props) {
     }, []) */
     return (
         <div className="wrapper">
-            <Sidebar />
+            {/* <Sidebar /> */}
             <ViewCandidateComp />
         </div>
     )
