@@ -9,7 +9,8 @@ import { Link, useNavigate } from "react-router-dom";
 function ApplyJobFeed(props) {
     const [tags, setTags] = useState([]);
     const { jobId } = useParams();
-    const navigate = useNavigate()
+    const [work,setWork]=useState([]);
+    const navigate = useNavigate();
 
     function handleKeyDown(e) {
         if (e.key === 'Backspace' && e.target.value === "") rmeoveTag(tags.length - 1)
@@ -25,6 +26,7 @@ function ApplyJobFeed(props) {
     }
 
     const [showPopup, setShowPopup] = useState(false);
+    const [message, setMessage] = useState("");
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -36,21 +38,22 @@ function ApplyJobFeed(props) {
             phone_number: event.target.elements.phone_number.value,
             city: event.target.elements.city.value,
             skills: tags,
+            
         };
 
 
 
 
         try {
-            const response = await axios.post(
-                `/api/candidate/`,
+            const response = await axios.put(
+                `/candidate/646154e6e36ab2b8ead56230`,
                 candidate
             ).then((res) => axios.post(
-                `/api/jobApplication/`,
+                `/jobApplications/`,
                 {
                     candidateId: res.data._id,
                     jobId: jobId,
-                    message: "THE NEED FOR SPEED",
+                    message: "I love saad b zubairi",
                     rating: 5,
                     status: 1
                 }
@@ -66,6 +69,8 @@ function ApplyJobFeed(props) {
             console.error(error);
         }
     };
+
+      
 
 
 
@@ -91,15 +96,16 @@ function ApplyJobFeed(props) {
     return (
         <div className="ApplyJobFeed">
             <div className="Applywrapper">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} required>
                     <div className="ApplytopBar">
-                        <div className="ApplyHeading">{jobs.jobTitle}</div>
+                        <div className="ApplyHeading" required>{jobs.jobTitle}</div>
 
                         <div className="buttonContainer">
                             <button className="preview" type="submit">Submit</button>
                         </div>
                     </div>
                     <div className="ApplyFormsContainer">
+                    {message && <div>{message}</div>}
                         <div className="ApplybasicInfo">
                             <div className="ApplyResume">
                                 <div className="upload-cv-box">
@@ -107,23 +113,24 @@ function ApplyJobFeed(props) {
 
                                     <label htmlFor="cv-upload" className="cv-upload-label">Choose File</label>
                                     <input type="file" id="cv-upload" className="cv-upload-input" />
-                                    <button className="cv-upload-btn" >Upload</button>
+                                    <button className="cv-upload-btn" required>Upload</button>
                                 </div>
                             </div>
 
                             <div className="subHeading">Basic Info</div>
                             <div className="ApplynameFields">
-                                <input type="text" id='ApplynameF' className="ApplyTextFieldSmall" placeholder='First Name' />
-                                <input type="text" id='ApplynameL' className="ApplyTextFieldSmall" placeholder='Last Name' />
+                                <input type="text" id='ApplynameF' name="name" className="ApplyTextFieldSmall" placeholder='First Name' />
+                                <input type="text" id='ApplynameL' name="" className="ApplyTextFieldSmall" placeholder='Last Name' />
                             </div>
                             <div className="ApplynameFields">
-                                <input type="text" id='ApplynameF' className="ApplyTextFieldSmall" placeholder="Email" />
-                                <input type="text" id='ApplynameF' className="ApplyTextFieldSmall" placeholder="LinkedIn URL" />
+                                <input type="text" id='ApplynameF' name="email" className="ApplyTextFieldSmall" placeholder="Email" required/>
+                                <input type="text" id='ApplynameF' name="linkedin"className="ApplyTextFieldSmall" placeholder="LinkedIn URL" required/>
+                               
                             </div>
 
                             <div className="ApplynameFields">
-                                <input type="text" id='ApplynameF' className="ApplyTextFieldSmall" placeholder="City" />
-                                <input type="text" id='ApplynameF' className="ApplyTextFieldSmall" placeholder="Country" />
+                                <input type="text" id='ApplynameF' name="city" className="ApplyTextFieldSmall" placeholder="City" required/>
+                                <input type="text" id='ApplynameF' name="phone_number" className="ApplyTextFieldSmall" placeholder="Country" required/>
                             </div>
 
                             <div className="subHeading">Skills</div>
@@ -139,8 +146,8 @@ function ApplyJobFeed(props) {
                         </div>
                         <div className="ApplyDescriptiveInfo">
                             <div className="subHeading">Descriptive Info</div>
-                            <textarea type="text" className="ApplyTextFieldBig" placeholder="What made you apply for the job?" />
-                            <textarea type="text" className="ApplyTextFieldBig" placeholder="Why do you think you will be the perfect fit?" />
+                            <textarea type="text" className="ApplyTextFieldBig" placeholder="What made you apply for the job?" required/>
+                            <textarea type="text" className="ApplyTextFieldBig" placeholder="Why do you think you will be the perfect fit?" required/>
                             <div className="AddEducation">Add Education</div>
                             <EducationForm />
                         </div>
