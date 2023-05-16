@@ -1,0 +1,122 @@
+.CandpreviewJobCom {
+    flex: 10;
+    padding: 3em;
+    color: #464646;
+    overflow-y: scroll;
+}
+
+.DescHeading {
+    font-size: 3em;
+    font-weight: 900;
+}
+
+.CandtopBarDesc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.JobDescCont{
+  
+    height: auto;
+    background-color:#d9d9d9 ;
+    padding: 1em;
+    border-radius: 1em;
+    width: fit-content;
+}
+
+.JTitle{
+    font-size: 2.5em;
+    font-weight: 500;
+}
+
+.Title{
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: .5em;
+}
+
+.subText{
+    margin-bottom: 1em;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 1em;
+}
+
+.discard{
+    
+}
+
+.DescbottomArea {
+    padding: 2em 0em;
+}
+
+.Descpanes {
+    padding: 1em 0em;
+    display: flex;
+}
+
+.DescleftSide,
+.rightSide {
+    flex: 1;
+}
+
+.DescleftSide{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.listItem {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0.3em;
+    font-size: 1.2em;
+}
+
+.firstSection {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+.skillsSection {
+    background-color: #d9d9d9;
+    padding: 1em;
+    border-radius: 1em;
+    width: fit-content;
+}
+
+.skillItems {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.skillItem {
+    background-color: #f5f5f5;
+    color: #000;
+    font-weight: 400;
+    display: flex;
+    width: fit-content;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+    padding: 0.5em 0.9em;
+    font-size: 1.2em;
+}
+
+.skillText {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0.3em 0em 1em 0.2em;
+    gap: 0.5em;
+    font-size: 1.2em;
+}
+

@@ -1,0 +1,22 @@
+.apply-now-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .apply-now-button:hover {
+    background-color: #0069d9;
+  }
+
+  .card {
+    width: 18rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+

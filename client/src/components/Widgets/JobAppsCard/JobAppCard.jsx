@@ -21,7 +21,7 @@ function JobAppCard({ app }) {
     return (
 
         <div className="jobAppCard">
-            <Link to={`/ViewCandidate/${app._id}`} style={{ textDecoration: "none" }}>
+            <Link to={`/HRView/ViewCandidate/${app._id}`} style={{ textDecoration: "none" }}>
                 <div className="jobAppCardContainer">
                     <div className="positionSpots">
                         <div className="position">
