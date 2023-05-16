@@ -1,0 +1,55 @@
+.filter-popup {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1;
+  }
+  
+  .filter-popup h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .filter-popup label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .filter-popup select {
+    font-size: 16px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .filter-buttons {
+    margin-top: 10px;
+    text-align: right;
+  }
+  
+  .filter-buttons button {
+    font-size: 16px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .filter-buttons button:first-child {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .filter-buttons button:last-child {
+    background-color: #ccc;
+    color: white;
+  }
+  

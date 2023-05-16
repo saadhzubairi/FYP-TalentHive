@@ -11,6 +11,8 @@ function CandJobCard({job}) {
     // Navigate to the "jobdesc" route
   };
 
+
+
   return (
     <button className="CandjobCard1" onClick={handleButtonClick}>
       <div className="CandjobCardContainer1">

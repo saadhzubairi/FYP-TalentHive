@@ -3,7 +3,9 @@ import { Search } from "@mui/icons-material"
 import CandJobCard from "../Widgets/CandJobCard/CandJobCard"
 import TuneIcon from '@mui/icons-material/Tune';
 import axios from "axios";
-import { useState,useEffect } from "react";
+import FilterPopup from "../Filter/Filter";
+
+import { useState, useEffect } from "react";
 function CandFeed() {
 
     const [jobs, setJobs] = useState([])
@@ -14,6 +16,36 @@ function CandFeed() {
         }
         fetchJobs();
     }, [])
+
+    const [filter, setFilter] = useState({
+        jobType: "",
+        modeOfWork: "",
+        location: ""
+    });
+
+    const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+    const handleFilterChange = (event) => {
+        const { name, value } = event.target;
+        setFilter((prevState) => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+    const handleFilterReset = () => {
+        setFilter({
+            jobType: "",
+            modeOfWork: "",
+            location: ""
+        });
+    };
+
+    const handleFilterApply = () => {
+        // TODO: Implement filter logic
+    };
+
+
     return (
         <div className="CandfeedHome">
             <div className="CandfeedWrapper1">
@@ -25,14 +57,30 @@ function CandFeed() {
 
                 <div className="Candjobss">
 
-                <div className="CandjobPostingHeading1">Available Jobs</div>
-                <button className="filter"><TuneIcon/> </button>
-               
+                    <div className="CandjobPostingHeading1">Available Jobs</div>
+
+                    <div className="filterBut">
+
+                        <button onClick={() => setIsFilterOpen(true)}>Filter</button>
+      {isFilterOpen && (
+        <FilterPopup
+          isOpen={isFilterOpen}
+          onClose={() => setIsFilterOpen(false)}
+          filter={filter}
+          onFilterChange={handleFilterChange}
+          onFilterReset={handleFilterReset}
+          onFilterApply={handleFilterApply}
+        />
+      )}
+                    </div>
+
+
+
                 </div>
 
                 <div className="line"> </div>
                 <div className="CandjobPostings1">
-                {
+                    {
                         jobs.map((j) => (<CandJobCard key={j._id} job={j} />))
                     }
                 </div>

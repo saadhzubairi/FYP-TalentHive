@@ -62,8 +62,8 @@ const NameSchema = new mongoose.Schema({
 
 const candidateSchema = new mongoose.Schema({
     name: {
-        type: NameSchema,
-        required: true,
+        type: String,
+        required:false,
     },
     email: {
         type: String,
@@ -72,7 +72,7 @@ const candidateSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        required: false
     },
     linkedin: {
         type: String,
