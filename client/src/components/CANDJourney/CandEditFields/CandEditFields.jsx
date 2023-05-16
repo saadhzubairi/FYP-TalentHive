@@ -1,10 +1,10 @@
 import { Delete, Upload } from '@mui/icons-material'
-import './EditCandFields.css'
+import './candEditFields.css'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-function EditCandFields(props) {
+function CandEditFields(props) {
     
 
     return (
@@ -67,4 +67,4 @@ function EditCandFields(props) {
         </div>
     )
 }
-export default EditCandFields
+export default CandEditFields

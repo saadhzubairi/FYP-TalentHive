@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import { useEffect, useState } from "react";
 import axios from "axios";
 function Sidebar() {
+    
     const [HRM, setHRM] = useState({ _id: "n/a", pfpURL: "http://localhost:3000/assets/blank_pfp.png" })
     const [imageSrc, setImageSrc] = useState(HRM.pfpURL);
     useEffect(() => {

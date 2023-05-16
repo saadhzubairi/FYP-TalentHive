@@ -3,7 +3,7 @@ import { Search } from "@mui/icons-material"
 import CandJobCard from "../Widgets/CandJobCard/CandJobCard"
 import TuneIcon from '@mui/icons-material/Tune';
 import axios from "axios";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 function CandFeed() {
 
     const [jobs, setJobs] = useState([])
@@ -22,17 +22,14 @@ function CandFeed() {
                     <Search className="CandSearchIcon1" />
                     <input placeholder="Search across the system..." type="text" className="searchInput" />
                 </div>
-
                 <div className="Candjobss">
-
-                <div className="CandjobPostingHeading1">Available Jobs</div>
-                <button className="filter"><TuneIcon/> </button>
-               
+                    <div className="CandjobPostingHeading1">Available Jobs</div>
+                    <button className="filter"><TuneIcon /> </button>
                 </div>
 
                 <div className="line"> </div>
                 <div className="CandjobPostings1">
-                {
+                    {
                         jobs.map((j) => (<CandJobCard key={j._id} job={j} />))
                     }
                 </div>

@@ -1,12 +1,12 @@
 import axios from "axios";
 import EducationForm from "./EducationForm";
-import "./ApplyJobFeed.css"
+import "./candApplyJobComp.css"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
 
 import { Link, useNavigate } from "react-router-dom";
 
-function ApplyJobFeed(props) {
+function CandApplyJobComp(props) {
     const [tags, setTags] = useState([]);
     const { jobId } = useParams();
     const navigate = useNavigate()
@@ -57,7 +57,7 @@ function ApplyJobFeed(props) {
             ))
             console.log(response.data);
 
-           
+
 
 
 
@@ -80,13 +80,6 @@ function ApplyJobFeed(props) {
         }
         fetchJobs();
     }, [])
-
-
-
-
-
-
-
 
     return (
         <div className="ApplyJobFeed">
@@ -128,14 +121,14 @@ function ApplyJobFeed(props) {
 
                             <div className="subHeading">Skills</div>
                             <div className="ApplytagsInputContainer">
-                                        {tags.map((tag, index) => (
-                                            <div className="ApplytagItem" key={index}>
-                                                <div className="ApplytagText">{tag}</div>
-                                                <div onClick={() => rmeoveTag(index)} className="ApplytagRemove">&times;</div>
-                                            </div>
-                                        ))}
-                                        <input onKeyDown={handleKeyDown} type="text" className="ApplyTagInput" placeholder="e.g: Python3, React.js" />
+                                {tags.map((tag, index) => (
+                                    <div className="ApplytagItem" key={index}>
+                                        <div className="ApplytagText">{tag}</div>
+                                        <div onClick={() => rmeoveTag(index)} className="ApplytagRemove">&times;</div>
                                     </div>
+                                ))}
+                                <input onKeyDown={handleKeyDown} type="text" className="ApplyTagInput" placeholder="e.g: Python3, React.js" />
+                            </div>
                         </div>
                         <div className="ApplyDescriptiveInfo">
                             <div className="subHeading">Descriptive Info</div>
@@ -150,4 +143,4 @@ function ApplyJobFeed(props) {
         </div >
     )
 }
-export default ApplyJobFeed
+export default CandApplyJobComp

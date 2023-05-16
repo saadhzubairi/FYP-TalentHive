@@ -7,14 +7,34 @@ import ViewJob from "./screens/HRMJourney/ViewJobHR/ViewJob";
 import ViewCandidate from "./screens/HRMJourney/ViewCandidate/ViewCandidate";
 import Login from "./screens/HRMJourney/Login/Login";
 import Sidebar from "./components/HRMJourney/Sidebar/Sidebar";
-import { BrowserRouter, Route, Routes } from "react-router-dom"
 
-const Layout = ({ children }) => {
+//CandidateStuff
+import CandHome from "./screens/CANDJourney/CandHome/CandHome"
+import CandSidebar from "./components/CANDJourney/CandSidebar/CandSidebar"
+import CandPreviewJob from "./screens/CANDJourney/CandApplyJob/CandPreviewJob"
+import CandAppliedJobs from "./screens/CANDJourney/CandAppliedJobs/CandAppliedJobs";
+import CandEdit from "./screens/CANDJourney/CandEdit/CandEdit";
+import CandApplyJob from "./screens/CANDJourney/CandApplyJob/CandApplyJob"
+
+import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom"
+
+const LayoutForHr = ({ children }) => {
   return (
     <div className="mainAppContainer">
       <Sidebar />
       <div className="content">
-        {children}
+        <Outlet />
+      </div>
+    </div>
+  );
+};
+
+const LayoutForCand = ({ children }) => {
+  return (
+    <div className="mainAppContainer">
+      <CandSidebar />
+      <div className="content">
+        <Outlet />
       </div>
     </div>
   );
@@ -23,19 +43,26 @@ const Layout = ({ children }) => {
 function App() {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/HRView/" element={<Home />} />
-          <Route path="/HRView/login" element={<Login />} />
-          <Route path="/HRView/createJob" element={<CreateJob edit={false} />} />
-          <Route path="/HRView/editJob/:jobId" element={<CreateJob edit={true} />} />
-          <Route path="/HRView/createJob/preview" element={<PreviewJob />} />
-          <Route path="/HRView/createJob/preview/:jobId" element={<PreviewJob onApps />} />
-          <Route path="/HRView/EditHr" element={<EditHR />} />
-          <Route path="/HRView/ViewJob/:jobId" element={<ViewJob />} />
-          <Route path="/HRView/ViewCandidate/:appId" element={<ViewCandidate />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route path="/HRView" element={<LayoutForHr />}>
+          <Route path="" element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="createJob" element={<CreateJob edit={false} />} />
+          <Route path="editJob/:jobId" element={<CreateJob edit={true} />} />
+          <Route path="createJob/preview" element={<PreviewJob />} />
+          <Route path="createJob/preview/:jobId" element={<PreviewJob onApps />} />
+          <Route path="EditHr" element={<EditHR />} />
+          <Route path="ViewJob/:jobId" element={<ViewJob />} />
+          <Route path="ViewCandidate/:appId" element={<ViewCandidate />} />
+        </Route>
+        <Route path="/CANDView" element={<LayoutForCand />}>
+          <Route path="" element={<CandHome />} />
+          <Route path="JobDesc/:jobId" element={<CandPreviewJob />} />
+          <Route path="AppliedJobsScreen" element={<CandAppliedJobs />} />
+          <Route path="ApplyJob/:jobId" element={< CandApplyJob />} />
+          <Route path="EditCand" element={<CandEdit />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }

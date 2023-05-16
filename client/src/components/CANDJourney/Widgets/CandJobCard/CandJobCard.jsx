@@ -1,39 +1,43 @@
 import { useNavigate } from 'react-router-dom';
 import "./CandJobCard.css";
-import KeyboardDoubleArrowUpRoundedIcon from "@mui/icons-material/KeyboardDoubleArrowUpRounded";
+import { format } from "timeago.js"
 
-
-function CandJobCard({job}) {
-  const history = useNavigate(); // Get access to the history object
-
+function CandJobCard({ job }) {
+  const navigate = useNavigate();
   const handleButtonClick = () => {
-    history(`/JobDesc/${job._id}`); 
-    // Navigate to the "jobdesc" route
+    navigate(`JobDesc/${job._id}`);
   };
 
   return (
-    <button className="CandjobCard1" onClick={handleButtonClick}>
-      <div className="CandjobCardContainer1">
+    <button className="CandjobCard" onClick={handleButtonClick}>
+      <div className="CandjobCardContainer">
+
+        <div className="imageNcol">
+
+          <div className="image1">
+            <img
+              src="https://preparecenter.org/wp-content/uploads/2021/04/google-_square_logo.jpeg"
+              alt=""
+              className="companyImage"
+            />
+          </div>
+          <div className="titleLocSkills">
+            <div className="CandJobTitle"> {job.jobTitle} </div>
+            <div className="CandLoc"> {job.location}</div>
+            <div className="CandSkills">
+              {job.skills.map((e) => <div className="skillChip">{e}</div>)}
+            </div>
+          </div>
+
+        </div>
+
         <div className="Candjobtype">
           <div className="Candtype"> {job.type} </div>
-          <div className="Canddate">23/07/2022</div>
+          <div className="Canddate">{format(job.createdAt)}</div>
         </div>
-        <div className="CandpositionSpots">
-          <div className="Candposition">
-            <div className="Candtitle1"> {job.jobTitle} </div>
-          </div>
-          <div className="Candloc"> {job.location}</div>
-          <div className="Candspots">{job.skills}</div>
-          <div className="Candspots">Experience Required: 2 Years</div>
-        </div>
-        <div className="image1">
-          <img
-            src="https://preparecenter.org/wp-content/uploads/2021/04/google-_square_logo.jpeg"
-            alt=""
-            className="companyImage"
-          />
-        </div>
+
       </div>
+
     </button>
   );
 }

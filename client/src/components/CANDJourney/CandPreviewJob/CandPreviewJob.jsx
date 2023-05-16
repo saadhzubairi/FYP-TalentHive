@@ -3,7 +3,7 @@ import './CandpreviewJob.css'
 import StoreIcon from '@mui/icons-material/Store';
 import DescriptionIcon from '@mui/icons-material/Description';
 import ChecklistIcon from '@mui/icons-material/Checklist';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -19,19 +19,15 @@ function PreviewJobDescCand({ }) {
         fetchJobs();
     }, [])
 
-    const history = useNavigate(); // Get access to the history object
-
-    const handleButtonClick = () => {
-        history(`/ApplyJob/${jobs._id}`);
-        // Navigate to the "jobdesc" route
-    };
     return (
         <div className="CandpreviewJobCom">
             <div className="CandpreviewJobCompWrapper">
                 <div className="CandtopBarDesc">
                     <div className="DescHeading"> {jobs.jobTitle}</div>
                     <div className="buttonContainer">
-                        <button className="preview" onClick={handleButtonClick}>Apply Now</button>
+                        <Link to={`/CANDView/ApplyJob/${jobs._id}`} >
+                            <button className="preview" >Apply Now</button>
+                        </Link>
                     </div>
                 </div>
                 <div className="DescbottomArea">
@@ -80,8 +76,8 @@ function PreviewJobDescCand({ }) {
                             <div className="skillsSection">
                                 <div className="skillText"><Dataset /> Skills</div>
                                 <div className="skillItems">
-                                  {jobs.skills}
-                                 
+                                    {jobs.skills}
+
                                 </div>
                             </div>
 

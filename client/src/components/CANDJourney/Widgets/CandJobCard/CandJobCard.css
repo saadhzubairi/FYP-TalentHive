@@ -1,5 +1,5 @@
-.CandjobCard1 {
-    width: 80%;
+.CandjobCard {
+    width: auto;
     height: auto;
     background-color: #d9d9d9;
     border-radius: 2em;
@@ -8,22 +8,55 @@
     cursor: pointer;
 }
 
-.CandjobCard1:hover {
+.CandjobCard:hover {
     box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
     transition: 300ms;
 
 }
+.CandpositionSpots{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.imageNcol{
+    display: flex;
+    gap: 2.5em;
+    align-items: center;
+}
 
-.CandjobCardContainer1 {
+.titleLocSkills{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.CandJobTitle{
+    font-weight: 900;
+    font-size: 2em;
+    text-align: left;
+}
+
+.CandLoc{
+    font-size: 1.5em;
+    font-style: italic;
+    text-align: left;
+}
+
+.CandSkills{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.CandjobCardContainer {
     color: #4a4a4a;
     display: flex;
     padding: 2em;
     gap: 2em;
-   
-    flex-direction: row-reverse;
-
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .CandpositionSpots {

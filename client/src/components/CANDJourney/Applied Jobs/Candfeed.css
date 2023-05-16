@@ -1,7 +1,5 @@
-
-
 .feed1 {
-    flex:8;
+    flex: 8;
     height: 100%;
     overflow-y: scroll;
     color: #464646;
@@ -16,6 +14,7 @@
     font-weight: 900;
     color: #464646;
 }
+
 .searchbar1 {
     margin-top: 2em;
     width: 80%;
@@ -50,28 +49,25 @@
     outline: none;
 }
 
-.jobss{
+.jobss {
     display: flex;
     flex-direction: row;
-   justify-content: space-between;
-    width: 80%;
+    justify-content: space-between;
     height: auto;
-    
     margin-top: 20px;
+}
 
+.Candjobss {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    margin-top: 20px;
 }
 
 
-.line{
-    margin-top: 20px;
-    margin-left: 20px;
-    height: 0px;
-    width: 78%;
-    margin-right: 20px;
-    border:1px solid #e5e4e4;
-    border-radius: 20px;
-}
-.filter{
+.filter {
     margin-top: 3em;
     border: none;
     height: 4em;
@@ -80,7 +76,7 @@
     justify-content: center;
     align-items: center;
     background-color: #c6c6c6;
-   
+
     border: none;
     border-radius: 30%;
     cursor: pointer;
@@ -89,6 +85,7 @@
     -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
     transition: 300ms;
 }
+
 .jobPostings1 {
     padding-top: 2em;
     display: flex;
@@ -100,5 +97,5 @@
 .jobPostingHeading1 {
     margin-top: 1em;
     font-size: 36px;
-    font-weight: 900;   
+    font-weight: 900;
 }
