@@ -1,10 +1,15 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./cJobFields.css"
-import { useState } from "react"
+import React, { useState } from "react"
 import axios from "axios";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
 function CJobFields(props) {
     const [tags, setTags] = useState([]);
     const [pos, setPos] = useState(1);
+    const [descValue, setDescValue] = useState('');
+    const [reqValue, setReqValue] = useState('');
     const navigate = useNavigate()
 
 
@@ -28,6 +33,15 @@ function CJobFields(props) {
         setTags(tags.filter((el, i) => i !== index))
     }
 
+    const editorStyles = {
+        borderRadius: '1em',
+        border: 'none',
+        fontSize: '2em',
+        color: '#000',
+        backgroundColor: "#f1f1f1",
+        height: "32vh"
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         const job = {
@@ -36,12 +50,14 @@ function CJobFields(props) {
             location: event.target.elements.location.value,
             type: parseInt(event.target.elements.jobType.value),
             skills: tags,
-            description: event.target.elements.description.value,
-            requiremets: event.target.elements.requirements.value,
+            description: descValue,
+            requiremets: reqValue,
             spots: pos,
             companyId: "34567",
             HRCreatorId: "644f10bbbbd3951b057a3c6f",
         };
+
+        console.log(job)
 
         try {
             const response = await axios.post(
@@ -116,8 +132,9 @@ function CJobFields(props) {
                         </div>
                         <div className="DescriptiveInfo">
                             <div className="subHeading">Descriptive Info</div>
-                            <textarea name="description" type="text" className="TextFieldBig" placeholder="Job Description" required />
-                            <textarea name="requirements" type="text" className="TextFieldBig" placeholder="Requirements" required />
+                            {/* <textarea name="description" type="text" className="TextFieldBig" placeholder="Job Description" required /> */}
+                            <ReactQuill name="description" className="TextField" placeholder="Job Description" style={editorStyles} value={descValue} onChange={setDescValue} required />
+                            <ReactQuill name="requirements" className="TextField" placeholder="Requirements" style={editorStyles} value={reqValue} onChange={setReqValue} required />
                         </div>
                     </div>
                 </form>

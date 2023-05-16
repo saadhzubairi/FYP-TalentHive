@@ -30,8 +30,15 @@ function EditHRFields(props) {
 
     const handleUpload = () => {
         setIsUploading(true)
+
         const formdata = new FormData();
+
         formdata.append('filename', img)
+
+        axios.put('/upload/', {
+            fileUrl: HRM.pfpURL
+        }).then(() => console.log("Deleted!")).catch((err) => console.log(err))
+
         axios.post('/upload/', formdata).then((res) => {
             axios.put("/hrms/644f10bbbbd3951b057a3c6f", {
                 "pfpURL": res.data.downloadURL
@@ -41,6 +48,7 @@ function EditHRFields(props) {
             setIsUploading(false)
             notify();
         })
+
         setIsPicOn(false)
     }
 

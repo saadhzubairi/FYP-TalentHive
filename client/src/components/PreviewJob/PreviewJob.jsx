@@ -86,13 +86,12 @@ function PreviewJobComp({ onAppsPage, job }) {
                                         </div>
                                     </div>}
                                     <div className="Title">Job Description</div>
-                                    <div className="subText">
-                                        {jobP.description}
-                                    </div>
+
+                                    <div dangerouslySetInnerHTML={{ __html: jobP.description }}></div>
+
                                     <div className="Title">Requirements</div>
-                                    <div className="subText">
-                                        {jobP.requiremets}
-                                    </div>
+                                    <div dangerouslySetInnerHTML={{ __html: jobP.requiremets }}></div>
+
 
                                     {onAppsPage ? <div className="skillsSection">
                                         <div className="skillText"><Dataset /> Skills</div>

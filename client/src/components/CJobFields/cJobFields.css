@@ -1,5 +1,20 @@
-*{
+* {
     transition: 100ms;
+}
+
+.ql-editor {
+    font-size: 1.5em;
+    font-family: 'Lato', sans-serif;
+    border: none;
+}
+
+.ql-container {
+    border: none !important;
+    height: min-content;
+}
+
+.ql-snow {
+    border: none !important;
 }
 
 .cJobFields {
@@ -119,7 +134,7 @@
     font-weight: 600;
 }
 
-.tagItem:hover{
+.tagItem:hover {
     background-color: #929292;
     color: white;
     user-select: none;

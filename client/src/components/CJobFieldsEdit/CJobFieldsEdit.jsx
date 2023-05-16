@@ -2,11 +2,24 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import "./cJobFieldsEdit.css"
 import { useEffect, useState } from "react"
 import axios from "axios";
+import ReactQuill from "react-quill";
+import 'react-quill/dist/quill.snow.css';
 function CJobFieldsEdit(props) {
     const { jobId } = useParams()
     const [tags, setTags] = useState([]);
     const [pos, setPos] = useState(1);
     const [job, setJob] = useState({ _id: "n/a" })
+    const [descValue, setDescValue] = useState('');
+    const [reqValue, setReqValue] = useState('');
+    const editorStyles = {
+        borderRadius: '0.5em',
+        border: 'none',
+        fontSize: '2em',
+        color: '#000',
+        backgroundColor: "#f1f1f1",
+        height: "32vh"
+    };
+
     const navigate = useNavigate()
 
     const IncPos = () => {
@@ -39,8 +52,8 @@ function CJobFieldsEdit(props) {
             location: event.target.elements.location.value,
             type: parseInt(event.target.elements.jobType.value),
             skills: tags,
-            description: event.target.elements.description.value,
-            requiremets: event.target.elements.requirements.value,
+            description: descValue,
+            requiremets: reqValue,
             spots: pos,
             companyId: "34567",
             HRCreatorId: "644f10bbbbd3951b057a3c6f",
@@ -64,6 +77,8 @@ function CJobFieldsEdit(props) {
                 .then((res) => {
                     setJob(res.data)
                     setTags(res.data.skills)
+                    setDescValue(res.data.description)
+                    setReqValue(res.data.requiremets)
                 })
                 .catch((err) => console.log(err))
         }
@@ -134,8 +149,8 @@ function CJobFieldsEdit(props) {
                                 </div>
                                 <div className="DescriptiveInfo">
                                     <div className="subHeading">Descriptive Info</div>
-                                    <textarea name="description" type="text" className="TextFieldBig" placeholder="Job Description" required defaultValue={job.description} />
-                                    <textarea name="requirements" type="text" className="TextFieldBig" placeholder="Requirements" required defaultValue={job.requiremets} />
+                                    <ReactQuill name="description" className="TextField" placeholder="Job Description" style={editorStyles} value={descValue} onChange={setDescValue} required />
+                                    <ReactQuill name="requirements" className="TextField" placeholder="Requirements" style={editorStyles} value={reqValue} onChange={setReqValue} required />
                                 </div>
                             </div>
                         </form>

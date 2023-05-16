@@ -3,7 +3,7 @@ import { Error, Search } from "@mui/icons-material"
 import JobCard from "../Widgets/JobCards/JobCard"
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { CircularProgress } from "@mui/material"
+import { CircularProgress, LinearProgress } from "@mui/material"
 function Feed() {
     const [myjobs, setJobs] = useState([])
     const [compjobs, setCompJobs] = useState([])
@@ -33,30 +33,30 @@ function Feed() {
                     </div>
                 </div>
                 <div className="jobPostingsSectionContainer">
-                <div className="jobPostingsSection">
-                    <div className="jobPostingHeading">Created Jobs</div>
-                    <div className="jobPostingsContainer">
-                        {isLoading ? <div className="jobPostings"> <CircularProgress /> </div> :
-                            myjobs.length === 0 ? <div className="jobPostingsError"><div className="error"><Error />No jobs found...</div></div> :
-                                < div className="jobPostings">
-                                    {
-                                        myjobs.map((j) => (<JobCard key={j._id} job={j} />))
-                                    }
-                                </div>
-                        }
-                    </div>
-                    <div className="jobPostingHeading">Company Jobs</div>
-                    <div className="jobPostingsContainer">
-                        {isLoading ? <div className="jobPostings"> <CircularProgress /> </div> :
-                            myjobs.length === 0 ? <div className="jobPostingsError"><div className="error"><Error />No jobs found...</div></div> :
-                                < div className="jobPostings">
-                                    {
-                                        compjobs.map((j) => (<JobCard key={j._id} job={j} />))
-                                    }
-                                </div>
-                        }
-                    </div>
-                </div></div>
+                    <div className="jobPostingsSection">
+                        <div className="jobPostingHeading">Created Jobs</div>
+                        <div className="jobPostingsContainer">
+                            {isLoading ? <div className="jobPostings"> <LinearProgress /> </div> :
+                                myjobs.length === 0 ? <div className="jobPostingsError"><div className="error"><Error />No jobs found...</div></div> :
+                                    < div className="jobPostings">
+                                        {
+                                            myjobs.map((j) => (<JobCard key={j._id} job={j} />))
+                                        }
+                                    </div>
+                            }
+                        </div>
+                        <div className="jobPostingHeading">Company Jobs</div>
+                        <div className="jobPostingsContainer">
+                            {isLoading ? <div className="jobPostings"> <LinearProgress /> </div> :
+                                myjobs.length === 0 ? <div className="jobPostingsError"><div className="error"><Error />No jobs found...</div></div> :
+                                    < div className="jobPostings">
+                                        {
+                                            compjobs.map((j) => (<JobCard key={j._id} job={j} />))
+                                        }
+                                    </div>
+                            }
+                        </div>
+                    </div></div>
             </div>
         </div >
     )

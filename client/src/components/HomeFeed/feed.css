@@ -37,10 +37,10 @@
     height: fit-content;
     max-height: 50vh;
     overflow-y: scroll;
-    border: 1px #dddddd dashed ;
-    border-radius: 1.5em;
+    border: 3px #dddddd dashed ;
+    background-color: #f5f5f5;
+    border-radius: 2.2em;
 }
-
 
 .jobPostingsSection{
     padding: 0em 3em;

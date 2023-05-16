@@ -1,6 +1,6 @@
 const express = require("express");
 const { initializeApp } = require("firebase/app");
-const { getStorage, ref, getDownloadURL, uploadBytesResumable } = require("firebase/storage");
+const { getStorage, ref, getDownloadURL, uploadBytesResumable, deleteObject } = require("firebase/storage");
 const multer = require("multer");
 
 const config = require("../firebase.config")
@@ -34,6 +34,25 @@ router.post("/", upload.single("filename"), async (req, res) => {
         return res.status(400).send(error.message)
     }
 });
+
+router.put("/", async (req, res) => {
+    try {
+        const fileUrl = req.body.fileUrl;
+        const fileNameStartIndex = fileUrl.lastIndexOf("%2F") + 3; // Index of "%2F" + 3 to exclude it
+        const fileNameEndIndex = fileUrl.lastIndexOf("?alt=media&token="); // Index before the query parameters
+        const fileName = decodeURIComponent(fileUrl.substring(fileNameStartIndex, fileNameEndIndex));
+        const fileRef = ref(storage, `files/${fileName}`);
+        await deleteObject(fileRef);
+        console.log('File successfully deleted.');
+        return res.send({
+            message: 'File deleted from Firebase Storage.',
+            fileUrl: fileUrl
+        });
+    } catch (error) {
+        return res.status(400).send({ error: error.message, fileUrl: req.body.fileUrl, req: req.body });
+    }
+});
+
 
 const giveCurrentDateTime = () => {
     const today = new Date();
