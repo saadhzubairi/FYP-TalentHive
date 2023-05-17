@@ -62,7 +62,7 @@ const NameSchema = new mongoose.Schema({
 
 const candidateSchema = new mongoose.Schema({
     name: {
-        type: String,
+        type: NameSchema,
         required:false,
     },
     email: {

@@ -22,7 +22,7 @@ function Jobapplication({}) {
          
             const candidateresponse= await axios.get(`/candidate?id=${response.data.candidateId}`)
             setCandidate(candidateresponse.data)
-      console.log(candidateresponse.data.name)
+      console.log(candidateresponse.data)
           } catch (error) {
             console.error(error);
           }
@@ -40,6 +40,7 @@ function Jobapplication({}) {
     
       // Accessing candidate properties assuming it is not null
       const { email } = candidate;
+      console.log(email);
 
     return (
         <div className="JobapplicationPage">

@@ -4,6 +4,7 @@ import CandJobCard from "../Widgets/CandJobCard/CandJobCard";
 import TuneIcon from '@mui/icons-material/Tune';
 import axios from "axios";
 import { useState, useEffect } from "react";
+import CandAppliedJobCard from "../Widgets/CandJobCard/CandAppliedJobCard";
 
 function AppliedJobs() {
   const [jobs, setJobs] = useState([]);
@@ -50,7 +51,7 @@ function AppliedJobs() {
         <div className="line"></div>
         <div className="CandjobPostings1">
         {jobs.map((job) => (
-            job && <CandJobCard key={job._id} job={job} />
+            job && <CandAppliedJobCard key={job._id} job={job} />
           ))}
         </div>
       </div>
