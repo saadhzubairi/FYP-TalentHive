@@ -1,0 +1,99 @@
+
+.JobapplicationPage{
+    flex: 10;
+    
+    color: #464646;
+height: 100vh;    
+
+
+}
+
+.belowTop{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+.TopBarThings{
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+.JobApplicationsWrapper{
+    padding: 3em;
+}
+.preview {
+    background-color: #0e3837;
+    border: 1px solid transparent;
+    border-radius: .75rem;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    flex: 0 0 auto;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    padding: .75rem 1.2rem;
+    text-align: center;
+    text-decoration: none #6B7280 solid;
+    text-decoration-thickness: auto;
+    transition-duration: .2s;
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: auto;
+}
+
+.preview:hover {
+    background-color: #005b3b;
+}
+
+.preview:focus {
+    box-shadow: none;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+   
+    .JobtopBar {
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        justify-content: space-between;
+    }
+
+
+
+
+    .buttonContainer{
+        display: flex;
+        flex-direction: column;
+    }
+
+
+.ApplyHeading {
+    font-size: 3em;
+    font-weight: 900;
+}
+
+
+.ApplyTextFieldSmall {
+    width: auto;
+    padding: 1em;
+    border: none;
+    font-size: 1.2em;
+    border-radius: 1em;
+    background-color: #f1f1f1;
+}
+
+.ApplyTextFieldBig {
+    width: auto;
+    height: 12.25em;
+    padding: 1em;
+    border: none;
+    font-size: 1.2em;
+    border-radius: 1em;
+    background-color: #f1f1f1;
+}

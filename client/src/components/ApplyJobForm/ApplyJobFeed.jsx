@@ -11,6 +11,7 @@ function ApplyJobFeed(props) {
 
         const [tags, setTags] = useState([]);
         const { jobId } = useParams();
+        const {jobApplicationid} = useParams();
         const navigate = useNavigate();
         const [educationList, setEducationList] = useState([]);
         const [workExperienceList, setWorkExperienceList] = useState([]);
@@ -64,7 +65,7 @@ function ApplyJobFeed(props) {
                 );
 
                 console.log(response.data);
-                navigate(`/`);
+                navigate(`/PreviewJobApplication/${response.data._id}`);
             } catch (error) {
                 console.error(error);
             }

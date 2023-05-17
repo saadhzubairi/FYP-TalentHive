@@ -129,6 +129,11 @@ router.get('/', async (req, res) => {
     }
 });
 
+
+
+// GET all candidates
+
+
 //DELETE CANDIDATE
 router.delete('/:id', async (req, res) => {
     try {
