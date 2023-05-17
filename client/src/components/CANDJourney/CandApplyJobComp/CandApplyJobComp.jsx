@@ -9,6 +9,8 @@ import { Link, useNavigate } from "react-router-dom";
 function CandApplyJobComp(props) {
     const [tags, setTags] = useState([]);
     const { jobId } = useParams();
+    const [jobs, setJobs] = useState([])
+    const [showPopup, setShowPopup] = useState(false);
     const navigate = useNavigate()
 
     function handleKeyDown(e) {
@@ -24,11 +26,8 @@ function CandApplyJobComp(props) {
         setTags(tags.filter((el, i) => i !== index))
     }
 
-    const [showPopup, setShowPopup] = useState(false);
-
     const handleSubmit = async (event) => {
         event.preventDefault();
-
         const candidate = {
             name: event.target.elements.name.value,
             email: event.target.elements.email.value,
@@ -37,9 +36,6 @@ function CandApplyJobComp(props) {
             city: event.target.elements.city.value,
             skills: tags,
         };
-
-
-
 
         try {
             const response = await axios.post(
@@ -56,23 +52,11 @@ function CandApplyJobComp(props) {
                 }
             ))
             console.log(response.data);
-
-
-
-
-
             navigate(`/`);
         } catch (error) {
             console.error(error);
         }
     };
-
-
-
-
-
-
-    const [jobs, setJobs] = useState([])
 
     useEffect(() => {
         const fetchJobs = async () => {
@@ -87,7 +71,6 @@ function CandApplyJobComp(props) {
                 <form onSubmit={handleSubmit}>
                     <div className="ApplytopBar">
                         <div className="ApplyHeading">{jobs.jobTitle}</div>
-
                         <div className="buttonContainer">
                             <button className="preview" type="submit">Submit</button>
                         </div>
@@ -97,7 +80,6 @@ function CandApplyJobComp(props) {
                             <div className="ApplyResume">
                                 <div className="upload-cv-box">
                                     <h3>Upload Your CV</h3>
-
                                     <label htmlFor="cv-upload" className="cv-upload-label">Choose File</label>
                                     <input type="file" id="cv-upload" className="cv-upload-input" />
                                     <button className="cv-upload-btn" >Upload</button>
