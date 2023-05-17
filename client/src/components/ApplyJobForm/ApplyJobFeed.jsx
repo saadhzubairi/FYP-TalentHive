@@ -3,7 +3,7 @@ import EducationForm from "./EducationForm";
 import "./ApplyJobFeed.css"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
-
+import WorkExperienceForm from "./WorkExperienceForm";
 import { Link, useNavigate } from "react-router-dom";
 
 function ApplyJobFeed(props) {
@@ -13,6 +13,8 @@ function ApplyJobFeed(props) {
     const { jobId } = useParams();
     const navigate = useNavigate();
     const [educationList, setEducationList] = useState([]);
+    const [workExperienceList, setWorkExperienceList] = useState([]);
+    
     function handleKeyDown(e) {
         if (e.key === "Backspace" && e.target.value === "") rmeoveTag(tags.length - 1);
         if (e.key !== "Enter") return;
@@ -39,7 +41,8 @@ function ApplyJobFeed(props) {
             phone_number: event.target.elements.phone_number.value,
             city: event.target.elements.city.value,
             skills: tags,
-            education: educationList, // Include education data in the request
+            education: educationList,
+            work_experience: workExperienceList, // Include education data in the request
         };
 
         try {
@@ -138,6 +141,12 @@ function ApplyJobFeed(props) {
                                 educationList={educationList}
                                 setEducationList={setEducationList}
                             />                       </div>
+
+                            <div className="AddExperience">
+                            <WorkExperienceForm
+                            workExperienceList={workExperienceList} setWorkExperienceList={setWorkExperienceList}/>
+
+                            </div>
                     </div>
                 </form>
             </div>
