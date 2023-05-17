@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Experience.css"
 function WorkExperienceForm({ workExperienceList, setWorkExperienceList }) {
   const handleInputChange = (event, id) => {
     const { name, value, type, checked } = event.target;
@@ -48,8 +48,8 @@ function WorkExperienceForm({ workExperienceList, setWorkExperienceList }) {
       {workExperienceList.map((workExperience) => {
         return (
           <div key={workExperience.id}>
-            <div className="workExperienceHeader">
-              <div className="workExperienceTitle">
+            <div className="educationHeader">
+              <div className="educationTitle">
                 <div className="tit">Company: </div> {workExperience.id}
               </div>
               <button
@@ -60,77 +60,130 @@ function WorkExperienceForm({ workExperienceList, setWorkExperienceList }) {
               </button>
             </div>
 
-            <div className="ApplynameFields">
-              <input
-                type="text"
-                id="ApplynameF"
-                className="ApplyTextFieldSmall"
-                placeholder="Title"
-                name="title"
-                value={workExperience.title}
-                onChange={(event) =>
-                  handleInputChange(event, workExperience.id)
-                }
-                required
-              />
-              <input
-                type="text"
-                id="ApplynameF"
-                className="ApplyTextFieldSmall"
-                placeholder="Company"
-                name="company"
-                value={workExperience.company}
-                onChange={(event) =>
-                  handleInputChange(event, workExperience.id)
-                }
-                required
-              />
-              <input
-                type="date"
-                id="ApplynameF"
-                className="ApplyTextFieldSmall"
-                placeholder="Start Date"
-                name="start_date"
-                value={workExperience.start_date}
-                onChange={(event) =>
-                  handleInputChange(event, workExperience.id)
-                }
-                required
-              />
-              <input
-                type="date"
-                id="ApplynameF"
-                className="ApplyTextFieldSmall"
-                placeholder="End Date"
-                name="end_date"
-                value={workExperience.end_date}
-                onChange={(event) =>
-                  handleInputChange(event, workExperience.id)
-                }
-              />
+            <div className="ApplyexperienceFields">
+              <div className="box1">
 
-              <input
-                type="checkbox"
-                id="stillWorking"
-                name="stillWorking"
-                checked={workExperience.stillWorking}
-                onChange={(event) => handleInputChange(event, workExperience.id)}
-              />
+<div className="nameflex">
+
+              <div className="ExperienceTitle">
+                <input
+                  type="text"
+                  id="ApplynameF"
+                  className="ApplyTextFieldSmall"
+                  placeholder="Title"
+                  name="title"
+                  value={workExperience.title}
+                  onChange={(event) =>
+                    handleInputChange(event, workExperience.id)
+                  }
+                  required
+                  />
+
+              </div>
+
+              <div className="CompanyName">
+                <input
+                  type="text"
+                  id="ApplynameF"
+                  className="ApplyTextFieldSmall"
+                  placeholder="Company"
+                  name="company"
+                  value={workExperience.company}
+                  onChange={(event) =>
+                    handleInputChange(event, workExperience.id)
+                  }
+                  required
+                  />
 
 
-              <textarea
-                id="ApplynameF"
-                className="ApplyTextFieldSmall"
-                placeholder="Description"
-                name="description"
-                value={workExperience.description}
-                onChange={(event) =>
-                  handleInputChange(event, workExperience.id)
-                }
-                required
-              ></textarea>
+             
+             
+                  </div>
+
+
+
+             
+
+             
+                  </div>
+                  <div className="dateflex">
+<div className="description">
+                <textarea
+                  id="ApplynameF"
+                  className="ApplyTextFieldSmall"
+                  placeholder="Description"
+                  name="description"
+                  value={workExperience.description}
+                  onChange={(event) =>
+                    handleInputChange(event, workExperience.id)
+                  }
+                  required
+                  ></textarea>
+
+              </div>
+              
+              
+
+
+              </div>
+
+
+              
+                  </div>
+                  <div className="box2">
+            <div className="dates">
+
+                  <div className="StartDate">
+                   <div className="StartDateTitle">Start Date</div>
+                <input
+                  type="date"
+                  id="ApplynameF"
+                  className="ApplyTextFieldSmall"
+                  placeholder="Start Date"
+                  name="start_date"
+                  value={workExperience.start_date}
+                  onChange={(event) =>
+                    handleInputChange(event, workExperience.id)
+                  }
+                  required
+                  />
+</div>
+<div className="EndDate">
+<div className="EndDateTitle">End Date</div>
+                <input
+                  type="date"
+                  id="ApplynameF"
+                  className="ApplyTextFieldSmall"
+                  placeholder="End Date"
+                  name="end_date"
+                  value={workExperience.end_date}
+                  onChange={(event) =>
+                    handleInputChange(event, workExperience.id)
+                  }
+                  />
+              </div>
+                  </div>
+
+              <div className="StillWorking">
+                 <div className="StillWorkingTitle">Still Working?</div>
+
+              <div className="checkbox">
+
+                <input
+                  type="checkbox"
+                  id="stillWorking"
+                  name="stillWorking"
+                  checked={workExperience.stillWorking}
+                  onChange={(event) => handleInputChange(event, workExperience.id)}
+                  />
+                  </div>
+              </div>
+
+              </div>
+             
+                  </div>
             </div>
-          </div>
+       
         );
       })}
 

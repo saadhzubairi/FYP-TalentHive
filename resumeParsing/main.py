@@ -11,6 +11,7 @@ from spacy.pipeline import EntityRuler
 
 from fastapi import FastAPI,UploadFile
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 import boto3
 from dotenv import load_dotenv
@@ -131,6 +132,14 @@ load_dotenv()
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 access_key = os.environ.get('access_key')
 access_secret = os.getenv("access_secret")
 
@@ -172,4 +181,3 @@ async def upload_file(file: UploadFile):
 @app.get("/")
 async def root():
     return {"message":"Nikal L"}
-
