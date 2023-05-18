@@ -2,7 +2,7 @@
     flex: 10;
     padding: 3em;
     color: #464646;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 .ApplyHeading {
@@ -16,6 +16,11 @@
     align-items: center;
     position: sticky;
     z-index: 999;
+    padding: 1em 10em;
+    border-radius: 5em;
+    box-shadow: 0px 41px 27px -36px rgba(0, 0, 0, 0.17);
+    -webkit-box-shadow: 0px 41px 27px -36px rgba(0, 0, 0, 0.17);
+    -moz-box-shadow: 0px 41px 27px -36px rgba(0, 0, 0, 0.17);
 }
 
 .buttonContainer {
@@ -26,9 +31,10 @@
 .subHeading {
     font-size: 2em;
     font-weight: 900;
-
+    margin-bottom: 0.5em;
 }
-.AddEducation{
+
+.AddEducation {
     font-size: 2em;
     font-weight: 900;
     margin-top: 1em;
@@ -36,22 +42,21 @@
 
 .ApplyFormsContainer {
     display: flex;
-    gap: 3em;
+    gap: 1em;
     flex-direction: column;
+    padding-bottom: 5em;
 }
 
 .ApplybasicInfo {
     flex: 1;
-    padding-top: 3em;
     display: flex;
     flex-direction: column;
     width: auto;
-    gap: 1em;
 }
 
 .ApplyDescriptiveInfo {
     flex: 1.5;
-   
+
     display: flex;
     flex-direction: column;
     width: auto;
@@ -68,7 +73,7 @@
 }
 
 .ApplyTextFieldSmall {
-    width: auto;
+    width: 100%;
     padding: 1em;
     border: none;
     font-size: 1.2em;
@@ -78,7 +83,7 @@
 
 .ApplyTextFieldBig {
     width: auto;
-    height: 12.25em;
+    height: 10em;
     padding: 1em;
     border: none;
     font-size: 1.2em;
@@ -91,7 +96,6 @@
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
-    max-width: 35rem;
     overflow-y: scroll;
     max-height: 10rem;
     background-color: #f1f1f1;
@@ -132,11 +136,18 @@
 .ApplytagText {
     margin-left: 0.3em;
 }
+
 .ApplynameFields {
-    margin-top: 1em;
     display: flex;
     gap: 1em;
     width: auto;
+}
+
+.ApplynameFieldsGrid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 #ApplynameF {
@@ -244,6 +255,7 @@ textarea {
         flex-direction: column;
         gap: 0em;
     }
+
     .ApplytopBar {
         display: flex;
         flex-direction: column;
@@ -252,7 +264,7 @@ textarea {
 }
 
 @media (max-width: 440px) {
-    .buttonContainer{
+    .buttonContainer {
         display: flex;
         flex-direction: column;
     }
@@ -261,86 +273,88 @@ textarea {
 
 .cv-upload-label {
     display: inline-block;
-    padding: 10px 20px;
-    
+    padding: 0.7em 1em;
     border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .cv-upload-input {
+}
+
+.cv-upload-input {
     display: none;
-  }
-  .ApplyResume{
+}
+
+.ApplyResume {
     display: flex;
     flex-direction: row;
-  }
-  .cv-upload-btn {
+}
+
+.cv-upload-btn {
     display: block;
-   
-    padding: 10px 20px;
+    padding: 0.5em 1em;
     border: none;
     margin-top: 0.5em;
-    
     background-color: #007bff;
     color: #fff;
     font-size: 18px;
     cursor: pointer;
-            background-color: #4a4a4a;
-            border-radius: 10px;
-            cursor: pointer;
-            box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
-            -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
-            -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
-            transition: 300ms;
-  }
-  
-  .upload-cv-box {
-    border:2px solid #bfbbbb;
-    padding: 20px;
-    padding-left: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+    background-color: #4a4a4a;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
+    -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
+    -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
+    transition: 300ms;
+}
+
+.upload-cv-box {
+    margin-top: 2em;
+    border: 2px dashed #bfbbbb;
+    background-color: #f1f1f1;
+    padding: 2em 0em;
     border-radius: 20px;
     align-items: center;
     display: flex;
     flex-direction: column;
     width: 100%;
-  }
-  
-  .upload-cv-box h3 {
+}
+
+.upload-cv-box h3 {
     margin-top: 0;
     margin-bottom: 0.5em;
     font-size: 24px;
-  }
-  
-  .upload-cv-box p {
+}
+
+.upload-cv-box p {
     margin: 10px 0;
     font-size: 18px;
-  }
+}
 
-  .Add{
-    display: block;
-    padding: 10px 20px;
+.Add {
+    display: flex;
+    padding: 0.7em 1em;
     border: none;
-    margin-top: 0.5em;
-    
-    width: fit-content;
-    
-    background-color: #007bff;
+    width: 15em;
     color: #fff;
-    font-size: 18px;
-    cursor: pointer;
-            background-color: #4a4a4a;
-            border-radius: 10px;
-            cursor: pointer;
-            box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
-            -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
-            -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
-            transition: 300ms;
-  }
+    font-size: 1.2em;
+    background-color: #4a4a4a;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: start;
+    font-weight: 900;
+    transition: 300ms;
+    border: transparent 2px solid;
+}
 
-  .Delete {
+.Add:hover {
+    background-color: #f1f1f1;
+    border: rgb(163, 163, 163) 2px solid;
+    color: #777777;
+    cursor: pointer;
+
+
+}
+
+.Delete {
     background-color: rgb(112, 0, 0);
     border: 1px solid transparent;
     border-radius: .75rem;
@@ -367,34 +381,56 @@ textarea {
 .Delete:hover {
     background-color: #3c1f1f;
 }
-.educationHeader{
-    width: auto;
-}
+
+
 
 
 .educationForm {
     display: flex;
     flex-direction: column;
     align-items: left;
-    margin-top: 20px;
     height: auto;
-  }
-  
-  .educationHeader {
+}
+
+.educationHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: auto;
-    
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 10px;
-    
-  }
 
-  .educationTitle{
-       display: flex;
-       flex-direction: row;
-       gap: 1em;
-       font-size: 2em;
-  }
+    border-radius: 10px;
+    padding: 0.5em 0em;
+}
+
+.educationSectionStuff {
+    padding: 1em 0em;
+}
+
+.educationTitle {
+    margin-left: 0.5em;
+    display: flex;
+    flex-direction: row;
+    gap: 0.3em;
+    font-size: 1.5em;
+}
+
+.ApplyFormsViewPort {
+    height: 85vh;
+    overflow-y: scroll;
+    padding: 0em 10em;
+}
+
+.ApplyJobSection {
+    padding: 0.5em 0em;
+}
+
+.applyTextFieldsBigCol {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.educationGridContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}

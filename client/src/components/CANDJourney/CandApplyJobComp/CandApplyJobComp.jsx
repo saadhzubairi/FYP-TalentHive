@@ -1,123 +1,163 @@
+import "./candApplyJobComp.css"
 import axios from "axios";
 import EducationForm from "./EducationForm";
-import "./candApplyJobComp.css"
+import WorkExperienceForm from "./WorkExperienceForm";
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
 
 import { Link, useNavigate } from "react-router-dom";
 
 function CandApplyJobComp(props) {
-    const [tags, setTags] = useState([]);
+    const { jobApplicationid } = useParams();
     const { jobId } = useParams();
-    const [jobs, setJobs] = useState([])
-    const [showPopup, setShowPopup] = useState(false);
-    const navigate = useNavigate()
+
+    const [fileName, setFileName] = useState('');
+    const [tags, setTags] = useState([]);
+    const [educationList, setEducationList] = useState([]);
+    const [workExperienceList, setWorkExperienceList] = useState([]);
+    const [jobs, setJobs] = useState([]);
+    const [message, setMessage] = useState();
+    const navigate = useNavigate();
 
     function handleKeyDown(e) {
-        if (e.key === 'Backspace' && e.target.value === "") rmeoveTag(tags.length - 1)
-        if (e.key !== 'Enter') return;
+        if (e.key === "Backspace" && e.target.value === "") rmeoveTag(tags.length - 1);
+        if (e.key !== "Enter") return;
+        e.preventDefault();
         const value = e.target.value;
         if (value.trim() === "") return;
-        setTags([...tags, value])
-        e.target.value = ''
+        setTags([...tags, value]);
+        e.target.value = "";
     }
 
+
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        setFileName(file.name);
+    };
+
     function rmeoveTag(index) {
-        setTags(tags.filter((el, i) => i !== index))
+        setTags(tags.filter((el, i) => i !== index));
     }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        const name = {
+            fname: event.target.elements.fname.value,
+            lname: event.target.elements.lname.value
+        }
+
         const candidate = {
-            name: event.target.elements.name.value,
+            name: name,
             email: event.target.elements.email.value,
+            password: event.target.elements.password.value,
             linkedin: event.target.elements.linkedin.value,
             phone_number: event.target.elements.phone_number.value,
-            city: event.target.elements.city.value,
             skills: tags,
+            education: educationList,
+            work_experience: workExperienceList, // Include education data in the request
         };
 
         try {
-            const response = await axios.post(
-                `/api/candidate/`,
-                candidate
-            ).then((res) => axios.post(
-                `/api/jobApplication/`,
-                {
-                    candidateId: res.data._id,
-                    jobId: jobId,
-                    message: "THE NEED FOR SPEED",
-                    rating: 5,
-                    status: 1
-                }
-            ))
-            console.log(response.data);
-            navigate(`/`);
+            /*     const response = await axios.put(`/candidate/646154e6e36ab2b8ead56230`, candidate).then((res) =>
+                    axios.post(`/jobApplications/`, {
+                        candidateId: res.data._id,
+                        jobId: jobId,
+                        message: "I love saad b zubairi",
+                        rating: 5,
+                        status: 1,
+                    })
+                );
+    
+                console.log(response.data);
+                navigate(`/PreviewJobApplication/${response.data._id}`); */
+            console.log(candidate);
         } catch (error) {
             console.error(error);
         }
     };
 
+
     useEffect(() => {
         const fetchJobs = async () => {
-            await axios.get(`/jobs/${jobId}`).then(res => setJobs(res.data)).catch(err => console.log(err));
-        }
+            await axios
+                .get(`/jobs/${jobId}`)
+                .then((res) => setJobs(res.data))
+                .catch((err) => console.log(err));
+        };
         fetchJobs();
-    }, [])
+    }, []);
 
     return (
         <div className="ApplyJobFeed">
             <div className="Applywrapper">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} required>
                     <div className="ApplytopBar">
-                        <div className="ApplyHeading">{jobs.jobTitle}</div>
+                        <div className="ApplyHeading" required>{jobs.jobTitle}</div>
                         <div className="buttonContainer">
                             <button className="preview" type="submit">Submit</button>
                         </div>
                     </div>
-                    <div className="ApplyFormsContainer">
-                        <div className="ApplybasicInfo">
-                            <div className="ApplyResume">
+                    <div className="ApplyFormsViewPort">
+                        <div className="ApplyFormsContainer">
+                            {message && <div>{message}</div>}
+                            <div className="ApplyJobSection">
                                 <div className="upload-cv-box">
                                     <h3>Upload Your CV</h3>
                                     <label htmlFor="cv-upload" className="cv-upload-label">Choose File</label>
-                                    <input type="file" id="cv-upload" className="cv-upload-input" />
-                                    <button className="cv-upload-btn" >Upload</button>
+                                    <input type="file" id="cv-upload" className="cv-upload-input" onChange={handleFileChange} />
+                                    <button className="cv-upload-btn" required>
+                                        Upload
+                                    </button>
+                                    {fileName && <p>Selected file: {fileName}</p>}
+                                </div>
+                            </div>
+                            <div className="ApplyJobSection">
+                                <div className="subHeading">Basic Info</div>
+                                <div className="ApplynameFieldsGrid">
+                                    <div className="ApplynameFields">
+                                        <input type="text" name="fname" className="ApplyTextFieldSmall" placeholder='First Name' />
+                                        <input type="text" name="lname" className="ApplyTextFieldSmall" placeholder='Last Name' />
+                                    </div>
+                                    <div className="ApplynameFields">
+                                        <input type="text" name="email" className="ApplyTextFieldSmall" placeholder="Email" required />
+                                        <input type="text" name="linkedin" className="ApplyTextFieldSmall" placeholder="LinkedIn URL" required />
+                                    </div>
+                                    <div className="ApplynameFields">
+                                        <input type="text" name="phone_number" className="ApplyTextFieldSmall" placeholder="Phone Number" required />
+                                        <input type="password" name="password" className="ApplyTextFieldSmall" placeholder="Password" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="ApplyJobSection">
+                                <div className="subHeading">Skills</div>
+                                <div className="ApplytagsInputContainer">
+                                    {tags.map((tag, index) => (
+                                        <div className="ApplytagItem" key={index}>
+                                            <div className="ApplytagText">{tag}</div>
+                                            <div onClick={() => rmeoveTag(index)} className="ApplytagRemove">&times;</div>
+                                        </div>
+                                    ))}
+                                    <input onKeyDown={handleKeyDown} type="text" className="ApplyTagInput" placeholder="e.g: Python3, React.js" />
                                 </div>
                             </div>
 
-                            <div className="subHeading">Basic Info</div>
-                            <div className="ApplynameFields">
-                                <input type="text" id='ApplynameF' className="ApplyTextFieldSmall" placeholder='First Name' />
-                                <input type="text" id='ApplynameL' className="ApplyTextFieldSmall" placeholder='Last Name' />
+                            <div className="ApplyJobSection">
+                                <div className="subHeading">Descriptive Info</div>
+                                <div className="applyTextFieldsBigCol">
+                                    <textarea type="text" className="ApplyTextFieldBig" placeholder="What made you apply for the job?" required />
+                                    <textarea type="text" className="ApplyTextFieldBig" placeholder="Why do you think you will be the perfect fit?" required />
+                                </div>
                             </div>
-                            <div className="ApplynameFields">
-                                <input type="text" id='ApplynameF' className="ApplyTextFieldSmall" placeholder="Email" />
-                                <input type="text" id='ApplynameF' className="ApplyTextFieldSmall" placeholder="LinkedIn URL" />
+                            <div className="ApplyJobSection">
+                                <div className="subHeading">Add Education</div>
+                                <EducationForm educationList={educationList} setEducationList={setEducationList} />
+                            </div>
+                            <div className="ApplyJobSection">
+                                <div className="subHeading">Add Work Experience</div>
+                                <WorkExperienceForm workExperienceList={workExperienceList} setWorkExperienceList={setWorkExperienceList} />
                             </div>
 
-                            <div className="ApplynameFields">
-                                <input type="text" id='ApplynameF' className="ApplyTextFieldSmall" placeholder="City" />
-                                <input type="text" id='ApplynameF' className="ApplyTextFieldSmall" placeholder="Country" />
-                            </div>
-
-                            <div className="subHeading">Skills</div>
-                            <div className="ApplytagsInputContainer">
-                                {tags.map((tag, index) => (
-                                    <div className="ApplytagItem" key={index}>
-                                        <div className="ApplytagText">{tag}</div>
-                                        <div onClick={() => rmeoveTag(index)} className="ApplytagRemove">&times;</div>
-                                    </div>
-                                ))}
-                                <input onKeyDown={handleKeyDown} type="text" className="ApplyTagInput" placeholder="e.g: Python3, React.js" />
-                            </div>
-                        </div>
-                        <div className="ApplyDescriptiveInfo">
-                            <div className="subHeading">Descriptive Info</div>
-                            <textarea type="text" className="ApplyTextFieldBig" placeholder="What made you apply for the job?" />
-                            <textarea type="text" className="ApplyTextFieldBig" placeholder="Why do you think you will be the perfect fit?" />
-                            <div className="AddEducation">Add Education</div>
-                            <EducationForm />
                         </div>
                     </div>
                 </form>

@@ -10,11 +10,17 @@ import axios from "axios";
 function PreviewJobDescCand({ }) {
     const { jobId } = useParams();
 
-    const [jobs, setJobs] = useState([])
+    const [jobs, setJobs] = useState({})
+    const [company, setCompany] = useState({})
 
     useEffect(() => {
         const fetchJobs = async () => {
-            await axios.get(`/jobs/${jobId}`).then(res => setJobs(res.data)).catch(err => console.log(err));
+            await axios.get(`/jobs/${jobId}`).then(async (res) => {
+                setJobs(res.data)
+                await axios.get(`/company?id=${res.data.companyId}`)
+                    .then(resc => setCompany(resc.data))
+                    .catch(err => console.log(err))
+            }).catch(err => console.log(err));
         }
         fetchJobs();
     }, [])
@@ -43,33 +49,21 @@ function PreviewJobDescCand({ }) {
 
                                 <div className="Title"><StoreIcon /> Company Overview</div>
                                 <div className="subText">
-                                    Executes software development projects and change management with high quality design and architecture with a focus on performance, scalability, security and stability. Ability to independently handle complex software development tasks all the way to release management processes for their respective applications. Engages with other application team, business analyst and stakeholders at different stages of the project to ensure to complete on time with quality. Expected to adhere to best practices on software development and change management.
-                                    <br />The focus is process automation and digitization to provide positive customer journey and employee efficiency.
-                                    <br />Design systems or applications based on business and client requirements
-                                    <br />Develop programs based on design and requirements specifications
-                                    <br />Handles Change management environment
-                                    <br />Create test specifications and execute testing
-                                    <br />Conduct review of technical work outputs
-                                    <br />Fix bugs; Work on enhancements; Handle change requests
+                                    {company.description}
                                 </div>
-
-
-
-
                             </div>
-
                             <div className="JobDescCont">
 
                                 <div className="Title"><DescriptionIcon /> Job Description</div>
                                 <div className="subText">
-                                    {jobs.requiremets}
+                                    <div dangerouslySetInnerHTML={{ __html: jobs.description }}></div>
                                 </div>
 
 
 
                                 <div className="Title"><ChecklistIcon /> Requirements</div>
                                 <div className="subText">
-                                    {jobs.description}
+                                    <div dangerouslySetInnerHTML={{ __html: jobs.requiremets }}></div>
                                 </div>
 
                             </div>
