@@ -9,6 +9,7 @@ import { format, register } from "timeago.js"
 import { CircularProgress } from '@mui/material';
 
 function EditHRFields(props) {
+    const userId = localStorage.getItem("userId")
     const [HRM, setHRM] = useState({ _id: "n/a" })
     const [img, setImg] = useState('')
     const [loading, setLoading] = useState(false)
@@ -40,7 +41,7 @@ function EditHRFields(props) {
         }).then(() => console.log("Deleted!")).catch((err) => console.log(err))
 
         axios.post('/upload/', formdata).then((res) => {
-            axios.put("/hrms/644f10bbbbd3951b057a3c6f", {
+            axios.put(`/hrms/${userId}`, {
                 "pfpURL": res.data.downloadURL
             })
             HRM.pfpURL = res.data.downloadURL
@@ -56,7 +57,7 @@ function EditHRFields(props) {
         const fetchHR = async () => {
             try {
                 if (formData.firstName === "n/a") {
-                    const res = await axios.get("/hrms/644f10bbbbd3951b057a3c6f");
+                    const res = await axios.get(`/hrms/${userId}`);
                     setHRM(res.data);
                     formData.firstName = res.data.firstName;
                     formData.lastName = res.data.lastName;
@@ -82,7 +83,7 @@ function EditHRFields(props) {
         setLoading(true);
         event.preventDefault();
         try {
-            const response = await axios.put('/hrms/644f10bbbbd3951b057a3c6f', formData)
+            const response = await axios.put(`/hrms/${userId}`, formData)
             console.log(response.data);
         } catch (error) {
             setLoading(false);

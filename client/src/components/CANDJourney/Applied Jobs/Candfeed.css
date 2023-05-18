@@ -66,26 +66,6 @@
     margin-top: 20px;
 }
 
-
-.filter {
-    margin-top: 3em;
-    border: none;
-    height: 4em;
-    width: 4em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #c6c6c6;
-
-    border: none;
-    border-radius: 30%;
-    cursor: pointer;
-    box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
-    -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
-    -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.17);
-    transition: 300ms;
-}
-
 .jobPostings1 {
     padding-top: 2em;
     display: flex;

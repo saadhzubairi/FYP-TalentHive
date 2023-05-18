@@ -5,6 +5,8 @@ import axios from "axios";
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
 function CJobFieldsEdit(props) {
+    const userId = localStorage.getItem("userId")
+    const companyId = localStorage.getItem("companyId")
     const { jobId } = useParams()
     const [tags, setTags] = useState([]);
     const [pos, setPos] = useState(1);
@@ -55,8 +57,8 @@ function CJobFieldsEdit(props) {
             description: descValue,
             requiremets: reqValue,
             spots: pos,
-            companyId: "34567",
-            HRCreatorId: "644f10bbbbd3951b057a3c6f",
+            companyId: companyId,
+            HRCreatorId: userId,
         };
 
         try {

@@ -47,25 +47,23 @@ function EducationForm() {
               <div className='educationTitle'> <div className="tit">Institute: </div> {education.id}</div>
               <button className='Delete' onClick={() => handleDeleteEducation(education.id)}>Delete</button>
             </div>
-          
+
             <div className="ApplynameFields">
-            <input type='input'  id='ApplynameF' className='ApplyTextFieldSmall' placeholder='Institute Name' name='instituteName' value={education.instituteName} onChange={(event) => handleInputChange(event, education.id)} required />
-            <input type='input'   id='ApplynameF' className='ApplyTextFieldSmall' placeholder='Program' name='program' value={education.program} onChange={(event) => handleInputChange(event, education.id)} required />
-            <input type='input'   id='ApplynameF' className='ApplyTextFieldSmall' placeholder='Graduation Year' name='graduationYear' value={education.graduationYear} onChange={(event) => handleInputChange(event, education.id)} required />
-            
-            
-                            </div>
+              <input type='input' id='ApplynameF' className='ApplyTextFieldSmall' placeholder='Institute Name' name='instituteName' value={education.instituteName} onChange={(event) => handleInputChange(event, education.id)} required />
+              <input type='input' id='ApplynameF' className='ApplyTextFieldSmall' placeholder='Program' name='program' value={education.program} onChange={(event) => handleInputChange(event, education.id)} required />
+              <input type='input' id='ApplynameF' className='ApplyTextFieldSmall' placeholder='Graduation Year' name='graduationYear' value={education.graduationYear} onChange={(event) => handleInputChange(event, education.id)} required />
+            </div>
 
           </div>
         );
       })}
-      
-      <button className='Add' onClick={handleAddEducation}><AddIcon/> Add Education</button>
+
+      <button className='Add' onClick={handleAddEducation}><AddIcon /> Add Education</button>
     </div>
-    
+
   );
 }
 
-  
+
 
 export default EducationForm

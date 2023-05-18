@@ -12,14 +12,14 @@
     justify-content: center;
     gap: 1em;
     font-size: 1.2em;
-    font-weight: 100;
+    font-weight: 500;
 }
 
 .jobPostingsError {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50vh;
+    height: 10vh;
 }
 
 .topSection {

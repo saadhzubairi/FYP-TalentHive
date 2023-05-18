@@ -5,6 +5,8 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { CircularProgress, LinearProgress } from "@mui/material"
 function Feed() {
+    const userId = localStorage.getItem("userId")
+    const companyId = localStorage.getItem("companyId")
     const [myjobs, setJobs] = useState([])
     const [compjobs, setCompJobs] = useState([])
     const [isLoading, setIsloading] = useState(false)
@@ -12,11 +14,11 @@ function Feed() {
     useEffect(() => {
         const fetchMyJobs = async () => {
             setIsloading(true)
-            await axios.get("/jobs?HRCreatorId=644f10bbbbd3951b057a3c6f").then(res => { setJobs(res.data); setIsloading(false) }).catch(err => { console.log(err); setIsloading(false) });
+            await axios.get(`/jobs?HRCreatorId=${userId}`).then(res => { setJobs(res.data); setIsloading(false) }).catch(err => { console.log(err); setIsloading(false) });
         }
         const fetchCompJobs = async () => {
             setIsloading(true)
-            await axios.get("/jobs?companyId=34567&HRCreatorId[$ne]=644f10bbbbd3951b057a3c6f").then(res => { setCompJobs(res.data); setIsloading(false) }).catch(err => { console.log(err); setIsloading(false) });
+            await axios.get(`/jobs?companyId=${companyId}&HRCreatorId[$ne]=${userId}`).then(res => { setCompJobs(res.data); setIsloading(false) }).catch(err => { console.log(err); setIsloading(false) });
         }
         fetchMyJobs();
         fetchCompJobs();
@@ -48,7 +50,7 @@ function Feed() {
                         <div className="jobPostingHeading">Company Jobs</div>
                         <div className="jobPostingsContainer">
                             {isLoading ? <div className="jobPostings"> <LinearProgress /> </div> :
-                                myjobs.length === 0 ? <div className="jobPostingsError"><div className="error"><Error />No jobs found...</div></div> :
+                                compjobs.length === 0 ? <div className="jobPostingsError"><div className="error"><Error />No jobs found...</div></div> :
                                     < div className="jobPostings">
                                         {
                                             compjobs.map((j) => (<JobCard key={j._id} job={j} />))

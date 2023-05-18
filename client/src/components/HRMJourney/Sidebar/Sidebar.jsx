@@ -1,16 +1,17 @@
-import { CalendarMonthOutlined, GroupWorkOutlined, HomeOutlined, PostAddOutlined } from "@mui/icons-material"
+import { CalendarMonthOutlined, GroupWorkOutlined, HomeOutlined, Logout, PostAddOutlined } from "@mui/icons-material"
 import "./sidebar.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react";
 import axios from "axios";
 function Sidebar() {
-    
+    const userId = localStorage.getItem("userId")
     const [HRM, setHRM] = useState({ _id: "n/a", pfpURL: "http://localhost:3000/assets/blank_pfp.png" })
     const [imageSrc, setImageSrc] = useState(HRM.pfpURL);
+    const navigae = useNavigate();
     useEffect(() => {
         const fetchHR = async () => {
             try {
-                const res = await axios.get("/hrms/644f10bbbbd3951b057a3c6f");
+                const res = await axios.get(`/hrms/${userId}`);
                 setHRM(res.data);
                 setImageSrc(res.data.pfpURL)
             } catch (e) {
@@ -31,6 +32,11 @@ function Sidebar() {
         updateUserInfo()
     });
 
+    const logOut = () => {
+        localStorage.clear();
+        navigae("/")
+    }
+
     const handleImageError = () => {
         setImageSrc("http://localhost:3000/assets/blank_pfp.png");
     };
@@ -39,7 +45,7 @@ function Sidebar() {
             <div className="sidebarWrapper">
                 <img src={imageSrc} alt="" onError={handleImageError} className="companyImage" />
                 <div className="nameAndEmail">
-                    <div className="companyTitle">{HRM.firstName} {HRM.lastName}</div>
+                    <div className="HRTitle">{HRM.firstName} {HRM.lastName}</div>
                     <div className="HREmail">{HRM.email}</div>
                 </div>
                 <ul className="optionsList">
@@ -63,6 +69,9 @@ function Sidebar() {
                         <Link to={"/HRView/EditHr"} style={{ textDecoration: "none", alignItems: "center", display: "flex" }} >
                             <CalendarMonthOutlined className="optionsIcon" /><div className="optionLink">Edit Info</div>
                         </Link>
+                    </li>
+                    <li className="option" onClick={logOut}>
+                        <Logout className="optionsIcon" /><div className="optionLink">Log Out</div>
                     </li>
                 </ul>
             </div>

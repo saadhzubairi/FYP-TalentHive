@@ -35,7 +35,7 @@
     -moz-box-shadow: 1px 19px 58px 0px rgba(0, 0, 0, 0.5);
 }
 
-.companyTitle {
+.HRTitle {
     padding: 35px 0px 10px;
     font-size: 1.3em;
     font-weight: 700;
@@ -48,13 +48,13 @@
     margin-top: 1em;
 }
 
-.nameAndEmail{
+.nameAndEmail {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.HREmail{
+.HREmail {
     font-weight: 400;
     color: #858585;
 }
@@ -98,14 +98,15 @@
         height: 3em;
     }
 
-    .companyTitle{
+    .HRTitle {
         font-size: 0em;
     }
-    .sidebarWrapper{
+
+    .sidebarWrapper {
         padding: 0px;
     }
 
-    .optionsIcon{
+    .optionsIcon {
         padding-right: 0em;
     }
 }

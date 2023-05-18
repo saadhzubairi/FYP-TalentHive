@@ -1,9 +1,16 @@
-import { CalendarMonthOutlined, GroupWorkOutlined, HomeOutlined, PostAddOutlined } from "@mui/icons-material"
+import { CalendarMonthOutlined, GroupWorkOutlined, HomeOutlined, Logout, PostAddOutlined } from "@mui/icons-material"
 import WorkIcon from '@mui/icons-material/Work';
 import Person4Icon from '@mui/icons-material/Person4';
 import "./candSidebar.css"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 function CandSidebar() {
+    const navigae = useNavigate();
+
+    const logOut = () => {
+        localStorage.clear();
+        navigae("/")
+    }
+
     return (
         <div className="sidebar">
             <div className="sidebarWrapper">
@@ -11,17 +18,21 @@ function CandSidebar() {
                 <div className="companyTitle">Google</div>
                 <ul className="optionsList">
                     <li className="option">
-                     <HomeOutlined className="optionsIcon" />
-                    <Link to="/CANDView" className="optionLink">Home</Link>
-                         </li>  
-               
+                        <HomeOutlined className="optionsIcon" />
+                        <Link to="/CANDView" className="optionLink">Home</Link>
+                    </li>
+
                     <li className="option">
                         <WorkIcon className="optionsIcon" />
                         <Link to="AppliedJobsScreen" className="optionLink">Applied Jobs</Link>
                     </li>
                     <li className="option"><Person4Icon className="optionsIcon" />
-                    <Link to="EditCand" className="optionLink">Profile</Link> </li>
-                    
+                        <Link to="EditCand" className="optionLink">Profile</Link>
+                    </li>
+                    <li className="option" onClick={logOut}>
+                        <Logout className="optionsIcon" /><div className="optionLink">Log Out</div>
+                    </li>
+
                 </ul>
             </div>
         </div>

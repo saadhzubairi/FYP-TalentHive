@@ -44,9 +44,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Login />} />
         <Route path="/HRView" element={<LayoutForHr />}>
           <Route path="" element={<Home />} />
-          <Route path="login" element={<Login />} />
           <Route path="createJob" element={<CreateJob edit={false} />} />
           <Route path="editJob/:jobId" element={<CreateJob edit={true} />} />
           <Route path="createJob/preview" element={<PreviewJob />} />

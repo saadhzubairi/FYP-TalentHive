@@ -9,23 +9,37 @@
     display: flex;
     flex-direction: column;
     width: 100vb;
+    align-items: center;
+    justify-content: center;
 }
 
 .form {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    padding: 5em;
+    padding: 3em;
     align-items: center;
 }
 
+.TalentHiveLogo {
+    font-size: 7em;
+    font-weight: 100;
+    color: #001b52;
+    text-shadow: -62px -124px 4px rgba(0, 0, 0, 0.15);
+}
+
+.LoginHeading {
+    color: #6B7280;
+}
+
 .form-control {
-    width: auto;
+    width: 110%;
     padding: 1em;
     border: none;
     font-size: 1.2em;
     border-radius: 1em;
     background-color: #f1f1f1;
+    text-align: center;
 }
 
 .btn {

@@ -103,6 +103,10 @@ const candidateSchema = new mongoose.Schema({
     },
     profile_picture: {
         type: String
+    },
+    userType: {
+        type: Number,
+        default: 3
     }
 });
 

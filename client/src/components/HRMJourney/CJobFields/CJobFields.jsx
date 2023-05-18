@@ -6,6 +6,8 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 function CJobFields(props) {
+    const userId = localStorage.getItem("userId")
+    const companyId = localStorage.getItem("companyId")
     const [tags, setTags] = useState([]);
     const [pos, setPos] = useState(1);
     const [descValue, setDescValue] = useState('');
@@ -53,8 +55,8 @@ function CJobFields(props) {
             description: descValue,
             requiremets: reqValue,
             spots: pos,
-            companyId: "34567",
-            HRCreatorId: "644f10bbbbd3951b057a3c6f",
+            companyId: companyId,
+            HRCreatorId: userId,
         };
 
         console.log(job)
@@ -65,7 +67,7 @@ function CJobFields(props) {
                 job
             )
             console.log(response.data);
-            await axios.put("/hrms/644f10bbbbd3951b057a3c6f/jobsCreated", {
+            await axios.put(`/hrms/${userId}/jobsCreated`, {
                 jobsCreatedId: response.data._id
             })
             navigate(`/HRView/createJob/preview/${response.data._id}`);
