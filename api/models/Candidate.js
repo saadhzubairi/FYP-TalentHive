@@ -21,8 +21,8 @@ const educationSchema = new mongoose.Schema({
         default: ""
     },
     status: {
-        type: Number,
-        enum: [1, 2, 3] //completed, ongoing, have enrolled
+        type: String,
+        enum: ["Completed", "Ongoing", "Enrolled"]  
     }
 });
 

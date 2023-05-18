@@ -382,9 +382,6 @@ textarea {
     background-color: #3c1f1f;
 }
 
-
-
-
 .educationForm {
     display: flex;
     flex-direction: column;
@@ -396,13 +393,12 @@ textarea {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     border-radius: 10px;
-    padding: 0.5em 0em;
+    padding-bottom: 1em;
 }
 
 .educationSectionStuff {
-    padding: 1em 0em;
+    padding: 0em 0em 1em;
 }
 
 .educationTitle {
@@ -416,7 +412,7 @@ textarea {
 .ApplyFormsViewPort {
     height: 85vh;
     overflow-y: scroll;
-    padding: 0em 10em;
+    padding: 0em 15em;
 }
 
 .ApplyJobSection {
@@ -433,4 +429,16 @@ textarea {
     display: flex;
     flex-direction: column;
     gap: 1em;
+}
+
+@media (max-width: 1300px) {
+    .ApplyFormsViewPort{
+        padding: 0em 5em;
+    }
+}
+
+@media (max-width: 1150px) {
+    .ApplyFormsViewPort{
+        padding: 0em 1em;
+    }
 }

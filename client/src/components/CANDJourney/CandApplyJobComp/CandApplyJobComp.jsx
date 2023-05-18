@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom";
 
 function CandApplyJobComp(props) {
-    const { jobApplicationid } = useParams();
+    
     const { jobId } = useParams();
 
     const [fileName, setFileName] = useState('');
@@ -28,7 +28,6 @@ function CandApplyJobComp(props) {
         setTags([...tags, value]);
         e.target.value = "";
     }
-
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];

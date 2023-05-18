@@ -33,7 +33,7 @@ function EducationForm({ educationList, setEducationList }) {
           start_date: "",
           end_date: "",
           grade: "",
-          status: 1
+          status: ""
         },
       ];
     });
@@ -51,7 +51,7 @@ function EducationForm({ educationList, setEducationList }) {
         return (
           <div key={education.id} className="educationSectionStuff">
             <div className='educationHeader'>
-              <div className='educationTitle'> <div className="tit">Education: </div> {education.id}</div>
+              <div className='educationTitle'>{education.id}.<div className="tit"><b><i>{education.institution}</i></b> </div> </div>
               <button className='Delete' onClick={() => handleDeleteEducation(education.id)}>Delete</button>
             </div>
             <div className="educationGridContainer">
@@ -79,11 +79,12 @@ function EducationForm({ educationList, setEducationList }) {
                   onChange={
                     (event) => handleInputChange(event, education.id)
                   } required />
-                {/* <input type='text' className='ApplyTextFieldSmall' placeholder='Status' name='status' defaultValue={1}
-                  onChange={
-                    (event) => handleInputChange(event, education.id)
-                  } required /> */}
               </div>
+              <select name="status" id="" className="ComboBox" onClick={(event) => handleInputChange(event, education.id)} required>
+                <option value="Completed">Completed</option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Enrolled">Enrolled</option>
+              </select>
             </div>
           </div>
         );

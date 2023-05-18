@@ -38,7 +38,9 @@ function WorkExperienceForm({ workExperienceList, setWorkExperienceList }) {
     });
   };
 
-  const handleDeleteWorkExperience = (id) => {
+  const handleDeleteWorkExperience = (e, id) => {
+    console.log(e);
+    e.preventDefault()
     setWorkExperienceList((prevState) => {
       return prevState.filter((workExperience) => workExperience.id !== id);
     });
@@ -50,8 +52,8 @@ function WorkExperienceForm({ workExperienceList, setWorkExperienceList }) {
         return (
           <div key={workExperience.id}>
             <div className="educationHeader">
-              <div className="educationTitle"><div className="tit">Company: </div> {workExperience.id}</div>
-              <button className="Delete" onClick={() => handleDeleteWorkExperience(workExperience.id)}>Delete</button>
+              <div className="educationTitle">{workExperience.id}. <b><i>{workExperience.company}</i></b></div>
+              <button className="Delete" onClick={(event) => handleDeleteWorkExperience(event, workExperience.id)}>Delete</button>
             </div>
             <div className="ApplyexperienceFields">
               <div className="box1">
@@ -96,16 +98,19 @@ function WorkExperienceForm({ workExperienceList, setWorkExperienceList }) {
                       } />
                   </div>
                 </div>
-                <div className="StillWorking">
-                  <div className="StillWorkingTitle">Still Working?</div>
-                  <div className="checkbox">
-                    <input type="checkbox" id="stillWorking" name="stillWorking"
-                      checked={workExperience.stillWorking}
-                      onChange={(event) => handleInputChange(event, workExperience.id)}
-                    />
+                <div className="stillWorkingWrapper">
+                  <div className="StillWorking">
+                    <div className="StillWorkingTitle">Still Working?</div>
+                    <div className="checkbox">
+                      <input className="isWorkingCheckbox" type="checkbox" id="stillWorking" name="stillWorking"
+                        checked={workExperience.stillWorking}
+                        onChange={(event) => handleInputChange(event, workExperience.id)}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         );
