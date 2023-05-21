@@ -1,0 +1,116 @@
+.CandAppCard,.CandAppCardModal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(236, 240, 243);
+    padding: 1.5em;
+    border-radius: 1em;
+    user-select: none;
+}
+
+.CandAppCardModal{
+    flex-direction: column;
+    align-items: start;
+}
+.modalViewPort{
+    height: 50vh;
+    overflow-y: scroll;
+    margin: 1.5em 0em;
+}
+.CandAppCard:hover {
+    background-color: aliceblue;
+    cursor: pointer;
+}
+
+.CandAppCardPane {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.CandAppCardRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+}
+
+.CandAppCardJob {
+    font-size: 1.3em;
+    font-weight: 900;
+}
+
+.CandAppCardCompany {
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.jobAppStatus {}
+
+.jobAppCreated {
+    font-size: 0.8em;
+    font-style: italic;
+    font-weight: 600;
+    color: rgb(120, 120, 120);
+}
+
+.modal,
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.overlay {
+    background: rgba(49, 49, 49, 0.13);
+}
+
+.modal-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #ffffff;
+    border-radius: 3px;
+    max-width: 600px;
+    min-width: 300px;
+    padding: 1em;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 7px;
+}
+
+.modalContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0em 2em;
+}
+
+.close{
+    font-size: 1em;
+    background-color: rgb(211, 121, 121);
+    border: none;
+    padding: 0.5em 1em;
+    color: #ffffff;
+    font-weight: 800;
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+.close:hover{
+    background-color: rgb(190, 63, 63);
+}

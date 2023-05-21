@@ -33,7 +33,7 @@ function EducationForm({ educationList, setEducationList }) {
           start_date: "",
           end_date: "",
           grade: "",
-          status: ""
+          status: "Completed"
         },
       ];
     });

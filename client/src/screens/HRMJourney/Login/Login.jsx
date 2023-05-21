@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './login.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { CircularProgress } from '@mui/material'
 
 function Login(props) {
     const [user, setUser] = useState({})
@@ -10,6 +11,10 @@ function Login(props) {
         email: '',
         password: '',
     })
+
+    const [isLoading, setIsLoading] = useState(false)
+    const [isNotFound, setIsNotFound] = useState(false)
+
     useEffect(() => {
         const checkReRoute = () => {
             if (localStorage.getItem("userType") == 2) {
@@ -34,6 +39,8 @@ function Login(props) {
         }))
     }
     const onSubmit = async (e) => {
+        setIsNotFound(false)
+        setIsLoading(true)
         e.preventDefault();
         await axios.post("/auth/login", {
             email: e.target.email.value,
@@ -44,6 +51,8 @@ function Login(props) {
             localStorage.setItem("userType", res.data.userType)
             console.log(localStorage.getItem("userId"))
             console.log(localStorage.getItem("userpass"))
+            setIsLoading(false)
+            setIsNotFound(false)
             if (res.data.userType === 3) {
                 navigate('/CANDView')
             }
@@ -51,7 +60,11 @@ function Login(props) {
                 navigate('/HRView')
                 localStorage.setItem("companyId", res.data.companyId)
             }
-        }).catch((e) => console.log("NOT FOUND"))
+        }).catch((e) => {
+            console.log("NOT FOUND")
+            setIsLoading(false)
+            setIsNotFound(true)
+        })
     }
 
     return (
@@ -64,7 +77,8 @@ function Login(props) {
                     <input type="password" className="form-control" id='password' name='password'
                         value={password} onChange={onChange} placeholder='Enter your password' required />
                     <div className="form-group">
-                        <button type="submit" className='btn'>Submit</button>
+                        {isLoading ? <CircularProgress /> : <button type="submit" className='btn'>Submit</button>}
+                        {isNotFound ? <div className="notFound">Incorrect credentials. Try again.</div> : null}
                     </div>
                 </form>
             </div>

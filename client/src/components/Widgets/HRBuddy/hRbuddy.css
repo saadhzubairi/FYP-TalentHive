@@ -1,0 +1,58 @@
+.hrBuddy {
+    padding: 0.5em;
+}
+
+.hrBuddyWrapper {
+    background-color: #F1F1F1;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    justify-content: space-between;
+    border-radius: 1em;
+}
+
+.hrbuddypfp {
+    height: 3em;
+    width: 3em;
+    object-fit: cover;
+    border-radius: 3em;
+}
+
+.hrbuddyPicNameJoin {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.hrBuddyMakeOrRemoveAdmin {
+    border: none;
+    background-color: rgb(224, 239, 252);
+    border: solid 3px rgb(61, 164, 255);
+    color: rgb(61, 164, 255);
+    width: 15vb;
+    font-weight: 700;
+    border-radius: 50em;
+}
+
+.hrBuddyMakeOrRemoveAdmin:hover {
+    background-color: rgb(61, 164, 255);
+    color: white;
+    cursor: pointer;
+}
+
+.hrBuddyName {
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+#removeAdmin {
+    background-color: rgb(255, 231, 231);
+    border: solid 3px rgb(255, 61, 61);
+    color: rgb(255, 61, 61);
+}
+
+#removeAdmin:hover {
+    background-color: rgb(255, 61, 61);
+    color: rgb(255, 231, 231);
+}

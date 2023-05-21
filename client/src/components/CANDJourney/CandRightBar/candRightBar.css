@@ -2,4 +2,5 @@
     display: flex;
     align-items: center;
     gap: 0.5em;
+    z-index: -999;
 }

@@ -9,7 +9,11 @@ const JobApplicationSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    message: {
+    message1: {
+        type: String,
+        default: ""
+    },
+    message2: {
         type: String,
         default: ""
     },

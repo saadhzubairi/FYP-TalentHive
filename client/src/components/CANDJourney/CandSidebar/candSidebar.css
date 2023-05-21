@@ -100,3 +100,11 @@
         padding-right: 0em;
     }
 }
+
+.CandName{
+    text-align: center;
+    font-size: 1.5em;
+    padding: 1em;
+    font-weight: 900;
+    color: #545151;
+}

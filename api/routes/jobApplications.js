@@ -28,7 +28,7 @@ router.get("/", (req, res) => {
 
 //read by querry
 router.get("/", async (req, res) => {
-    const { id, candidateId, jobId, message, rating, status } = req.query;
+    const { id, candidateId, jobId, message1, message2, rating, status } = req.query;
     const filters = {};
 
     if (candidateId) {
@@ -39,7 +39,10 @@ router.get("/", async (req, res) => {
         filters.jobId = jobId;
     }
 
-    if (message) {
+    if (message1) {
+        filters.message = message;
+    }
+    if (message2) {
         filters.message = message;
     }
 

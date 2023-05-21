@@ -60,11 +60,11 @@ function Sidebar() {
                             <PostAddOutlined className="optionsIcon" /><div className="optionLink">Post a job</div>
                         </Link>
                     </li>
-                    <li className="option">
-                        <Link to={"/HRView"} style={{ textDecoration: "none", alignItems: "center", display: "flex" }} >
-                            <GroupWorkOutlined className="optionsIcon" /><div className="optionLink">Collaboration</div>
+                    {HRM.isAdmin ? <li className="option">
+                        <Link to={"/HRView/EditCompany"} style={{ textDecoration: "none", alignItems: "center", display: "flex" }} >
+                            <GroupWorkOutlined className="optionsIcon" /><div className="optionLink">Company</div>
                         </Link>
-                    </li>
+                    </li> : null}
                     <li className="option">
                         <Link to={"/HRView/EditHr"} style={{ textDecoration: "none", alignItems: "center", display: "flex" }} >
                             <CalendarMonthOutlined className="optionsIcon" /><div className="optionLink">Edit Info</div>
