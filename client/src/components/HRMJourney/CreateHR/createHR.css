@@ -1,23 +1,33 @@
-.CandFieldsWrapper {
+* {
+    transition: 300ms;
+}
+
+.hrFieldsWrapper {
     display: flex;
     flex-direction: column;
     flex: 10;
     padding: 3em;
     color: #464646;
     gap: 1em;
-    overflow-y: auto;
 }
 
-.CandHeading {
+.rightSideLoading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+}
+
+.Heading {
     font-size: 3em;
     font-weight: 900;
 }
 
-.CandtopHeadings {
+.topHeadings {
     margin-bottom: 1em;
 }
 
-.CandText {
+.HText {
     font-size: 1.5em;
     font-weight: 500;
 }
@@ -27,7 +37,7 @@
     font-weight: 500;
 }
 
-.CandprofileImageSelection {
+.profileImageSelection {
     display: flex;
     align-items: center;
     gap: 2em;
@@ -62,15 +72,79 @@
     gap: 1em;
 }
 
+.pfpUpload,
+.pfpDelete {
+    width: 20vb;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 0em;
+    border: solid transparent 3px;
+    font-weight: 600;
+    border-radius: 10em;
+}
 
-.Candpanes {
+.pfpUpload:hover,
+.pfpDelete:hover {
+    cursor: pointer;
+    box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0.1);
+}
+
+.pfpUpload:active,
+.pfpDelete:active {
+    box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0);
+    -webkit-box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0);
+    -moz-box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0);
+}
+
+.pfpUpload {
+    border-color: green;
+    color: green;
+    background-color: rgb(240, 255, 240);
+}
+
+.pfpDelete {
+    border-color: darkred;
+    color: darkred;
+    background-color: rgb(255, 236, 236);
+}
+
+.pfpUpload:hover {
+    background-color: rgb(219, 253, 219);
+}
+
+.pfpDelete:hover {
+    background-color: rgb(255, 220, 220);
+}
+
+.pfpUpload:disabled {
+    border-color: grey;
+    color: grey;
+    background-color: rgb(221, 221, 221);
+    cursor: not-allowed;
+    box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0);
+    -webkit-box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0);
+    -moz-box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0);
+}
+
+.stats {
+    padding: 1em;
+    gap: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.panes {
     display: flex;
     flex-direction: row;
     gap: 6em;
     /* margin-right: 10em; */
 }
 
-.CandleftSide {
+.leftSide {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
@@ -78,21 +152,21 @@
     width: auto;
 }
 
-.CandrightSide {
+.rightSide {
     flex: auto;
     width: auto;
     flex: 1;
     /* padding-right: 15em; */
 }
 
-.Candforms {
+.forms {
     display: flex;
     flex-direction: column;
     gap: 1em;
     width: auto;
 }
 
-.CandTextFieldSmall {
+.TextFieldSmall {
     width: auto;
     padding: 1em;
     border: none;
@@ -101,7 +175,7 @@
     background-color: #f1f1f1;
 }
 
-.CandTextFieldBig {
+.TextFieldBig {
     width: auto;
     height: 12.25em;
     padding: 1em;
@@ -111,40 +185,35 @@
     background-color: #f1f1f1;
 }
 
-.CandnameFields {
+.nameFields {
     margin-top: 1em;
     display: flex;
     gap: 1em;
     width: auto;
 }
 
-#CandnameF {
-    width: 100%;
-}
-
-#CandnameL {
+#namef {
     width: 100%;
 }
 
 @media (max-width: 1150px) {
-    .Candpanes {
+    .panes {
         display: flex;
         flex-direction: column;
     }
 
 }
 
-.CandtopBar {
+.topBar {
     display: flex;
-    justify-content: space-between;
 }
 
-.Candpreview,
-.Canddiscard {
+.preview,
+.discard {
     min-width: 10em;
 }
 
-.Candpreview {
+.preview {
     background-color: #0e3837;
     border: 1px solid transparent;
     border-radius: .75rem;
@@ -166,20 +235,18 @@
     -webkit-user-select: none;
     touch-action: manipulation;
     width: auto;
+    transition: 300ms;
 }
 
-.Candpreview:hover {
-    background-color: #005b3b;
+.preview:hover {
+    background-color: #0f5a59;
 }
 
-.Candpreview:focus {
-    box-shadow: none;
-    outline: 2px solid transparent;
-    outline-offset: 2px;
+.preview:active {
+    background-color: #007472;
 }
 
-
-.Canddiscard {
+.discard {
     background-color: rgb(112, 0, 0);
     border: 1px solid transparent;
     border-radius: .75rem;
@@ -201,19 +268,45 @@
     -webkit-user-select: none;
     touch-action: manipulation;
     width: auto;
+    transition: 300ms;
 }
 
-.Canddiscard:hover {
-    background-color: #3c1f1f;
+.discard:hover {
+    background-color: rgb(155, 3, 3);
 }
 
-.Canddiscard:focus {
-    box-shadow: none;
-    outline: 2px solid transparent;
-    outline-offset: 2px;
+.discard:active {
+    background-color: rgb(217, 0, 0);
 }
-.CandbuttonContainer{
+
+.panesWrapper {
+    height: 75vh;
+    overflow-y: scroll;
+}
+
+.detailsHeaderBar {
     display: flex;
-    gap: 1em;
-    
+    justify-content: space-between;
+}
+
+.pfpLoading {
+    padding: 5em;
+    border-radius: 50%;
+    box-shadow: 0px 0px 22px 7px rgba(0, 0, 0, 0.03);
+    -webkit-box-shadow: 0px 0px 22px 7px rgba(0, 0, 0, 0.03);
+    -moz-box-shadow: 0px 0px 22px 7px rgba(0, 0, 0, 0.03);
+}
+
+.isAdminCheckBox{
+    padding: 1em;
+    display: flex;
+    gap: 0.5em;
+    font-size: 1.5em;
+    align-items: center;
+}
+
+.hrBuddyIsAdmin{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
 }

@@ -40,20 +40,54 @@
     overflow: scroll;
 }
 
-.CMGTeditInfoForm{
+.CMGTeditInfoForm {
     display: flex;
     flex-direction: column;
     gap: 1em;
     padding: 0em 1em 1em;
 }
 
-.CMGTsubHeading{
+.CMGTsubHeading {
     font-size: 2em;
     font-weight: 900;
 }
 
-.CMGTTopBarInfo{
+.CMGTTopBarInfo {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.CMGTFormsViewPort {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: fit-content;
+    gap: 1em;
+}
+
+.CMGTAdminsAndNonAdminsHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.CMGTAddHRM {
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 50em;
+    padding: 0.2em 0.7em;
+    border: 3px solid green;
+    font-size: 1em;
+    font-weight: bold;
+    color: green;
+    background-color: rgb(244, 255, 244);
+}
+
+.CMGTAddHRM:hover {
+    color: white;
+    background-color: green;
+    cursor: pointer;
 }

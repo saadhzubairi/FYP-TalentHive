@@ -7,7 +7,7 @@ import ViewJob from "./screens/HRMJourney/ViewJobHR/ViewJob";
 import ViewCandidate from "./screens/HRMJourney/ViewCandidate/ViewCandidate";
 import Login from "./screens/HRMJourney/Login/Login";
 import Sidebar from "./components/HRMJourney/Sidebar/Sidebar";
-
+import CreateHR from "./components/HRMJourney/CreateHR/CreateHR";
 //CandidateStuff
 import CandHome from "./screens/CANDJourney/CandHome/CandHome"
 import CandSidebar from "./components/CANDJourney/CandSidebar/CandSidebar"
@@ -43,6 +43,7 @@ const LayoutForCand = ({ children }) => {
 
 function App() {
   return (
+
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
@@ -54,6 +55,7 @@ function App() {
           <Route path="createJob/preview/:jobId" element={<PreviewJob onApps />} />
           <Route path="EditHr" element={<EditHR />} />
           <Route path="EditCompany" element={<CompanyMGT />} />
+          <Route path="EditCompany/AddHR" element={<CreateHR />} />
           <Route path="ViewJob/:jobId" element={<ViewJob />} />
           <Route path="ViewCandidate/:appId" element={<ViewCandidate />} />
         </Route>
@@ -66,6 +68,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+
   );
 }
 

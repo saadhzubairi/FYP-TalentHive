@@ -8,18 +8,16 @@ const JobSchema = new mongoose.Schema({
         max: 20,
     },
     workplace: {
-        type: Number,
-        enum: [1, 2, 3],
-        default: 1
+        type: String,
+        default: "On-site"
     },
     location: {
         type: String,
         required: true,
     },
     type: {
-        type: Number,
-        enum: [1, 2, 3, 4, 5],
-        default: 1
+        type: String,        
+        default: "Full Time"
     },
 
     skills: {

@@ -19,6 +19,8 @@
     margin-bottom: 1.5em;
 }
 
+.modalViewPortVC {}
+
 .avatarNameStuff {
     display: flex;
     align-items: center;
@@ -109,7 +111,7 @@
     color: rgb(61, 184, 203);
 }
 
-.linker{
+.linker {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -129,4 +131,83 @@
 
 .linker:hover span {
     max-width: 20em;
+}
+
+.actionButtonBarAndRating {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.actionButtonBar {
+    display: flex;
+    gap: 0.5em;
+}
+
+.actionButtonsCandidateApp {
+    border: solid maroon 3px;
+    color: maroon;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 0.3em 0.5em;
+    border-radius: 50em;
+    width: 25vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3em;
+}
+
+#delete {
+    background-color: rgb(229, 205, 205);
+}
+
+#delete:hover {
+    background-color: maroon;
+    color: white;
+    cursor: pointer;
+}
+
+#reject {
+    color: firebrick;
+    border-color: firebrick;
+    background-color: rgb(247, 223, 223);
+}
+
+#reject:hover {
+    color: white;
+    background-color: firebrick;
+    cursor: pointer;
+}
+
+#interview {
+    color: dodgerblue;
+    border-color: dodgerblue;
+    background-color: rgb(230, 242, 255);
+}
+
+#interview:hover {
+    color: white;
+    background-color: dodgerblue;
+    cursor: pointer;
+}
+
+#Unreject {
+    color: green;
+    border-color: green;
+    background-color: rgba(0, 128, 0, 0.092);
+}
+
+#Unreject:hover {
+    color: white;
+    background-color: green;
+    cursor: pointer;
+}
+
+.messageCard {
+    background-color: #F2F1F1;
+    border-radius: 1em;
+    padding: 1em;
+    margin: 0.5em 0em;
 }

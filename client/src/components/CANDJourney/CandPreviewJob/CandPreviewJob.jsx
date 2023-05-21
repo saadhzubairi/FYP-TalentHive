@@ -82,7 +82,7 @@ function PreviewJobDescCand({ }) {
                             <div className="CPJSection">
                                 {company._id === "n/a" ? <CircularProgress /> :
                                     <div className="companyLogoDesc">
-                                        <img src={company.logoUrls} alt="Company logo here" className="CJPcompanyLogo" />
+                                        <img src={company.logoUrl} alt="Company logo here" className="CJPcompanyLogo" />
                                         <div className="CJPmainText">{company.description}</div>
                                     </div>
                                 }

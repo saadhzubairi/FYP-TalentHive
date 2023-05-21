@@ -14,6 +14,19 @@ router.post("/", async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+//Delete Job Applicatopm
+router.delete("/:id", async (req, res) => {
+    try {
+        const deletedJobApplication = await JobApplication.findByIdAndDelete(req.params.id);
+        if (!deletedJobApplication) {
+            return res.status(404).json({ error: "Job application not found" });
+        }
+        res.status(200).json(deletedJobApplication);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 /* 
 //read all:
 router.get("/", (req, res) => {
@@ -63,7 +76,7 @@ router.get("/", async (req, res) => {
             const jobApplications = await JobApplication.find(filters);
             res.status(200).json(jobApplications);
         }
-        
+
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server error');

@@ -1,4 +1,4 @@
-import { AssignmentRounded, Delete, Edit, PinDrop, Work } from "@mui/icons-material"
+import { AssignmentRounded, Delete, Edit, Email, EmailOutlined, PinDrop, Work } from "@mui/icons-material"
 import "./viewJobComponent.css"
 import PreviewJobComp from "../PreviewJob/PreviewJob"
 import BasicTabs from "./TabBar.tsx"
@@ -6,10 +6,22 @@ import axios from "axios"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useEffect, useState } from "react"
 
 function ViewJobComponent({ job }) {
     const { jobId } = useParams()
     const navigate = useNavigate()
+    const [hrm, setHrm] = useState({ _id: "n/a" })
+
+    useEffect(() => {
+        const fetchHR = async () => {
+            await axios.get(`/hrms/${job.HRCreatorId}`)
+                .then(res => setHrm(res.data))
+                .catch(err => console.log(err))
+        }
+        fetchHR();
+    }, [])
+
     const delJob = () => {
         axios.delete(`/jobs/${job._id}`).then(() => console.log("job deleted!"))
             .then(() => {
@@ -56,7 +68,15 @@ function ViewJobComponent({ job }) {
                     <div className="bottomWrapper">
                         <div className="leftPane">
                             <div className="paneWrapper">
-                                <div className="applicantsCount"><b>{job.applications.length}</b> Applicants</div>
+                                <div className="countsAndHRM">
+                                    <div className="HrmCreator">
+                                        Created by <b>{hrm.firstName} {hrm.lastName}</b>
+                                        <Link to={`mailto:${hrm.email}`}><EmailOutlined /></Link>
+                                    </div>
+                                    <div className="applicantsCount"><b>{job.applications.length}</b> Applicants</div>
+
+                                </div>
+
                                 <BasicTabs />
                             </div>
                         </div>

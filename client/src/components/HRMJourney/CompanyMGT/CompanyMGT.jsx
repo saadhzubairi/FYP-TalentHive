@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import './companyMGT.css'
 import axios from 'axios'
 import { CircularProgress, LinearProgress } from '@mui/material'
-import { Delete, Upload } from '@mui/icons-material'
+import { Add, Delete, Upload } from '@mui/icons-material'
 import HRBuddy from '../../Widgets/HRBuddy/HRBuddy'
+import { Link } from 'react-router-dom'
 
 function CompanyMGT(props) {
     const [company, setCompany] = useState({ _id: 'n/a' })
@@ -100,13 +101,15 @@ function CompanyMGT(props) {
                                 <div className="CMGTsubHeading">Edit Info</div>
                                 <button className="preview" onClick={handleSubmit}> SAVE{/* {loading ? "Saving..." : "Save"} */}</button>
                             </div>
-                            <input className='TextFieldSmall' onChange={handleChange} value={formData.name} placeholder='Name' type="text" name="name" />
-                            <input className='TextFieldSmall' onChange={handleChange} value={formData.location} placeholder='Location' type="text" name="location" />
-                            <input className='TextFieldSmall' onChange={handleChange} value={formData.phone} placeholder='Phone#' type="text" name="phone" />
-                            <input className='TextFieldSmall' onChange={handleChange} value={formData.email} placeholder='Email' type="text" name="email" />
-                            <input className='TextFieldSmall' onChange={handleChange} value={formData.website} placeholder='Website' type="text" name="website" />
-                            <input className='TextFieldSmall' onChange={handleChange} value={formData.industry} placeholder='Industry' type="text" name="industry" />
-                            <input className='TextFieldSmall' onChange={handleChange} value={formData.description} placeholder='Description' type="text" name="description" />
+                            <div className="CMGTFormsViewPort">
+                                <input className='TextFieldSmall' onChange={handleChange} value={formData.name} placeholder='Name' type="text" name="name" />
+                                <input className='TextFieldSmall' onChange={handleChange} value={formData.location} placeholder='Location' type="text" name="location" />
+                                <input className='TextFieldSmall' onChange={handleChange} value={formData.phone} placeholder='Phone#' type="text" name="phone" />
+                                <input className='TextFieldSmall' onChange={handleChange} value={formData.email} placeholder='Email' type="text" name="email" />
+                                <input className='TextFieldSmall' onChange={handleChange} value={formData.website} placeholder='Website' type="text" name="website" />
+                                <input className='TextFieldSmall' onChange={handleChange} value={formData.industry} placeholder='Industry' type="text" name="industry" />
+                                <input className='TextFieldSmall' onChange={handleChange} value={formData.description} placeholder='Description' type="text" name="description" />
+                            </div>
                         </form>}
                         <div className="CMGTsubHeading">Company Logo</div>
                         <div className="logoSelectionContainer">
@@ -131,7 +134,12 @@ function CompanyMGT(props) {
                 </div>
                 <div className="CMGTrightPanelViewPort">
                     <div className="CMGTrightPanelwrapper">
-                        <div className="CMGTsubHeading">HR Managers</div>
+                        <div className="CMGTAdminsAndNonAdminsHeader">
+                            <div className="CMGTsubHeading">HR Managers</div>
+                            <Link to={`AddHR`} style={{textDecoration:"none"}}>
+                                <button className='CMGTAddHRM'><Add /> Add Admin</button>
+                            </Link>
+                        </div>
                         {HRMS.map((hrm) => <HRBuddy key={hrm._id} HRM={hrm} />)}
                     </div>
                 </div>

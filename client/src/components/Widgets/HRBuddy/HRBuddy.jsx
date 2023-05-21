@@ -30,15 +30,17 @@ function HRBuddy({ HRM }) {
                     <div className="hrBuddyNameJoin">
                         <div className="hrBuddyName">{HRM.firstName} {HRM.lastName}</div>
                         <div className="hrBuddyJoined">Joined {format(HRM.createdAt)}</div>
+                        <div className="hrBuddyJoined">{HRM.email}</div>
                     </div>
                 </div>
 
-                {loading ? <CircularProgress /> :
+                {HRM._id === localStorage.getItem("userId") ? null : loading ? <CircularProgress /> :
                     <div className="hrBuddyIsAdmin">
                         {isAdmin ?
                             <button onClick={makeNotAdmin} id='removeAdmin' className='hrBuddyMakeOrRemoveAdmin'>Remove Admin</button> :
                             <button onClick={makeAdmin} className='hrBuddyMakeOrRemoveAdmin'>Make Admin</button>
                         }
+                        <button onClick={makeNotAdmin} id='removeAdmin' className='hrBuddyMakeOrRemoveAdmin'>Delete</button>
                     </div>}
             </div>
         </div >

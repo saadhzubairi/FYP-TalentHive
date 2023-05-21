@@ -51,16 +51,19 @@ export default function BasicTabs() {
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <Tabs value={value} onChange={handleChange}>
                     <Tab label="New" {...a11yProps(0)} sx={{ fontWeight: "900", fontSize: "1.2em" }} />
-                    <Tab label="Reviewed" {...a11yProps(1)} sx={{ fontWeight: "900", fontSize: "1.2em" }} />
+                    <Tab label="Shortlisted" {...a11yProps(1)} sx={{ fontWeight: "900", fontSize: "1.2em" }} />
+                    <Tab label="Reviewed" {...a11yProps(2)} sx={{ fontWeight: "900", fontSize: "1.2em" }} />
                 </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
-                <ApplicationsGrid newApps={true}/>
+                <ApplicationsGrid interview={false} newApps={true} />
             </TabPanel>
             <TabPanel value={value} index={1}>
-                <ApplicationsGrid newApps={false}/>
+                <ApplicationsGrid interview={true} newApps={false} />
             </TabPanel>
-
+            <TabPanel value={value} index={2}>
+                <ApplicationsGrid interview={false} newApps={false} />
+            </TabPanel>
         </Box>
     );
 }

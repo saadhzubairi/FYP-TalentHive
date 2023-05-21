@@ -136,7 +136,7 @@ b {
     -moz-transform: scale(1.2);
 }
 
-.delete{
+.delete {
     background-color: rgb(189, 89, 89);
     display: flex;
     align-items: center;
@@ -147,7 +147,7 @@ b {
     color: white;
 }
 
-.edit{
+.edit {
     background-color: rgb(65, 71, 177);
     display: flex;
     align-items: center;
@@ -156,4 +156,11 @@ b {
     border-radius: 50%;
     cursor: pointer;
     color: white;
+}
+
+.HrmCreator {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    color: #464646;
 }

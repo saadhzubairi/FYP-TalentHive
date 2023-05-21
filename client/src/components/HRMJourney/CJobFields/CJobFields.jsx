@@ -48,9 +48,9 @@ function CJobFields(props) {
         event.preventDefault();
         const job = {
             jobTitle: event.target.elements.jobTitle.value,
-            workplace: parseInt(event.target.elements.workplace.value),
+            workplace: event.target.elements.workplace.value,
             location: event.target.elements.location.value,
-            type: parseInt(event.target.elements.jobType.value),
+            type: event.target.elements.jobType.value,
             skills: tags,
             description: descValue,
             requiremets: reqValue,
@@ -98,17 +98,17 @@ function CJobFields(props) {
                                 <div className="subHeading">Basic Info</div>
                                 <input type="text" name="jobTitle" className="TextFieldSmall" placeholder="Job Title (e.g: Software Engineer)" required />
                                 <select name="workplace" id="" className="ComboBox" placeholder="Workplace type (eg. Remote)" required>
-                                    <option value="1">Remote</option>
-                                    <option value="2">Hybrid</option>
-                                    <option value="3">on-Site</option>
+                                    <option value="Remote">Remote</option>
+                                    <option value="Hybrid">Hybrid</option>
+                                    <option value="on-Site">on-Site</option>
                                 </select>
                                 <input type="text" name="location" className="TextFieldSmall" placeholder="Location (e.g: Chicago,IL) " required />
                                 <select name="jobType" id="" className="ComboBox" placeholder="Job Type (e.g Contract)" required>
-                                    <option value="1">Internship</option>
-                                    <option value="2">Apprenticeship</option>
-                                    <option value="3">Contract</option>
-                                    <option value="4">Part Time</option>
-                                    <option value="5">Full Time</option>
+                                    <option value="Internship">Internship</option>
+                                    <option value="Apprenticeship">Apprenticeship</option>
+                                    <option value="Contract">Contract</option>
+                                    <option value="Part Time">Part Time</option>
+                                    <option value="Full Time">Full Time</option>
                                 </select>
                                 <div className="skillsSectionCJF">
                                     <div className="subHeading">Skills</div>
