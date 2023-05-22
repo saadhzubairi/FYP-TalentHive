@@ -40,6 +40,10 @@
     font-size: 1.3em;
     font-weight: 700;
     color: #545151;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .optionsList {

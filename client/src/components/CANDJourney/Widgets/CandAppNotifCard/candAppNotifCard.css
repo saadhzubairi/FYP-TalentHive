@@ -6,7 +6,7 @@
     padding: 1em;
     color: white;
     flex-direction: column;
-    border-radius: 20em;
+    border-radius: 2em;
 }
 
 .shortlisted {
@@ -22,4 +22,13 @@
 .companyname {
     font-size: 0.8em;
     font-style: italic;
+}
+
+.CandNotifCard:hover {
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    color: rgb(84, 84, 84);
+    box-shadow: 0px 16px 20px -7px rgba(0, 0, 0, 0.13);
+    -webkit-box-shadow: 0px 16px 20px -7px rgba(0, 0, 0, 0.13);
+    -moz-box-shadow: 0px 16px 20px -7px rgba(0, 0, 0, 0.13);
 }

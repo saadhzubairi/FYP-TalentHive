@@ -7,8 +7,7 @@ import axios from 'axios';
 function CandAppNotifCard({ app }) {
   const [company, setCompany] = useState({ _id: "n/a" })
   const [job, setjob] = useState({ _id: "n/a" })
-  const navigate = useNavigate();
-
+  
   useEffect(() => {
     const getJob = async () => {
       axios.get(`/jobs/${app.jobId}`).then(async (res) => {
