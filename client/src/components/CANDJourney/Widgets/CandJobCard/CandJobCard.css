@@ -8,6 +8,17 @@
     cursor: pointer;
 }
 
+.compName {
+    padding-top: 0.5em;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.image1 {
+    display: flex;
+    flex-direction: column;
+}
+
 .CandjobCard:hover {
     box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
@@ -15,39 +26,42 @@
     transition: 300ms;
 
 }
-.CandpositionSpots{
+
+.CandpositionSpots {
     display: flex;
     flex-direction: column;
     gap: 1em;
 }
-.imageNcol{
+
+.imageNcol {
     display: flex;
     gap: 2.5em;
     align-items: center;
 }
 
-.titleLocSkills{
+.titleLocSkills {
     width: fit-content;
     display: flex;
     flex-direction: column;
     gap: 0.5em;
 }
 
-.CandJobTitle{
+.CandJobTitle {
     font-weight: 900;
     font-size: 2em;
     text-align: left;
 }
 
-.CandLoc{
+.CandLoc {
     font-size: 1.5em;
     font-style: italic;
     text-align: left;
 }
 
-.CandSkills{
+.CandSkills {
     display: flex;
     flex-wrap: wrap;
+    gap: 0.25em;
 }
 
 .CandjobCardContainer {
@@ -71,26 +85,30 @@
     align-items: start;
 }
 
-.Candtitle1{
+.Candtitle1 {
     font-weight: 800;
     font-size: 3em;
     margin-right: 10em;
 }
-.Candloc{
+
+.Candloc {
     font-weight: 500;
-    font-size: 1em; 
+    font-size: 1em;
     margin-right: 10em;
     align-items: start;
 }
-.Candtype{
+
+.Candtype {
     font-weight: 500;
     font-size: 2em;
-    
+
 }
-.Candjobtype{
+
+.Candjobtype {
     margin-left: auto;
-    
+
 }
+
 .Candspots {
     display: flex;
     align-items: center;
@@ -131,4 +149,13 @@
     -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
     transition: 300ms;
+}
+
+.skillChip {
+    background-color: #4a4a4a;
+    display: flex;
+    flex-direction: row;
+    padding: 0.4em;
+    color: white;
+    border-radius: 20em;
 }

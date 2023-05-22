@@ -8,7 +8,7 @@ function CandAppCard({ app }) {
   const [job, setJob] = useState({ _id: "n/a" });
   const [company, setCompany] = useState({ _id: "n/a" });
   const [modal, setModal] = useState(false);
-
+  
   useEffect(() => {
     const getJobAndComp = async () => {
       await axios.get(`/jobs/${app.jobId}`).then(
@@ -36,7 +36,7 @@ function CandAppCard({ app }) {
             {company._id === "n/a" ? <LinearProgress /> : <div className="CandAppCardCompany">{company.name}</div>}
           </div>
           <div className="CandAppCardRight">
-            <div className="jobAppStatus">{app.status}</div>
+            <div className="jobAppStatus">{app.status === 1 ? "Review" : app.status === 2 ? "Shortlisted" : "Not Selected"}</div>
             <div className="jobAppCreated">Applied {format(app.createdAt)}</div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { Search } from "@mui/icons-material"
 import TuneIcon from '@mui/icons-material/Tune';
 import axios from "axios";
 import { useState, useEffect } from "react";
-import CandAppCard from "../Widgets/CandAppCard copy/CandAppCard";
+import CandAppCard from "../Widgets/CandAppCard/CandAppCard";
 function AppliedJobs() {
     const [myApps, setmyApps] = useState([])
 

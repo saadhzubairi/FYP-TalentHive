@@ -15,7 +15,7 @@ function CandSidebar() {
             await axios.get(`/candidate?id=${localStorage.getItem("userId")}`)
                 .then((res) => setUser(res.data))
         }
-        getUser();
+        if (localStorage.getItem("userId")) { getUser(); }
     })
 
     const logOut = () => {
@@ -26,7 +26,7 @@ function CandSidebar() {
     return (
         <div className="sidebar">
             <div className="sidebarWrapper">
-                <img src="https://preparecenter.org/wp-content/uploads/2021/04/google-_square_logo.jpeg" alt="" className="companyImage" />
+                <img src="http://localhost:3000/assets/blank_pfp.png" alt="" className="companyImage" />
                 <div className="CandName">{user._id === "n/a" ? "Welcome to Talent Hive" : `${user.name.fname} ${user.name.lname}`}</div>
                 {user._id === "n/a" ? null : <div className="CandEmail">{user.email}</div>}
                 <ul className="optionsList">

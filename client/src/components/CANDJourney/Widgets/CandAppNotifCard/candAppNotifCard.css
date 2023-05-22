@@ -1,0 +1,25 @@
+.CandNotifCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+    padding: 1em;
+    color: white;
+    flex-direction: column;
+    border-radius: 20em;
+}
+
+.shortlisted {
+    color: maroon;
+    font-size: 1.2em;
+    font-weight: 900;
+}
+
+.jobname {
+    font-weight: bold;
+}
+
+.companyname {
+    font-size: 0.8em;
+    font-style: italic;
+}
