@@ -50,6 +50,10 @@ const HRMSchema = new mongoose.Schema({
         type: Array,
         default: [],
     },
+    userType: {
+        type: Number,
+        default: 2
+    }
 },
     { timestamps: true }
 )
