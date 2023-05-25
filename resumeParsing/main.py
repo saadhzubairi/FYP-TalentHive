@@ -87,9 +87,16 @@ def resumeparse(file_path):
     p = nlp(doc)
 
     dict = {}
-    skills = []
+    company = []
+    date = []
+    location= []
+    reiteration = []
+    softskills = []
+    hardskills = []
+    position = []
     experience = []
     university = []
+    school = []
     degree = []
     discipline = []
     education = []
@@ -98,7 +105,7 @@ def resumeparse(file_path):
         if ent.label_ == "PERSON":
             #dict['PERSON'] = ent.text
             person.append(ent.text)
-            #print('Names: ', ent.text)
+            print('Names: ', ent.text)
         if ent.label_ == "EMAIL":
             dict['EMAIL'] = ent.text
         if ent.label_ == "LINKEDIN":
@@ -112,19 +119,40 @@ def resumeparse(file_path):
         if ent.label_ == "DISCIPLINE":
             discipline.append(ent.text)
         if ent.label_ == "UNIVERSITY":
-            university.append(ent.text)      
+            university.append(ent.text)
+        if ent.label_ == "SCHOOL":
+            school.append(ent.text)
+        if ent.label_ == "DATE":
+            date.append(ent.text)      
+        if ent.label_ == "POSITION":
+            position.append(ent.text)
         if ent.label_ == "EXPERIENCE":
             experience.append(ent.text)       
-        if ent.label_ == "SKILL":
-            skills.append(ent.text)
-            
+        if ent.label_ == "SOFTSKILLS":
+            softskills.append(ent.text)
+        if ent.label_ == "HARDSKILLS":
+            hardskills.append(ent.text)
+        if ent.label_ == "COMPANY":
+            company.append(ent.text)
+        if ent.label_ == "REITERATION":
+            reiteration.append(ent.text)
 
-    dict['PERSON'] = person[0]
+
+    #dict['PERSON'] = person[0]
     dict['DEGREE'] = degree
     dict['DISCIPLINE'] = discipline
     dict['UNIVERSITY'] = university
-    dict['EXPERIENCE'] = experience         
-    dict['SKILLS'] = skills   
+    dict['SCHOOL'] = school
+    dict['DATE'] = date
+    dict['EDUCATION'] = [degree[0], discipline[0], university[0],date[0]]
+    dict['EXPERIENCE'] = experience
+    dict['LOCATION'] = location
+    dict['COMPANY'] = company   
+    dict['SOFTSKILLS'] = softskills   
+    dict['HARDSKILLS'] = hardskills   
+    dict['REITERATION'] = reiteration   
+
+    
     return dict
 
 """ def joblabelExtractor(jobTitle, workplace,location,type,skills, description,requirments):
