@@ -1,0 +1,312 @@
+* {
+    transition: 300ms;
+}
+
+.hrFieldsWrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 10;
+    padding: 3em;
+    color: #464646;
+    gap: 1em;
+}
+
+.rightSideLoading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+}
+
+.Heading {
+    font-size: 3em;
+    font-weight: 900;
+}
+
+.topHeadings {
+    margin-bottom: 1em;
+}
+
+.HText {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.HTextSmaller {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.profileImageSelection {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+
+.pfp {
+    height: 10em;
+    width: 10em;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0.2);
+    transition: 300ms;
+    margin: 1em;
+}
+
+.pfp:hover {
+    cursor: pointer;
+    height: 12em;
+    width: 12em;
+    transition: 300ms;
+    margin: 0em;
+    box-shadow: 0px 10px 25px 1px rgba(0, 0, 0, 0.67);
+    -webkit-box-shadow: 0px 10px 25px 1px rgba(0, 0, 0, 0.67);
+    -moz-box-shadow: 0px 10px 25px 1px rgba(0, 0, 0, 0.67);
+}
+
+.pfpButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.pfpUpload,
+.pfpDelete {
+    width: 20vb;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 0em;
+    border: solid transparent 3px;
+    font-weight: 600;
+    border-radius: 10em;
+}
+
+.pfpUpload:hover,
+.pfpDelete:hover {
+    cursor: pointer;
+    box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0.1);
+}
+
+.pfpUpload:active,
+.pfpDelete:active {
+    box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0);
+    -webkit-box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0);
+    -moz-box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0);
+}
+
+.pfpUpload {
+    border-color: green;
+    color: green;
+    background-color: rgb(240, 255, 240);
+}
+
+.pfpDelete {
+    border-color: darkred;
+    color: darkred;
+    background-color: rgb(255, 236, 236);
+}
+
+.pfpUpload:hover {
+    background-color: rgb(219, 253, 219);
+}
+
+.pfpDelete:hover {
+    background-color: rgb(255, 220, 220);
+}
+
+.pfpUpload:disabled {
+    border-color: grey;
+    color: grey;
+    background-color: rgb(221, 221, 221);
+    cursor: not-allowed;
+    box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0);
+    -webkit-box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0);
+    -moz-box-shadow: 0px 10px 5px -5px rgba(0, 0, 0, 0);
+}
+
+.stats {
+    padding: 1em;
+    gap: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.panes {
+    display: flex;
+    flex-direction: row;
+    gap: 6em;
+    /* margin-right: 10em; */
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    flex: 1;
+    width: auto;
+}
+
+.rightSide {
+    flex: auto;
+    width: auto;
+    flex: 1;
+    /* padding-right: 15em; */
+}
+
+.forms {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: auto;
+}
+
+.TextFieldSmall {
+    width: auto;
+    padding: 1em;
+    border: none;
+    font-size: 1.2em;
+    border-radius: 1em;
+    background-color: #f1f1f1;
+}
+
+.TextFieldBig {
+    width: auto;
+    height: 12.25em;
+    padding: 1em;
+    border: none;
+    font-size: 1.2em;
+    border-radius: 1em;
+    background-color: #f1f1f1;
+}
+
+.nameFields {
+    margin-top: 1em;
+    display: flex;
+    gap: 1em;
+    width: auto;
+}
+
+#namef {
+    width: 100%;
+}
+
+@media (max-width: 1150px) {
+    .panes {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+.topBar {
+    display: flex;
+}
+
+.preview,
+.discard {
+    min-width: 10em;
+}
+
+.preview {
+    background-color: #0e3837;
+    border: 1px solid transparent;
+    border-radius: .75rem;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    flex: 0 0 auto;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    padding: .75rem 1.2rem;
+    text-align: center;
+    text-decoration: none #6B7280 solid;
+    text-decoration-thickness: auto;
+    transition-duration: .2s;
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: auto;
+    transition: 300ms;
+}
+
+.preview:hover {
+    background-color: #0f5a59;
+}
+
+.preview:active {
+    background-color: #007472;
+}
+
+.discard {
+    background-color: rgb(112, 0, 0);
+    border: 1px solid transparent;
+    border-radius: .75rem;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    flex: 0 0 auto;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    padding: .75rem 1.2rem;
+    text-align: center;
+    text-decoration: none #6B7280 solid;
+    text-decoration-thickness: auto;
+    transition-duration: .2s;
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: auto;
+    transition: 300ms;
+}
+
+.discard:hover {
+    background-color: rgb(155, 3, 3);
+}
+
+.discard:active {
+    background-color: rgb(217, 0, 0);
+}
+
+.panesWrapper {
+    height: 75vh;
+    overflow-y: scroll;
+}
+
+.detailsHeaderBar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pfpLoading {
+    padding: 5em;
+    border-radius: 50%;
+    box-shadow: 0px 0px 22px 7px rgba(0, 0, 0, 0.03);
+    -webkit-box-shadow: 0px 0px 22px 7px rgba(0, 0, 0, 0.03);
+    -moz-box-shadow: 0px 0px 22px 7px rgba(0, 0, 0, 0.03);
+}
+
+.isAdminCheckBox{
+    padding: 1em;
+    display: flex;
+    gap: 0.5em;
+    font-size: 1.5em;
+    align-items: center;
+}
+
+.hrBuddyIsAdmin{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}

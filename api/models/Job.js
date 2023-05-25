@@ -48,6 +48,10 @@ const JobSchema = new mongoose.Schema({
         type: Array,
         default: []
     },
+    score: {
+        type: Object,
+        default: {}
+    },
 },
     { timestamps: true }
 )

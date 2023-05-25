@@ -2,6 +2,11 @@ boto3==1.26.126
 docx2txt==0.8
 fastapi==0.95.1
 PyPDF2==2.11.1
+<<<<<<< HEAD
 PyPDF2==3.0.1
 python-dotenv==1.0.0
 spacy==3.5.2
+=======
+python-dotenv==1.0.0
+spacy==3.5.2
+>>>>>>> master

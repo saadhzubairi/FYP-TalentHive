@@ -11,9 +11,9 @@
     box-shadow: 0px 20px 20px -11px rgba(0, 0, 0, 0.12);
     -webkit-box-shadow: 0px 20px 20px -11px rgba(0, 0, 0, 0.12);
     -moz-box-shadow: 0px 20px 20px -11px rgba(0, 0, 0, 0.12);
-    transform: scale(1.05);
-    -webkit-transform: scale(1.05);
-    -moz-transform: scale(1.05);
+    transform: scale(1.01);
+    -webkit-transform: scale(1.01);
+    -moz-transform: scale(1.01);
     transition: 300ms;
 }
 
@@ -57,8 +57,8 @@
     justify-content: space-between;
 }
 
-.count {
-    aspect-ratio: 1/1;
+.rating {
+    aspect-ratio: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,7 +67,7 @@
     font-size: 2em;
     font-weight: 900;
     padding: 0.4em;
-    border-radius: 50%;
+    border-radius: 1em;
 }
 
 .up {

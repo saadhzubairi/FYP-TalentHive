@@ -121,8 +121,14 @@ router.get('/', async (req, res) => {
             query.skills = { $all: req.query.skills.split(',') };
         }
 
-        const candidates = await Candidate.find(query);
-        res.status(200).json(candidates);
+        if(req.query.id){
+            const candidates = await Candidate.findById(req.query.id);
+            res.status(200).json(candidates);
+        }
+        else{
+            const candidates = await Candidate.find(query);
+            res.status(200).json(candidates);
+        }
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: 'Internal server error' });

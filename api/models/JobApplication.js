@@ -29,7 +29,8 @@ const JobApplicationSchema = new mongoose.Schema({
     interview: {
         type: String,
         default: ""
-    }
+    }, 
+    
 },
     { timestamps: true }
 )

@@ -1,0 +1,157 @@
+.CandpreviewJobCom {
+    flex: 10;
+    padding: 3em;
+    color: #464646;
+    overflow-y: scroll;
+}
+
+.DescHeading {
+    font-size: 3em;
+    font-weight: 900;
+}
+
+.CandtopBarDesc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.JobDescCont {
+
+    height: auto;
+    background-color: #d9d9d9;
+    padding: 1em;
+    border-radius: 1em;
+    width: fit-content;
+}
+
+.JTitle {
+    font-size: 2.5em;
+    font-weight: 500;
+}
+
+.Title {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.subText {
+    margin-bottom: 1em;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 1em;
+}
+
+.CPJBottomContainer {
+    display: flex;
+    gap: 1em;
+    flex-direction: row;
+    padding: 2em 0em;
+}
+
+.CPJBottomContainerAlt {
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    padding: 2em 15em;
+
+}
+
+.CPJLeftContainer,
+.CPJRightContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    flex: 1;
+}
+
+.CJPSubheading {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.CPJSection {
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+    gap: 0.5em;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.CJPmainTextSkills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.CJPskillChip {
+    background-color: #464646;
+    color: #f4f4f4;
+    padding: 0.5em;
+    font-weight: 600;
+    border-radius: 0.5em;
+}
+
+.CPJHiringContactContainer {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.CJPHCimg {
+    height: 5em;
+    width: 5em;
+    object-fit: cover;
+    border-radius: 1em;
+}
+
+.CJPHRMname {
+    font-weight: 600;
+    font-size: 1.3em;
+}
+
+.mailAndLi{
+    color: #464646;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.linkedinLogo{
+    color: #222b65;
+}
+
+.nameAndLogosRow{
+    display: flex;
+    justify-content: space-between;
+}
+
+.CJPcompanyLogo{
+    height: 5em;
+    width: 5em;
+    border-radius: 50%;
+}
+
+.companyLogoDesc{
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.infoCol{
+    display: flex;
+    gap: 3em;
+}
+
+.CJPJobTitleLocationInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.attItem{
+    gap: 0.5em !important;
+}

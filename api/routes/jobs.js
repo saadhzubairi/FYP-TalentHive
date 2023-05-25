@@ -4,6 +4,7 @@ const Job = require("../models/Job");
 //create new job
 router.post("/", async (req, res) => {
     const newJob = new Job(req.body);
+    console.log(console.req)
     try {
         const savedJob = await newJob.save();
         res.status(200).json(savedJob);
@@ -32,16 +33,11 @@ router.delete('/:id', async (req, res) => {
 
 //get all jobs of a company
 router.get('/company/:companyId', async (req, res) => {
+
+
     try {
+
         const companyId = req.params.companyId;
-
-        // Check if the company exists
-        /* const company = await Company.findById(companyId);
-        if (!company) {
-            return res.status(404).json({ error: 'Company not found' });
-        } */
-
-        // Retrieve all jobs of the company
         const jobs = await Job.find({ companyId });
 
         res.status(200).json(jobs);
@@ -69,8 +65,36 @@ router.get('/hr/:HRCreatorId', async (req, res) => {
 //get all job
 router.get("/", async (req, res) => {
     try {
-        const jobs = await Job.find();
-        res.status(200).json(jobs);
+        const query = {};
+
+        if (req.query.id) {
+            query._id = req.query.id;
+        }
+        if (req.query.workplace) {
+            query.workplace = req.query.workplace;
+        }
+        if (req.query.location) {
+            query.location = req.query.location;
+        }
+        if (req.query.type) {
+            query.type = req.query.type;
+        }
+        if (req.query.companyId) {
+            query.companyId = req.query.companyId;
+        }
+        if (req.query.HRCreatorId) {
+            query.HRCreatorId = req.query.HRCreatorId;
+        }
+
+        if (req.query.id) {
+            const jobs = await Job.findById(req.query.id);
+            res.status(200).json(jobs);
+        }
+        else {
+            const jobs = await Job.find(query);
+            res.status(200).json(jobs);
+        }
+
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: 'Server Error' });
@@ -97,13 +121,9 @@ router.get('/:id', async (req, res) => {
 // update job
 router.put('/:id', async (req, res) => {
     const { id } = req.params;
-    const {
-        jobTitle, workplace, location, type, skills, description, requirements, companyId, HRCreatorId, applications
-    } = req.body;
+    const updates = req.body;
     try {
-        const job = await Job.findByIdAndUpdate(id, {
-            jobTitle, workplace, location, type, skills, description, requirements, companyId, HRCreatorId, applications
-        }, { new: true });
+        const job = await Job.findByIdAndUpdate(id, updates, { new: true });
 
         if (!job) {
             return res.status(404).json({ message: 'Job not found' });

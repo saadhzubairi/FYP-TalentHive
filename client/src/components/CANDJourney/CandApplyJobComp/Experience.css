@@ -1,0 +1,97 @@
+.ApplyexperienceFields {
+    display: flex;
+    gap: 1em;
+    width: 100%;
+    flex-direction: column;
+    padding-bottom: 1em;
+}
+
+.box1 {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.ExperienceTitle {
+    gap: 5em;
+    width: 50%;
+}
+
+.CompanyName {
+    width: 50%;
+    margin-right: 2em;
+}
+
+.description {
+    margin-right: 2em;
+}
+
+.box2 {
+    display: flex;
+    flex: 1;
+
+    gap: 3em;
+    margin-right: 1em;
+    flex-direction: row;
+}
+
+.dates {
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+}
+
+.StartDateTitle {
+    margin-left: 0.7em;
+    margin-bottom: 0.2em;
+}
+
+.EndDateTitle {
+    margin-left: 0.7em;
+    margin-bottom: 0.2em;
+}
+
+.nameflex {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    gap: 3em;
+}
+
+.dateflex {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.checkbox {
+    display: flex;
+    border: 2px #6e6c6c;
+}
+
+.StillWorking {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    padding-left: 1em;
+    font-weight: 400;
+    font-size: 1.5em;
+    padding-top: 1em;
+}
+
+.isWorkingCheckbox {
+    height: 3em;
+    width: 3em;
+    cursor: pointer;
+    border-radius: 1em;
+}
+
+.stillWorkingWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
