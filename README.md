@@ -1,6 +1,5 @@
 # FYP-TalentHive
 
-Crazy FYP shenanigans lmao
 ![1-title](https://github.com/saadhzubairi/FYP-TalentHive/assets/69084203/fef52434-21b8-4eaf-80f7-0cb04551531e)
 ![j12](https://github.com/saadhzubairi/FYP-TalentHive/assets/69084203/68fac9ab-043e-4c78-a8b8-b5d9e1e6f91f)
 ![j13](https://github.com/saadhzubairi/FYP-TalentHive/assets/69084203/a3bd35ce-5405-4e0f-a03e-4156a3ddd20b)
