@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+
+  fastapi_backend:
+    build:
+      context: ./fastapi_backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./fastapi_backend:/app
+    depends_on:
+      - mongo
+    environment:
+      # Add any environment variables required by your FastAPI app
+      # For example, database connection strings, API keys, etc.
+      - DATABASE_URL=mongodb://root:rootpassword@mongo:27017/talenthive?authSource=admin
+      - FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}
+      - FIREBASE_STORAGE_BUCKET=${FIREBASE_STORAGE_BUCKET}
+
+  # api:
+  #   build:
+  #     context: ./api
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "5000:5000"
+  #   volumes:
+  #     - ./api:/app
+  #   depends_on:
+  #     - mongo
+  #   environment:
+  #     # Add any environment variables required by your Node.js API
+  #     # For example, database connection strings, API keys, etc.
+  #     - MONGODB_URI=mongodb://root:rootpassword@mongo:27017/talenthive?authSource=admin
+  #     - FIREBASE_API_KEY=${FIREBASE_API_KEY}
+  #     - FIREBASE_AUTH_DOMAIN=${FIREBASE_AUTH_DOMAIN}
+  #     - FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}
+  #     - FIREBASE_STORAGE_BUCKET=${FIREBASE_STORAGE_BUCKET}
+  #     - FIREBASE_MESSAGING_SENDER_ID=${FIREBASE_MESSAGING_SENDER_ID}
+  #     - FIREBASE_APP_ID=${FIREBASE_APP_ID}
+  #     - FIREBASE_MEASUREMENT_ID=${FIREBASE_MEASUREMENT_ID}
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80" # Map host port 3000 to container port 80 (Nginx default)
+    depends_on:
+      # - api
+      - fastapi_backend
+    # Add any environment variables required by your React app
+    # For example, API endpoint URLs
+    environment:
+      # - REACT_APP_API_URL=http://localhost:5000
+      - REACT_APP_FASTAPI_URL=http://localhost:8000
+
+volumes:
+  mongo_data:
