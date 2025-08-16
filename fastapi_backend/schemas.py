@@ -145,3 +145,31 @@ class JobApplicationSchema(BaseModel):
         populate_by_name = True
         arbitrary_types_allowed = True
         json_encoders = {ObjectId: str}
+
+class RegisterCandidateSchema(BaseModel):
+    name: NameSchema
+    email: EmailStr
+    password: str
+    linkedin: str
+    phone_number: str
+    other_links: List[str] = []
+    education: List[EducationSchema] = []
+    work_experience: List[WorkExperienceSchema] = []
+    city: Optional[str] = None
+    skills: List[str] = []
+    resume_link: Optional[str] = None
+    profile_picture: Optional[str] = None
+    userType: int = 3
+
+class RegisterHRMSchema(BaseModel):
+    firstName: str
+    lastName: str
+    email: EmailStr
+    password: str
+    isAdmin: bool = False
+    bio: Optional[str] = ""
+    pfpURL: Optional[str] = ""
+    companyId: str
+    LinkedInProfile: Optional[str] = ""
+    jobsCreated: List[str] = []
+    userType: int = 2
